@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>TAIYO ELECTRIC IND.CO.,LTD.</title>
+              <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,viewport-fit=cover">
+        <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/favicon.ico">
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NLS9JQC');</script>
+<!-- End Google Tag Manager -->
+
+    <!-- site meta -->
+    <meta name="description"  content="We are a one-stop soldering iron manufacturer that conducts research, development, design, manufacturing, and sales in a wide range of fields from household to industrial use, centering on soldering related products. Our own brand &quot;goot&quot; is deployed not only in Japan but also in more than 60 countries around the world." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="We are a one-stop soldering iron manufacturer that conducts research, development, design, manufacturing, and sales in a wide range of fields from household to industrial use, centering on soldering related products. Our own brand &quot;goot&quot; is deployed not only in Japan but also in more than 60 countries around the world." />
+    <meta property="og:url" content="https://en.goot.jp" />
+    <meta property="og:site_name" content="TAIYO ELECTRIC IND.CO.,LTD." />
+    <meta property="og:image" content="https://goot.jp/img/common/ogp.jpg" />
+    <meta property="og:image:secure_url" content="https://goot.jp/img/common/ogp.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="We are a one-stop soldering iron manufacturer that conducts research, development, design, manufacturing, and sales in a wide range of fields from household to industrial use, centering on soldering related products. Our own brand &quot;goot&quot; is deployed not only in Japan but also in more than 60 countries around the world." />
+    <meta name="twitter:image" content="https://goot.jp/img/common/ogp.jpg" />
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="">
+    <!-- Scripts -->
+    <!-- <script src="https://en.goot.jp/js/app.js" defer></script> -->
+    <!-- Styles -->
+    <link href="https://en.goot.jp/css/style.css" rel="stylesheet">
+    <!-- loaded & global menu adjuster -->
+    <script>console.log('loaded');</script>
+</head>
+<body id="head">
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLS9JQC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+     <header>
+    <div class="wrap">
+                        <h1>
+            <a href="https://en.goot.jp" class="logo">
+                <img src="/img/common/logo.png" srcset="/img/common/logo.png 1x,/img/common/logo@2x.png 2x" alt="goot TAIYO ELECTRIC IND. CO., LTD.">
+            </a>
+            <a href="/60th" class="logo_60th" style="margin-left: 12px;">
+                <img src="/img/common/60th_logo.jpg" alt="60th 1965-2025 ANNIVERSARY">
+            </a>
+        </h1>
+                <div>
+            <div>
+                <ul>
+                    <li>
+                        <a href="https://en.goot.jp/products" style = "display: flex; align-items: center;">
+                            <img src="/img/common/nav/lupe-red.svg" alt="">Search Products
+                        </a>
+                    </li>
+                    <li><a href="https://goot.jp" target="_blank">JAPANESE</a></li>
+                    <li><a href="https://en.goot.jp" class="current">ENGLISH</a></li>
+                    <li><a href="http://goot.cn" target="_blank">中文簡体</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="https://en.goot.jp/about">About Us</a></li>
+                    <li class="mega">
+                        <a href="https://en.goot.jp/products">Products</a>
+                        <div>
+                            <div>
+                                <a href="https://en.goot.jp/products">Products TOP</a>
+                            </div>
+                            <ul>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/soldering_systems"><img src="/storage/images/mcategories/1612847598xhceV59ykkg1u351chUeOV_i.png" srcset="/storage/images/mcategories/1612847598xhceV59ykkg1u351chUeOV_i.png 1x, /storage/images/mcategories/1612847598xhceV59ykkg1u351chUeOV_t.png 2x" alt="">Soldering Systems</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_systems/fa1100">FA-1300/1100 Series</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_systems/unit">Robot Units</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_systems/ex_robot">Example Installations of Other Available Robots</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/soldering_irons"><img src="/storage/images/mcategories/1612847585ssw1omVrd9kgO2uGfNCcE3_i.png" srcset="/storage/images/mcategories/1612847585ssw1omVrd9kgO2uGfNCcE3_i.png 1x, /storage/images/mcategories/1612847585ssw1omVrd9kgO2uGfNCcE3_t.png 2x" alt="">Soldering Irons</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/r_free_station">Temperature-Controlled Lead-Free Soldering Stations</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/soldering_staion">Temperature-Controlled Soldering Stations</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/ceramic_heater_fix">Temperature-Fixed Ceramic Heater Soldering Irons</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/temperature_control_ceramic">Temperature-Controlled Ceramic Heater Soldering Irons</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/ceramic_heater">Ceramic Heater Soldering Irons</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/nichrome_heater">Nichrome Heater Soldering Irons</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/gas_cordless">Gas-Powered Soldering Irons</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/battery_cordless">Battery/USB-Powered Cordless Soldering Irons</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_irons/bobby_stained_glass">Soldering Irons for Electronics/Stained Glass</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/automatic_solder_feeders"><img src="/storage/images/mcategories/1674608139nYf1BKwnIcJSmVxE9VupsG_i.jpeg" srcset="/storage/images/mcategories/1674608139nYf1BKwnIcJSmVxE9VupsG_i.jpeg 1x, /storage/images/mcategories/1674608139nYf1BKwnIcJSmVxE9VupsG_t.jpeg 2x" alt="">Automatic Solder Feeders</a>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/soldering_testers_tip_thermomete"><img src="/storage/images/mcategories/1612847170otnoxTVCrv7KuRjDRJtbIR_i.png" srcset="/storage/images/mcategories/1612847170otnoxTVCrv7KuRjDRJtbIR_i.png 1x, /storage/images/mcategories/1612847170otnoxTVCrv7KuRjDRJtbIR_t.png 2x" alt="">Soldering Testers/Tip Thermometers</a>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/solder_pots"><img src="/storage/images/mcategories/1612847952jkeCoXfe1qG8RQendrRJ8o_i.png" srcset="/storage/images/mcategories/1612847952jkeCoXfe1qG8RQendrRJ8o_i.png 1x, /storage/images/mcategories/1612847952jkeCoXfe1qG8RQendrRJ8o_t.png 2x" alt="">Solder Pots</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/solder_pots/solder_pot_mini">Solder Pots</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/solder_pots/solder_pot">Solder Pots (Large)</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/surface_mounts_smt_products"><img src="/storage/images/mcategories/1612848022hbCZKBLLs5OatIFsVKVTgq_i.png" srcset="/storage/images/mcategories/1612848022hbCZKBLLs5OatIFsVKVTgq_i.png 1x, /storage/images/mcategories/1612848022hbCZKBLLs5OatIFsVKVTgq_t.png 2x" alt="">Surface-Mounts/SMT Products</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/surface_mounts_smt_products/rework_system">SMT Rework Repair Systems</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/surface_mounts_smt_products/rework_station">Hot-Air Rework Stations</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/surface_mounts_smt_products/system_holder">Handpiece Holder/Board Holders</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/surface_mounts_smt_products/preheater">Preheaters</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/surface_mounts_smt_products/hot_tweezers">Soldering Tweezers</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/surface_mounts_smt_products/reball_kit">Reball Kits</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/desoldering_products"><img src="/storage/images/mcategories/1612848139Z0UvJxi0z2NCX0Ut4rORAc_i.png" srcset="/storage/images/mcategories/1612848139Z0UvJxi0z2NCX0Ut4rORAc_i.png 1x, /storage/images/mcategories/1612848139Z0UvJxi0z2NCX0Ut4rORAc_t.png 2x" alt="">Desoldering Products</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/desoldering_products/service_station">Service Stations</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/desoldering_products/desoldering_station">Automatic Desoldering Stations</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/desoldering_products/desoldering_gun">Automatic Desoldering Guns</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/desoldering_products/manual_desoldering_tools">Manual Desoldering Tools</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/desoldering_products/desoldering_wick">Desoldering Wicks</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/soldering_accessories"><img src="/storage/images/mcategories/1612848347hA0cPeHES7YURriS3VQZb0_i.png" srcset="/storage/images/mcategories/1612848347hA0cPeHES7YURriS3VQZb0_i.png 1x, /storage/images/mcategories/1612848347hA0cPeHES7YURriS3VQZb0_t.png 2x" alt="">Soldering Accessories</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/tip_cleaner">Tip Cleaners</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/iron_stand">Soldering Iron Stands</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/solderreel_stand">Solder Reel Holders</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/clamp_holder">Clamps/Holders</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/wrist_strap">Wrist Straps</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/lowdust_gloves">Low-Dust Gloves</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/resistance_tester">Surface Resistivity Meters</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/electrostatic_mat">Anti-Static Mats</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_accessories/smoker">Air Purifying Type Fume Vacuums</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/soldering_work_materials"><img src="/storage/images/mcategories/1612848551qtrkR8BDsvfkz44Or3UJVf_i.png" srcset="/storage/images/mcategories/1612848551qtrkR8BDsvfkz44Or3UJVf_i.png 1x, /storage/images/mcategories/1612848551qtrkR8BDsvfkz44Or3UJVf_t.png 2x" alt="">Soldering Work Materials</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_work_materials/lead">Lead-Containing Solders</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_work_materials/nolead">Lead-Free Solders</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/soldering_work_materials/chemical">Flux/Chemicals</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/heated_tools"><img src="/storage/images/mcategories/1774922374R9RGkTfkrL1uz5v3z86WGb_i.png" srcset="/storage/images/mcategories/1774922374R9RGkTfkrL1uz5v3z86WGb_i.png 1x, /storage/images/mcategories/1774922374R9RGkTfkrL1uz5v3z86WGb_t.png 2x" alt="">Heated Tools</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/heated_tools/styrol_cutter">Styrofoam Cutters</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/heated_tools/hot_cutter">Hot Cutters</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/heated_tools/heat_pen">Heatpen</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                                <li>
+                                    <a href="https://en.goot.jp/products/cat/hand_tools"><img src="/storage/images/mcategories/1682395120HysyZZrAHyBRvOOehRIPXc_i.jpeg" srcset="/storage/images/mcategories/1682395120HysyZZrAHyBRvOOehRIPXc_i.jpeg 1x, /storage/images/mcategories/1682395120HysyZZrAHyBRvOOehRIPXc_t.jpeg 2x" alt="">Hand Tools</a>
+                                                                        <ul>
+                                                                                <li><a href="https://en.goot.jp/products/cat/hand_tools/heat_dissipation_clip">Heat Clips</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/hand_tools/tweezers">Precision Tweezers</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/hand_tools/nippers">Precision Nippers</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/hand_tools/pliers">Precision Pliers</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/hand_tools/stripper">Precision Strippers</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/hand_tools/board_division">Depaneling Tools</a></li>
+                                                                                <li><a href="https://en.goot.jp/products/cat/hand_tools/tool_set">Tool Sets</a></li>
+                                                                            </ul>
+                                                                    </li>
+                                                            </ul>
+                        </div>
+                    </li>
+
+                    <li><a href="https://en.goot.jp/customize">Customize</a></li>
+                    <li class="head_child"><a href="https://en.goot.jp/support">Support</a>
+                        <div>
+                            <ul>
+                                <li><a href="https://en.goot.jp/support">Support TOP</a>
+                                    <ul>
+                                        <!-- <li><a href="https://en.goot.jp/faq">FAQ</a></li> -->
+                                        <!-- <li><a href="https://en.goot.jp/support/rent">デモ機貸し出しサービス</a></li> -->
+                                        <li><a href="https://en.goot.jp/support/catalogue">Catalogue</a></li>
+                                        <li><a href="https://en.goot.jp/support/sds">SDS (MSDS) Downloads</a></li>
+                                        <li><a href="https://en.goot.jp/support/manuals">Instruction Manuals</a></li>
+                                        <!-- <li><a href="https://en.goot.jp/support/onlineshopping">通信販売</a></li> -->
+                                        <!-- <li><a href="https://en.goot.jp/support/classification">該非説明発行の申込み</a></li> -->
+                                        <li><a href="https://en.goot.jp/support/oldproducts">Discontinued Models</a></li>
+                                        <li><a href="https://en.goot.jp/contact">Contact Us</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="head_child corp"><a href="https://en.goot.jp/corporate">Company</a>
+                        <div>
+                            <ul>
+                                <li><a href="https://en.goot.jp/corporate">Company Overview</a></li>
+                                <li><a href="https://en.goot.jp/corporate/message">From the President</a></li>
+                                <li><a href="https://en.goot.jp/corporate/history">History</a></li>
+                                <!-- <li><a href="https://en.goot.jp/corporate/info">取り組み</a></li> -->
+                                <li><a href="https://en.goot.jp/corporate/info">The goot Brand</a></li>
+                                <li><a href="/60th">History of Taiyo Co. & goot-brand products</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- <li><a href="https://en.goot.jp/shops">販売店情報</a></li> -->
+                </ul>
+
+            </div>
+        </div>
+        <ul class="spbtn">
+            <li><button type="button">Menu</button></li>
+            <li><a href="https://en.goot.jp/contact">Contact Us</a></li>
+        </ul>
+    </div>
+</header>
+ 
+
+
+    
+    
+    
+    <div class="page_head">
+    <div class="inner">
+       <h1>404 Not Found</h1>
+        <ul>
+            <li><a href="https://en.goot.jp">TOP</a></li>
+            <li>404 Not Found</li>
+        </ul>
+    </div>
+</div>
+
+<article>
+    <section>
+        <div class="nf404">
+            <h2>お探しのページが見つかりませんでした</h2>
+            <p>申し訳ございませんが、お探しのページが見つかりませんでした。<br>
+                お探しのページは削除されたが、URLが変更された可能性がございます。</p>
+            <a href="https://en.goot.jp" class="backbtn">TOPへ戻る</a>
+        </div>
+
+    </section>
+</article>
+
+
+    
+     <ul class="footinfo">
+    <li>
+        <h3>Contact / Inquiries</h3>
+        <p>
+          For inquiries regarding detailed product specifications, catalogues, requests for materials, etc.,<br>please contact us here.
+        </p>
+        <a href="https://en.goot.jp/contact">Contact Us</a>
+    </li>
+    <li>
+        <h3>Inquiries by Telephone</h3>
+        <p>
+          If you would like direct guidance,<br>our professional staff will guide you here.
+        </p>
+        <a href="tel:+81849519010">Sales Department Headquarters (+81) 84-951-9010</a>
+    </li>
+    <!-- <li>
+        <h3>デモ機貸し出しサービス</h3>
+        <p>
+          当社製品はご購入前に試用して頂くことが可能です。<br>
+          性能・信頼性・使いやすさなどを是非お試しください。
+        </p>
+        <a href="https://en.goot.jp/support/rent">詳しくはこちら</a>
+    </li> -->
+</ul>
+<footer>
+    <div class="inner">
+        <div class="footmenu">
+
+            <div>
+                <h3 class="parent"><a href="https://en.goot.jp/products">Products</a></h3>
+                <ul class="sp_top">
+                    <li><a href="https://en.goot.jp/products">Products TOP</a></li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/soldering_systems">Soldering Systems</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/soldering_irons">Soldering Irons</a>
+                    </li>
+                                                            <li>
+                                            <a href="https://en.goot.jp/products/cat/automatic_solder_feeders">Automatic Solder Feeders</a>
+                    </li>
+                                                            <li>
+                                            <a href="https://en.goot.jp/products/cat/soldering_testers_tip_thermomete">Soldering Testers/Tip Thermometers</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/solder_pots">Solder Pots</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/surface_mounts_smt_products">Surface-Mounts/SMT Products</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/desoldering_products">Desoldering Products</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/soldering_accessories">Soldering Accessories</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/soldering_work_materials">Soldering Work Materials</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/heated_tools">Heated Tools</a>
+                    </li>
+                                                            <li class="has_child">
+                                            <a href="https://en.goot.jp/products/cat/hand_tools">Hand Tools</a>
+                    </li>
+                                    </ul>
+            </div>
+            <div>
+                <h3 class="parent"><a href="https://en.goot.jp/support">Support</a></h3>
+                <ul class="sp_top">
+                    <li><a href="https://en.goot.jp/support">Support TOP</a></li>
+                    <!-- <li><a href="https://en.goot.jp/faq">FAQ</a></li> -->
+                    <!-- <li><a href="https://en.goot.jp/support/rent">デモ機貸し出しサービス</a></li> -->
+                    <li><a href="https://en.goot.jp/support/catalogue">Catalogue</a></li>
+                    <li><a href="https://en.goot.jp/support/sds">SDS (MSDS) Downloads</a></li>
+                    <li><a href="https://en.goot.jp/support/manuals">Instruction Manuals</a></li>
+                    <!-- <li><a href="https://en.goot.jp/support/onlineshopping">通信販売</a></li> -->
+                    <!-- <li><a href="https://en.goot.jp/support/classification">該非説明発行の申込み</a></li> -->
+                    <li><a href="https://en.goot.jp/support/oldproducts">Discontinued Models</a></li>
+                    <li><a href="https://en.goot.jp/contact">Contact Us</a></li>
+                </ul>
+                <h3 class="parent">Recommendeds</h3>
+                <ul>
+                    <li><a href="https://en.goot.jp/maintenance">goot Tool Maintenance</a></li>
+                    <!-- <li><a href="https://en.goot.jp/cases">導入事例</a></li> -->
+                    <li><a href="https://en.goot.jp/videos">Taiyo goot Channel</a></li>
+                    <!-- <li><a href="https://en.goot.jp/craft">ホットワークス</a></li> -->
+                    <!-- <li><a href="https://en.goot.jp/education">学習教材シリーズ</a></li> -->
+                </ul>
+            </div>
+            <div>
+                <h3 class="parent"><a href="https://en.goot.jp/corporate">About Us</a></h3>
+                <ul>
+                    <li><a href="https://en.goot.jp/corporate">Company Overview</a></li>
+                    <li><a href="https://en.goot.jp/corporate/message">From the President</a></li>
+                    <li><a href="https://en.goot.jp/corporate/history">History</a></li>
+                    <!-- <li><a href="https://en.goot.jp/corporate/info">取り組み</a></li> -->
+                    <li><a href="https://en.goot.jp/corporate/info">The goot Brand</a></li>
+                    <li><a href="/60th">History of Taiyo Co. & goot-brand products</a></li>
+                </ul>
+                <ul class="etclist">
+                    <!-- <li><a href="https://en.goot.jp/terms">私たちについて</a></li> -->
+                    <!-- <li><a href="https://en.goot.jp/shops">販売店一覧</a></li> -->
+                    <!-- <li><a href="https://en.goot.jp/recruit">採用情報</a></li> -->
+                    <!-- <li><a href="https://job.rikunabi.com/2021/company/r931310057/" target="_blank">採用情報</a></li> -->
+                    <li><a href="https://en.goot.jp/news">News / Information</a></li>
+                    <li><a href="https://en.goot.jp/terms">Website Terms of Use</a></li>
+                    <li><a href="https://en.goot.jp/policy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Calendar</h3>
+                <div class="cal" id="calendar">
+                    <ul>
+                        <li><button type="button" id="prev_calendar">prev</button></li>
+                        <li><button type="button" id="next_calendar">next</button></li>
+                    </ul>
+                    <table>
+                        <caption>
+                            <span>2026</span>
+                            <span>8</span>
+                            <span>AUG</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>SUN</th>
+                                <th>MON</th>
+                                <th>TUE</th>
+                                <th>WED</th>
+                                <th>THU</th>
+                                <th>FRI</th>
+                                <th>SAT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                        <tr>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class="hol">1</td>
+                                                            </tr>
+                                                        <tr>
+                                                                <td class="hol">2</td>
+                                                                <td class="">3</td>
+                                                                <td class="">4</td>
+                                                                <td class="">5</td>
+                                                                <td class="">6</td>
+                                                                <td class="">7</td>
+                                                                <td class="hol">8</td>
+                                                            </tr>
+                                                        <tr>
+                                                                <td class="hol">9</td>
+                                                                <td class="hol today">10</td>
+                                                                <td class="hol">11</td>
+                                                                <td class="hol">12</td>
+                                                                <td class="hol">13</td>
+                                                                <td class="hol">14</td>
+                                                                <td class="hol">15</td>
+                                                            </tr>
+                                                        <tr>
+                                                                <td class="hol">16</td>
+                                                                <td class="">17</td>
+                                                                <td class="">18</td>
+                                                                <td class="">19</td>
+                                                                <td class="">20</td>
+                                                                <td class="">21</td>
+                                                                <td class="hol">22</td>
+                                                            </tr>
+                                                        <tr>
+                                                                <td class="hol">23</td>
+                                                                <td class="">24</td>
+                                                                <td class="">25</td>
+                                                                <td class="">26</td>
+                                                                <td class="">27</td>
+                                                                <td class="">28</td>
+                                                                <td class="hol">29</td>
+                                                            </tr>
+                                                        <tr>
+                                                                <td class="hol">30</td>
+                                                                <td class="">31</td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                                <td class=""></td>
+                                                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <p><span>Regular Holidays</span></p>
+                </div>
+                <input type="hidden" id="calendar_date" value="2026-08-10">
+
+                <div class="iso">
+                    <p style="word-break: break-word;">Our company is certified to ISO 9001:2015 requirements by qualification body TUV Rheinland. (Japan offices only.)</p>
+
+                    <img src="/img/footer/tuv.png" srcset="/img/footer/tuv.png 1x, /img/footer/tuv@2x.png 2x" alt="TÜV Rheinland認証">
+                </div>
+                <div class="sns">
+                    <h3>SNS</h3>
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/%E5%A4%AA%E6%B4%8B%E9%9B%BB%E6%A9%9F%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE-100782451699761/" target="_blank">
+                                <img src="/img/footer/icon_fb.png" srcset="/img/footer/icon_fb.png 1x,/img/footer/icon_fb@2x.png 2x" alt="FACEBOOK">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://x.com/Taiyo_goot" target="_blank">
+                                <img src="/img/footer/icon_x.png" srcset="/img/footer/icon_x.png 1x,/img/footer/icon_x@2x.png 2x" alt="X">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/taiyo_goot/?hl=ja" target="_blank">
+                                <img src="/img/footer/icon_inst.png" srcset="/img/footer/icon_inst.png 1x,/img/footer/icon_inst@2x.png 2x" alt="Instagram">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtube.com/@goot_intl" target="_blank">
+                                <img src="/img/footer/icon_yt.png" srcset="/img/footer/icon_yt.png 1x,/img/footer/icon_yt@2x.png 2x" alt="Youtube">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <img src="/img/footer/f_goot_logo.png" srcset="/img/footer/f_goot_logo.png 1x, /img/footer/f_goot_logo@2x.png 2x" alt="goot logo">
+            <div>
+                <small>goot is a registered trademark of Taiyo Electric Ind. Co., Ltd.</small>
+                <small>Copyright © TAIYO ELECTRIC IND. CO., LTD. All Rights Reserved.</small>
+            </div>
+        </div>
+    </div>
+</footer>
+ 
+    <a href="#head" class="gotop">go to top</a>
+
+    <script src="https://en.goot.jp/js/jquery-3.5.1.min.js" ></script>
+    <link href="https://en.goot.jp/js/slick/slick.css" rel="stylesheet">
+    <script src="https://en.goot.jp/js/slick/slick.min.js" ></script>
+    <link href="https://en.goot.jp/js/magnific-popup.css" rel="stylesheet">
+    <script src="https://en.goot.jp/js/jquery.magnific-popup.min.js" ></script>
+    <script src="https://en.goot.jp/js/common.js" ></script>
+
+        <script>
+$(function () {
+    $('#prev_calendar').on('click', function(){
+        displayCalendar('prev');
+    });
+
+    $('#next_calendar').on('click', function(){
+        displayCalendar('next');
+    });
+});
+
+function displayCalendar(move) {
+    $.ajax({
+        type:'GET',
+        url:"https://en.goot.jp/calendar",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+        dataType:'json',
+        data:{
+            'move':move,
+            'date': $('#calendar_date').val(),
+        }
+    }).done(function (results){
+        $('#calendar table caption').empty();
+        $('#calendar table tbody').empty();
+        $('#calendar table caption').append(`<span>${results.year}</span><span>${results.month}</span><span>${results.monthName}</span>`);
+        var calendar = results.weeks;
+        calendar.forEach(function (week) {
+            var tr = $('<tr>');
+            week.forEach(function(day) {
+                tr.append(`<td class="${day.class}">${day.day}</td>`);
+            });
+            $('#calendar table tbody').append(tr);
+        });
+        $('#calendar_date').val(results.date);
+    }).fail(function(jqXHR,textStatus,errorThrown){
+        alert('Failed to display the calendar.');
+        console.log("ajax通信に失敗しました")
+        console.log(jqXHR.status);
+        console.log(textStatus);
+        console.log(errorThrown.message);
+    });
+}
+</script>
+
+</body>
+
+</html>
