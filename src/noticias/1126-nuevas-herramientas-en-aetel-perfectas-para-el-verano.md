@@ -9,7 +9,7 @@ date: '2016-07-13'
 author: mballest
 lang: es
 ---
-<p>La familia de AETEL crece. Tanto en socios, como incrementando las herramientas que estan disponibles. Somos una asociación donde se construye, comparte y enseña, por lo que pasito a pasito generamos un ambiente;&nbsp;una comunidad. Disponemos de un amplio&nbsp;<a href="/quienes-somos/equipamiento.html">equipamiento</a>&nbsp;y&nbsp;también de aire acondicionado, para esos dias calurosos del verano en Madrid.</p>
+<p>La familia de AETEL crece. Tanto en socios, como incrementando las herramientas que estan disponibles. Somos una asociación donde se construye, comparte y enseña, por lo que pasito a pasito generamos un ambiente;&nbsp;una comunidad. Disponemos de un amplio&nbsp;<a href="/quienes-somos/equipamiento">equipamiento</a>&nbsp;y&nbsp;también de aire acondicionado, para esos dias calurosos del verano en Madrid.</p>
 <p>Un recordatorio: Entre todos debemos cuidar y proteger todo el material que compartimos. Así durará muchos usos. Y ahora ¡vamos con las adquisiciones!</p>
 <h2>Microscopio SuperEyes B008</h2>
 <img src="/assets/img/noticias/1126-microscopio.jpg" alt="Microscopio SuperEyes B008">

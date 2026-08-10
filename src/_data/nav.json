@@ -1,24 +1,24 @@
 {
   "primary": [
-    { "label": "Proyectos", "url": "/proyectos.html" },
-    { "label": "Eventos", "url": "/eventos.html" },
-    { "label": "Noticias", "url": "/noticias/index.html" }
+    { "label": "Proyectos", "url": "/proyectos" },
+    { "label": "Eventos", "url": "/eventos" },
+    { "label": "Noticias", "url": "/noticias/" }
   ],
   "quienesSomos": {
     "label": "Quienes somos",
-    "url": "/quienes-somos/mision.html",
+    "url": "/quienes-somos/mision",
     "items": [
-      { "label": "Misión y valores", "url": "/quienes-somos/mision.html" },
-      { "label": "Equipo directivo", "url": "/quienes-somos/equipo.html" },
-      { "label": "Miembros", "url": "/quienes-somos/miembros.html" },
-      { "label": "Actas", "url": "/quienes-somos/actas.html" },
-      { "label": "Estatutos", "url": "/quienes-somos/estatutos.html" },
-      { "label": "Equipamiento", "url": "/quienes-somos/equipamiento.html" },
-      { "label": "Protección de datos", "url": "/quienes-somos/proteccion-datos.html" }
+      { "label": "Misión y valores", "url": "/quienes-somos/mision" },
+      { "label": "Equipo directivo", "url": "/quienes-somos/equipo" },
+      { "label": "Miembros", "url": "/quienes-somos/miembros" },
+      { "label": "Actas", "url": "/quienes-somos/actas" },
+      { "label": "Estatutos", "url": "/quienes-somos/estatutos" },
+      { "label": "Equipamiento", "url": "/quienes-somos/equipamiento" },
+      { "label": "Protección de datos", "url": "/quienes-somos/proteccion-datos" }
     ]
   },
   "trailing": [
-    { "label": "¡Hazte miembro!", "url": "/hazte-miembro.html" },
-    { "label": "Contacto", "url": "/contacto.html" }
+    { "label": "¡Hazte miembro!", "url": "/hazte-miembro" },
+    { "label": "Contacto", "url": "/contacto" }
   ]
 }

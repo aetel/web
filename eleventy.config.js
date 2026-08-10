@@ -2,10 +2,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("CNAME");
 
-  // Preserve the legacy flat *.html URLs (no /name/index.html pretty permalinks) —
-  // this site's URLs are live and indexed under aetel.org, so they must not change.
-  eleventyConfig.addGlobalData("permalink", "{{ page.filePathStem }}.html");
-
   const spanishMonths = [
     "enero", "febrero", "marzo", "abril", "mayo", "junio",
     "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",

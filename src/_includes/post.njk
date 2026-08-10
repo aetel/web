@@ -3,13 +3,13 @@ layout: base.njk
 titleSuffix: Noticias AETEL
 ---
 <section class="hero"><div class="container">
-  <p class="breadcrumb"><a href="/index.html">Inicio</a> / <a href="/noticias/index.html">Noticias</a> / {{ title }}</p>
+  <p class="breadcrumb"><a href="/">Inicio</a> / <a href="/noticias/">Noticias</a> / {{ title }}</p>
   <h1>{{ title }}</h1>
   <p class="post-meta">{% if lang == "en" %}{{ date | englishDate }}{% else %}{{ date | spanishDate }}{% endif %} &middot; {{ author }}</p>
 </div></section>
 <section class="section"><div class="container post-body">
 {{ content | safe }}
 {% if translation %}
-<p class="lang-links"><a href="/noticias/{{ translation }}.html">{% if lang == "es" %}Read in English{% else %}Leer en español{% endif %}</a></p>
+<p class="lang-links"><a href="/noticias/{{ translation }}">{% if lang == "es" %}Read in English{% else %}Leer en español{% endif %}</a></p>
 {% endif %}
 </div></section>
