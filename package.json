@@ -4,12 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "eleventy",
-    "serve": "eleventy --serve",
-    "migrate": "node scripts/migrate.mjs"
+    "serve": "eleventy --serve"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "cheerio": "^1.0.0",
-    "gray-matter": "^4.0.3"
+    "@11ty/eleventy": "^3.0.0"
   }
 }
