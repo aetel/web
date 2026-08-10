@@ -156,7 +156,10 @@ nav.main-nav a:hover { color: var(--color-primary); }
   }
   nav.main-nav.open { display: block; }
   nav.main-nav ul { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 1rem 0; }
-  .has-dropdown .dropdown { display: block; position: static; border: none; box-shadow: none; padding-left: 1rem; min-width: 0; }
+  .has-dropdown .dropdown { display: none; position: static; border: none; box-shadow: none; padding-left: 1rem; min-width: 0; }
+  .has-dropdown.open .dropdown { display: block; }
+  .has-dropdown > a::after { transition: transform 0.15s; display: inline-block; }
+  .has-dropdown.open > a::after { transform: rotate(180deg); }
   .site-header .container { flex-wrap: wrap; }
 }
 
