@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LightWand Kosmonaut V1. Lightpainting con Arduino llevado al siguiente nivel — Noticias AETEL</title>
+<meta name="description" content="¿Qué es Lightpainting? El origen de la técnica del Lightpainting está ligado al origen de la fotografía misma. Las primeras placas fotográficas, cuyos químicos eran…">
+<link rel="icon" href="../assets/img/favicon-32.png" type="image/png">
+<link rel="stylesheet" href="../assets/css/style.css">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/logo-300.png" alt="Logo de AETEL" width="42" height="42">
+      <span>AETEL</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"></button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../proyectos.html">Proyectos</a></li>
+<li><a href="../eventos.html">Eventos</a></li>
+<li><a href="../noticias/index.html">Noticias</a></li>
+<li class="has-dropdown"><a href="../quienes-somos/mision.html">Quienes somos</a><ul class="dropdown">
+<li><a href="../quienes-somos/mision.html">Misión y valores</a></li>
+<li><a href="../quienes-somos/equipo.html">Equipo directivo</a></li>
+<li><a href="../quienes-somos/miembros.html">Miembros</a></li>
+<li><a href="../quienes-somos/actas.html">Actas</a></li>
+<li><a href="../quienes-somos/estatutos.html">Estatutos</a></li>
+<li><a href="../quienes-somos/equipamiento.html">Equipamiento</a></li>
+<li><a href="../quienes-somos/proteccion-datos.html">Protección de datos</a></li>
+</ul></li>
+<li><a href="../hazte-miembro.html">¡Hazte miembro!</a></li>
+<li><a href="../contacto.html">Contacto</a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero"><div class="container">
+  <p class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="index.html">Noticias</a> / LightWand Kosmonaut V1. Lightpainting con Arduino llevado al siguiente nivel</p>
+  <h1>LightWand Kosmonaut V1. Lightpainting con Arduino llevado al siguiente nivel</h1>
+  <p class="post-meta">28 octubre, 2015 &middot; PablodMM</p>
+</div></section>
+<section class="section"><div class="container post-body">
+<h2>¿Qué es Lightpainting?</h2>
+<p>El origen de la técnica del <em>Lightpainting</em> está ligado al origen de la fotografía misma. Las primeras placas fotográficas, cuyos químicos eran dramáticamente poco sensibles a la luz, necesitaban de varios minutos para captar una imagen. Estas primeras fotos a menudo resultaban en figuras borrosas que poco recordaban a los clientes retratados. Sin embargo, cualquier lámpara o brillo intruso que recorriese una trayectoria durante la apertura del obturador quedaba inmortalizada en la película con una nitidez insolente.</p>
+<p>Etienne-Jules Marey y Georges Demeny decidieron aprovechar esta particularidad para fundar en 1882 la <em>Station Psicologique</em> donde utilizaron distintos ingenios y la primitiva técnica del <em>Lightpainting</em> para estudiar el movimiento humano[1]. La primera imagen que se considera que hizo uso de esta técnica fue esta en la que se estudiaba el movimiento humano durante el salto:</p>
+
+Ilustración 1: Salto de atleta, Etienne-Jules Marey y Georges Demeny (1889)
+<p>Desde entonces, muchos artistas y entusiastas han desarrollado técnicas y herramientas para llevar el <em>Lightpainting</em> un paso más allá. Esferas luminosas, luces con texturas y distintas plantillas, pero nada tan avanzado como el <em>Lightwand</em>.</p>
+<h2>¿Qué es el <em>Lightwand</em>?</h2>
+<p>A través de la tecnología LED, y de las tiras de LED RGB indexables (acceso individual a cada LED) popularizadas por <em>Sparkfun</em>[2], el mismo concepto ha sido desarrollado por distintos desarrolladores de forma independiente.
+Un <em>Lightwand</em> es una barra de LEDs controlada por un microcontrolador que emite secuencialmente las filas de pixeles de una imagen. Si mientras la cámara hace una foto con el obturador abierto y baja sensibilidad ISO durante unos segundos, el usuario desplaza el <em>Lightwand</em> por el plano, el resultado es una imagen que recuerda a un holograma y que inserta fielmente una imagen en la fotografía:</p>
+
+<h2>
+¿Cómo es?</h2>
+<p>Esta herramienta se hizo muy popular en Internet debido a un <em>Kickstarter</em>[3] de <em>Bitbanger Labs</em> en el que presentaban <em>Pixelstick</em>[4]. <em>Pixelstick</em> alcanzó rápidamente la cantidad necesaria para su desarrollo y hoy en día es la única opción comercial para hacerse con esta herramienta. Por desgracia, su precio es alto (349$) y vende preferentemente a EEUU. Además, esta herramienta es un producto comercial y por lo tanto no es susceptible a modificaciones o cambios por parte del usuario, estando así limitado a su Firmware y Hardware original.</p>
+<p>Pero previo a <em>Pixelstick</em>, Michael Ross[5] -un aficionado americano a la fotografía con educación técnica-  ya había publicado en su blog la primitiva versión de su <em>Lightwand</em>. Esta no logró gran repercusión dado que fue pobremente promocionada y resultaba una herramienta aparatosa y en apariencia vulgar (no así sus resultados).</p>
+<p>Durante el año pasado, decidí montar un <em>Lightwand</em> para experimentos privados. Tras varias versiones solventando las distintas carencias del <em>Lightwand</em> original de Michael Ross, llevé a cabo el <em>Lightwand</em> <em>Kosmonaut</em> V1 que documenté y publiqué en<em> Github</em> hace unos meses.</p>
+<p>Mi objetivo a la hora de desarrollar esta versión era hacerlo barato, ligero y fácil de montar. Para ello decidí usar un <em>Arduino</em> <em>Mega 1280</em> como microcontrolador y una tira de LEDs <em>Neopixel </em>RGB con 144LED/m. El resultado es un controlador compacto basado en una PCB <em>Shield</em> de <em>Arduino</em> que incorpora una pantalla Nokia 5110 para su manejo y algunas funcionalidades menores como un <em>Buzzer</em> y conexiones externas.</p>
+<p>El <em>Lightwand</em> <em>Kosmonaut</em> lee las imágenes almacenadas en una microSD en formato <em>.pnm </em>y las proyecta a través de la barra de LEDs pudiendo el usuario controlar tanto el brillo como el <em>delay </em>entre las filas de pixeles.</p>
+<p>Tiene una longitud de un metro (marcada por la longitud de la tira de LEDs) aunque se puede programar para controlar tiras de LEDs de otras longitudes y densidades. Una de las dimensiones de las imágenes proyectadas está por tanto limitada por la tira de LEDs utilizada mientras que la otra dimensión puede ser de muchos metros.</p>
+
+
+<p>El principal problema que presenta es que el resultado de la foto depende de la velocidad a la que la mueva el usuario, siendo el resultado a veces imprevisible. En la siguiente secuencia se muestran tres intentos en las mismas condiciones pero con evidente distinto resultado.</p>
+
+<p>Posteriormente, la imagen puede mejorarse con ligeras correcciones de brillo y contraste con cualquier programa de edición de foto convencional.</p>
+<p>El precio del <em>Lightwand</em> <em>Kosmonaut</em> comprando los materiales a través de Ebay es de alrededor de 70€ (Dependiendo de las fluctuaciones del € y el $), siendo una opción muy asequible y una alternativa viable a <em>Pixelstick</em> para aquellos usuarios con los conocimientos necesarios para montarlo.</p>
+<h2>¿Cuáles fueron las principales dificultades?</h2>
+<p>El <em>Lightwand</em> que he desarrollado ha pasado por muchas fases, desde el primer prototipo de 60LED/m cuyo resultado no era ni de lejos aceptable hasta versiones sin PCB aparatosas y poco estables.</p>
+
+<p>Uno de los principales problemas iniciales fue usar el <em>Arduino</em> UNO, con una limitadísima <em>SRAM</em> que no era capaz de implementar las herramientas de la librería <em>Neopixel </em>junto con el control de la pantalla <em>Nokia 5110</em> y la lectura de la tarjeta microSD (Que carga en <em>SRAM</em> el archivo leído, siendo inviable una lectura secuencial). Las limitaciones de <em>Arduino</em> UNO junto con la imposibilidad de <em>Debugging</em> llevaron al uso del <em>Arduino</em> MEGA 1280 (También bastante asequible y mucho más potente).</p>
+<p>Después del primer prototipo descubrí el trabajo de Michael Ross e implemente una de sus funciones así como un par de consejos que me dio acerca de sus intentos frustrados de usar <em>Arduino</em> UNO.</p>
+<p>El último paso fue crear la PCB ajustando sus dimensiones a las de un <em>Shield</em> y documentar todo el trabajo junto con una guía de montaje que abarcase todo el proceso. Toda la documentación necesaria puede ser encontrada en el <em>Github</em>:</p>
+<p><a href="https://github.com/PabloDMM/LightWand_KosmonautEd" target="_blank" rel="noopener">https://github.com/PabloDMM/<em>Lightwand</em>_<em>Kosmonaut</em>Ed</a></p>
+<h2>¿Qué queda por hacer?</h2>
+<p>Los siguientes pasos a llevar a cabo para posibles versiones posteriores del <em>Lightwand</em> <em>Kosmonaut</em> son:</p>
+<ul>
+<li>Implementar lectura de archivos <em>.bmp</em> (Mucho más comunes como opción de exportación que los .<em>pnm</em>)</li>
+<li>Implementar un acelerómetro que controle automáticamente la secuenciación de las filas de pixeles. Esta mejora, que evitaría la incertidumbre en el resultado, resulta sin embargo ambiciosa por la velocidad de procesamiento de <em>Arduino</em>. De ser posible el precio aumentaría alrededor de 10$ pero el resultado y la fiabilidad de la herramienta mejoraría considerablemente.</li>
+<li>Implementar conectividad Bluetooth (Aun no se sabe bien con qué objetivo).</li>
+<li>Idear un mecanismo de pliegue para hacer el <em>Pixelstick</em> más transportable.</li>
+</ul>
+<p>Fuera del plano técnico, el gran objetivo a cumplir es crear una comunidad de usuarios pequeña que además de usarlo y popularizarlo lo mejore y comparta su trabajo. En este sentido, la promoción llevada a cabo hasta ahora por las redes sociales (FB, Instagram[6]) ha sido inútil. Durante el curso 2015/2016 AETEL planea llevar a cabo junto a CAT un taller en el que los asistentes compren y monten un <em>Lightwand</em>, aumentando su presencia al menos a nivel local.</p>
+<p>[1] Light Painting History(2015), <em>Light Painting Photography</em>, <a href="http://lightpaintingphotography.com/light-painting-history/" target="_blank" rel="noopener">http://lightpaintingphotography.com/light-painting-history/</a></p>
+<p>[2] Sparkfun Homepage(nd), <em>Sparkfun Electronics</em>, <a href="https://www.sparkfun.com/" target="_blank" rel="noopener">https://www.sparkfun.com/</a></p>
+<p>[3] <em>Pixelstick </em>– Lightpainting Evolved(2013), <em>Bitbanger Labs, Kickstarter project</em>, <a href="https://www.kickstarter.com/projects/bitbangerlabs/Pixelstick-light-painting-evolved" target="_blank" rel="noopener">https://www.kickstarter.com/projects/bitbangerlabs/<em>Pixelstick</em>-light-painting-evolved</a></p>
+<p><a href="https://www.kickstarter.com/projects/bitbangerlabs/Pixelstick-light-painting-evolved" target="_blank" rel="noopener">[4]</a><a href="https://www.kickstarter.com/projects/bitbangerlabs/Pixelstick-light-painting-evolved" target="_blank" rel="noopener"> <em>Pixelstick </em>Homepage(nd), <em>Bitbanger Labs</em>, http://www.the<em>Pixelstick</em>.com</a></p>
+<p>[5] Michael Ross Photography and Light Painting (2014), <em>Michael Ross</em>, <a href="http://mrossphoto.com/wordpress32/" target="_blank" rel="noopener">http://mrossphoto.com/wordpress32/</a></p>
+<p>[6] Instagram Profile (2015), Arsene_lupin_lightwand, <a href="https://instagram.com/arsene_lupin_lightwand/" target="_blank" rel="noopener">https://instagram.com/arsene_lupin_lightwand/</a></p>
+<p class="lang-links"><a href="637-lightwand-kosmonaut-v1-lightpainting-with-arduino-taken-a-st.html">Read in English</a></p>
+</div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <a class="brand" href="../index.html" style="color:#fff">
+      <img src="../assets/img/logo-300.png" alt="Logo de AETEL" width="36" height="36">
+      <span>AETEL</span>
+    </a>
+    <ul class="social-links">
+      <li><a href="https://www.facebook.com/aetel.etsist/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H7.9V12h2.6V9.8c0-2.6 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a></li>
+<li><a href="https://twitter.com/aetel" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-7.2 8.2L23 22h-6.6l-5.2-6.6L5.2 22H2l7.7-8.8L1.5 2h6.8l4.7 6.1L18.9 2zm-1.2 18h1.8L7.4 4H5.5l12.2 16z"/></svg></a></li>
+<li><a href="https://www.instagram.com/aetel.etsist/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.7 0 3 0 4.1.06 1.1.05 1.8.22 2.5.47.7.27 1.2.6 1.8 1.15.5.5.9 1.1 1.15 1.8.25.7.42 1.4.47 2.5.06 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1.1-.22 1.8-.47 2.5a5 5 0 0 1-1.15 1.8 5 5 0 0 1-1.8 1.15c-.7.25-1.4.42-2.5.47-1.1.06-1.4.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.8-.22-2.5-.47a5 5 0 0 1-1.8-1.15 5 5 0 0 1-1.15-1.8c-.25-.7-.42-1.4-.47-2.5C2 15 2 14.7 2 12s0-3 .06-4.1c.05-1.1.22-1.8.47-2.5.27-.7.6-1.2 1.15-1.8.5-.5 1.1-.9 1.8-1.15.7-.25 1.4-.42 2.5-.47C9 2 9.3 2 12 2zm0 2c-2.65 0-2.96 0-4 .06-.9.04-1.4.19-1.7.31-.44.17-.75.37-1.08.7-.33.33-.53.64-.7 1.08-.12.3-.27.8-.31 1.7C4.15 9 4.15 9.35 4.15 12s0 2.96.06 4c.04.9.19 1.4.31 1.7.17.44.37.75.7 1.08.33.33.64.53 1.08.7.3.12.8.27 1.7.31 1.04.06 1.35.06 4 .06s2.96 0 4-.06c.9-.04 1.4-.19 1.7-.31.44-.17.75-.37 1.08-.7.33-.33.53-.64.7-1.08.12-.3.27-.8.31-1.7.06-1.04.06-1.35.06-4s0-2.96-.06-4c-.04-.9-.19-1.4-.31-1.7a2.9 2.9 0 0 0-.7-1.08 2.9 2.9 0 0 0-1.08-.7c-.3-.12-.8-.27-1.7-.31C14.96 4 14.65 4 12 4zm0 3.4A4.6 4.6 0 1 1 7.4 12 4.6 4.6 0 0 1 12 7.4zm0 2A2.6 2.6 0 1 0 14.6 12 2.6 2.6 0 0 0 12 9.4zm5.9-2.6a1.07 1.07 0 1 1-1.07-1.07A1.07 1.07 0 0 1 17.9 6.8z"/></svg></a></li>
+<li><a href="https://github.com/aetel" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.88 1.52 2.32 1.08 2.88.83.09-.64.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></a></li>
+<li><a href="https://www.linkedin.com/company/aetel-etsist/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3.2 8.75h3.5V21H3.2V8.75zm6.1 0h3.36v1.68h.05c.47-.88 1.6-1.8 3.3-1.8 3.53 0 4.18 2.32 4.18 5.35V21h-3.5v-6.34c0-1.51-.03-3.45-2.1-3.45-2.11 0-2.43 1.65-2.43 3.34V21H9.3V8.75z"/></svg></a></li>
+<li><a href="mailto:aetel.etsist@upm.es" aria-label="Correo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.4 2 8.6 6.4L20.6 7H3.4zM3 8.4V17h18V8.4l-9 6.7-9-6.7z"/></svg></a></li>
+
+    </ul>
+    <small>Asociación Electrónica de Telecomunicaciones &middot; UPM Campus Sur &middot; IEEE Student Branch</small>
+  </div>
+</footer>
+<script src="../assets/js/nav.js"></script>
+</body>
+</html>
