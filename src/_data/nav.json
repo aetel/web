@@ -1,0 +1,24 @@
+{
+  "primary": [
+    { "label": "Proyectos", "url": "/proyectos.html" },
+    { "label": "Eventos", "url": "/eventos.html" },
+    { "label": "Noticias", "url": "/noticias/index.html" }
+  ],
+  "quienesSomos": {
+    "label": "Quienes somos",
+    "url": "/quienes-somos/mision.html",
+    "items": [
+      { "label": "Misión y valores", "url": "/quienes-somos/mision.html" },
+      { "label": "Equipo directivo", "url": "/quienes-somos/equipo.html" },
+      { "label": "Miembros", "url": "/quienes-somos/miembros.html" },
+      { "label": "Actas", "url": "/quienes-somos/actas.html" },
+      { "label": "Estatutos", "url": "/quienes-somos/estatutos.html" },
+      { "label": "Equipamiento", "url": "/quienes-somos/equipamiento.html" },
+      { "label": "Protección de datos", "url": "/quienes-somos/proteccion-datos.html" }
+    ]
+  },
+  "trailing": [
+    { "label": "¡Hazte miembro!", "url": "/hazte-miembro.html" },
+    { "label": "Contacto", "url": "/contacto.html" }
+  ]
+}

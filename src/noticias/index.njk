@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: "Noticias — AETEL"
+description: "Archivo de noticias y artículos de AETEL."
+lang: es
+eleventyExcludeFromCollections: true
+---
+<section class="hero"><div class="container">
+  <p class="breadcrumb"><a href="/index.html">Inicio</a> / Noticias</p>
+  <h1>Noticias</h1>
+  <p class="lede">Archivo completo de artículos y noticias de AETEL.</p>
+</div></section>
+<section class="section"><div class="container">
+  <ul class="post-list">
+  {% for post in collections.noticias %}
+    <li>
+      <div><a href="{{ post.url }}">{{ post.data.title }}</a><p class="post-excerpt">{{ post.data.description }}</p></div>
+      <time datetime="{{ post.data.date }}">{% if post.data.lang == "en" %}{{ post.date | englishDate }}{% else %}{{ post.date | spanishDate }}{% endif %}</time>
+    </li>
+  {% endfor %}
+  </ul>
+</div></section>

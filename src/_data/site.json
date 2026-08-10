@@ -1,0 +1,13 @@
+{
+  "name": "AETEL",
+  "tagline": "Asociación Electrónica de Telecomunicaciones · UPM Campus Sur · IEEE Student Branch",
+  "defaultLang": "es",
+  "social": {
+    "facebook": "https://www.facebook.com/aetel.etsist/",
+    "twitter": "https://twitter.com/aetel",
+    "instagram": "https://www.instagram.com/aetel.etsist/",
+    "github": "https://github.com/aetel",
+    "linkedin": "https://www.linkedin.com/company/aetel-etsist/",
+    "email": "aetel.etsist@upm.es"
+  }
+}

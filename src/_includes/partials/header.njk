@@ -1,0 +1,24 @@
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/index.html">
+      <img src="/assets/img/logo.svg" alt="Logo de AETEL" width="42" height="42">
+      <span>AETEL</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"></button>
+    <nav class="main-nav">
+      <ul>
+        {% for item in nav.primary %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {% endfor %}
+        <li class="has-dropdown"><a href="{{ nav.quienesSomos.url }}">{{ nav.quienesSomos.label }}</a><ul class="dropdown">
+          {% for item in nav.quienesSomos.items %}
+          <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+          {% endfor %}
+        </ul></li>
+        {% for item in nav.trailing %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
