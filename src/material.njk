@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Material del local — AETEL
+description: Pide componentes y kits de electrónica a precio de coste en AETEL.
+lang: es
+---
+
+<section class="hero"><div class="container">
+  <p class="breadcrumb"><a href="/">Inicio</a> / Material</p>
+  <h1>Material del local</h1>
+  <p class="lede">
+    Pide componentes y kits sin pasar por tiendas externas. Elige lo que
+    necesitas, envía el pedido y la Junta te enviará la factura con los
+    datos para pagar por transferencia.
+  </p>
+</div></section>
+
+<section class="section"><div class="container">
+
+  <div class="aetel-form">
+    <iframe
+      id="aetel-pedido-frame"
+      src="https://erp-app.aetel.org/custom/externalaccess/public/pedido.php?embed=1"
+      title="Pedido de material de AETEL"
+      loading="lazy"
+      scrolling="no"
+      frameborder="0">
+      Cargando…
+    </iframe>
+  </div>
+
+  <p>
+    Cuando el pago esté confirmado, podrás recoger tu pedido en el local.
+    Si tienes cualquier duda, escribe a la Junta Directiva en
+    <a href="mailto:junta@aetel.org">junta@aetel.org</a>.
+  </p>
+
+</div></section>
+
+<style>
+  .aetel-form {
+    width: 100%;
+    margin: 2rem 0 3rem;
+    overflow: hidden;
+  }
+
+  .aetel-form iframe {
+    display: block;
+    width: 100%;
+    min-height: 600px;
+    border: 0;
+  }
+</style>
+
+<script>
+  (function () {
+    var frame = document.getElementById('aetel-pedido-frame');
+    window.addEventListener('message', function (e) {
+      if (e.origin !== 'https://erp-app.aetel.org' || e.source !== frame.contentWindow) {
+        return;
+      }
+      if (e.data && e.data.aetelFormHeight) {
+        frame.style.height = e.data.aetelFormHeight + 'px';
+      }
+    });
+  })();
+</script>
