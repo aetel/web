@@ -4,6 +4,13 @@
     { "label": "Eventos", "url": "/eventos" },
     { "label": "Noticias", "url": "/noticias/" }
   ],
+  "servicios": {
+    "label": "Servicios",
+    "items": [
+      { "label": "AETEL-partdb", "url": "https://partdb.aetel.org" },
+      { "label": "Pedidos", "url": "https://aetel.org/pedidos" }
+    ]
+  },
   "quienesSomos": {
     "label": "Quienes somos",
     "url": "/quienes-somos/mision",
@@ -14,11 +21,11 @@
       { "label": "Actas", "url": "/quienes-somos/actas" },
       { "label": "Estatutos", "url": "/quienes-somos/estatutos" },
       { "label": "Equipamiento", "url": "/quienes-somos/equipamiento" },
-      { "label": "Protección de datos", "url": "/quienes-somos/proteccion-datos" }
+      { "label": "Politica de Privacidad", "url": "/privacidad" }
     ]
   },
   "trailing": [
-    { "label": "¡Hazte miembro!", "url": "/hazte-miembro" },
+    { "label": "¡Hazte miembro!", "url": "/unete" },
     { "label": "Contacto", "url": "/contacto" }
   ]
 }
