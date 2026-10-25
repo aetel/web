@@ -10,11 +10,26 @@
         {% for item in nav.primary %}
         <li><a href="{{ item.url }}">{{ item.label }}</a></li>
         {% endfor %}
+
+        <!-- Desplegable de Servicios -->
+        {% if nav.servicios %}
+        <li class="has-dropdown">
+          <a href="#">{{ nav.servicios.label }}</a>
+          <ul class="dropdown">
+            {% for item in nav.servicios.items %}
+            <li><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endif %}
+
+        <!-- Desplegable de Quienes Somos -->
         <li class="has-dropdown"><a href="{{ nav.quienesSomos.url }}">{{ nav.quienesSomos.label }}</a><ul class="dropdown">
           {% for item in nav.quienesSomos.items %}
           <li><a href="{{ item.url }}">{{ item.label }}</a></li>
           {% endfor %}
         </ul></li>
+
         {% for item in nav.trailing %}
         <li><a href="{{ item.url }}">{{ item.label }}</a></li>
         {% endfor %}
