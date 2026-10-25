@@ -8,7 +8,7 @@
     "label": "Servicios",
     "items": [
       { "label": "AETEL-partdb", "url": "https://partdb.aetel.org" },
-      { "label": "Pedidos", "url": "https://aetel.org/pedidos" }
+      { "label": "Pedidos", "url": "https://aetel.org/pedido" }
     ]
   },
   "quienesSomos": {
