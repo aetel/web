@@ -1,5 +1,4 @@
 ---
-
 layout: base.njk
 title: ¡Hazte miembro! — AETEL
 description: Cómo hacerte miembro de AETEL en dos sencillos pasos.
@@ -27,10 +26,12 @@ lang: es
 
   <div class="aetel-form">
     <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLScVtiKRDnrN-lLrGnvQFQkZw64IwhzoyRW_6R1psWVbTZ24jg/viewform?embedded=true"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0">
+      id="aetel-alta-frame"
+      src="https://erp-app.aetel.org/custom/externalaccess/public/alta.php?embed=1"
+      title="Formulario de inscripción en AETEL"
+      loading="lazy"
+      scrolling="no"
+      frameborder="0">
       Cargando…
     </iframe>
   </div>
@@ -109,19 +110,28 @@ lang: es
   .aetel-form iframe {
     display: block;
     width: 100%;
-    min-height: 1814px;
+    min-height: 420px;
     border: 0;
   }
 
   @media (max-width: 700px) {
     .aetel-form {
-      margin: 1.5rem -1rem 2.5rem;
-      width: calc(100% + 2rem);
-    }
-
-    .aetel-form iframe {
-      min-height: 2000px;
+      margin: 1.5rem 0 2.5rem;
     }
   }
 </style>
 
+<script>
+  // El formulario avisa de su altura para que el iframe no tenga barra de desplazamiento propia.
+  (function () {
+    var frame = document.getElementById('aetel-alta-frame');
+    window.addEventListener('message', function (e) {
+      if (e.origin !== 'https://erp-app.aetel.org' || e.source !== frame.contentWindow) {
+        return;
+      }
+      if (e.data && e.data.aetelFormHeight) {
+        frame.style.height = e.data.aetelFormHeight + 'px';
+      }
+    });
+  })();
+</script>
