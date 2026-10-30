@@ -1,5 +1,5 @@
-const ical = require("node-ical");
-const cursos = require("./cursos.js");
+import ical from "node-ical";
+import cursos from "./cursos.js";
 
 const ICS_DEFECTO = "https://calendar.google.com/calendar/ical/c_7f1977e13f5ed4f84210c8d6ca4c8d35d7221b022cb02c20f70935043bac9414%40group.calendar.google.com/public/basic.ics";
 const DIAS_VISTA = 180;
@@ -24,7 +24,7 @@ function fechaTexto(s, e, todoElDia) {
 	return fmtFechaHora.format(s) + " – " + fmtFechaHora.format(e);
 }
 
-module.exports = async function () {
+export default async function () {
 	const url = process.env.AETEL_ICS_URL || ICS_DEFECTO;
 
 	// Si el calendario no se puede leer, la construcción falla a propósito:
@@ -75,4 +75,4 @@ module.exports = async function () {
 		}
 	}
 	return out.sort((a, b) => a.start.localeCompare(b.start));
-};
+}

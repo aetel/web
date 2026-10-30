@@ -4,7 +4,7 @@ let cache = null;
 
 // Cursos con inscripción abierta, leídos de Dolibarr al construir la web.
 // Si falla, el calendario sigue funcionando (los eventos "Curso…" enlazan a /curso/).
-module.exports = async function () {
+export default async function () {
 	if (cache) {
 		return cache;
 	}
@@ -21,4 +21,4 @@ module.exports = async function () {
 		cache = [];
 	}
 	return cache;
-};
+}
