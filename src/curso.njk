@@ -1,0 +1,76 @@
+---
+layout: base.njk
+title: Curso — AETEL
+description: Información e inscripción a los cursos de AETEL.
+lang: es
+---
+
+<section class="hero"><div class="container">
+  <p class="breadcrumb"><a href="/">Inicio</a> / <a href="/eventos/">Eventos</a> / Curso</p>
+  <h1>Curso</h1>
+  <p class="lede">
+    Consulta la información del curso y rellena el formulario para
+    inscribirte. Si tienes cualquier duda, escribe a la Junta Directiva.
+  </p>
+</div></section>
+
+<section class="section"><div class="container">
+
+  <div class="aetel-form">
+    <iframe
+      id="aetel-curso-frame"
+      title="Inscripción a cursos de AETEL"
+      loading="lazy"
+      scrolling="no"
+      frameborder="0">
+      Cargando…
+    </iframe>
+    <noscript>
+      <p>Activa JavaScript para ver el formulario, o abre
+      <a href="https://erp-app.aetel.org/custom/externalaccess/public/curso.php">la página del curso</a>.</p>
+    </noscript>
+  </div>
+
+  <p>
+    Si tienes cualquier duda, escribe a la Junta Directiva en
+    <a href="mailto:junta@aetel.org">junta@aetel.org</a>.
+  </p>
+
+</div></section>
+
+<style>
+	.aetel-form {
+		width: 100%;
+		margin: 2rem 0 3rem;
+		overflow: hidden;
+	}
+
+	.aetel-form iframe {
+		display: block;
+		width: 100%;
+		min-height: 600px;
+		border: 0;
+	}
+</style>
+
+<script>
+	(function () {
+		var frame = document.getElementById('aetel-curso-frame');
+		var src = new URL('https://erp-app.aetel.org/custom/externalaccess/public/curso.php');
+		src.searchParams.set('embed', '1');
+		var c = (new URLSearchParams(location.search).get('curso') || '').toLowerCase();
+		if (/^[a-z0-9-]{1,40}$/.test(c)) {
+			src.searchParams.set('curso', c);
+		}
+		frame.src = src.toString();
+
+		window.addEventListener('message', function (e) {
+			if (e.origin !== 'https://erp-app.aetel.org' || e.source !== frame.contentWindow) {
+				return;
+			}
+			if (e.data && e.data.aetelFormHeight) {
+				frame.style.height = e.data.aetelFormHeight + 'px';
+			}
+		});
+	})();
+</script>
