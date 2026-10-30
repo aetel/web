@@ -18,7 +18,7 @@ lang: es
       <p class="evento-fecha" style="margin:0 0 .25rem;"><strong>{{ ev.fechaTexto }}</strong></p>
       {% if ev.location %}<p class="evento-lugar" style="margin:0 0 .5rem;">{{ ev.location }}</p>{% endif %}
       {% if ev.description %}<p class="evento-desc" style="white-space:pre-line;margin:0 0 .5rem;">{{ ev.description }}</p>{% endif %}
-      {% if ev.isCurso %}<p style="margin:0;"><a class="btn" href="{{ ev.cursoUrl }}">Ver curso e inscribirse</a></p>{% endif %}
+      {% if ev.isCurso %}<p style="margin:0;"><a class="btn" href="{{ ev.cursoUrl }}">{% if ev.cursoNombre %}Inscribirse: {{ ev.cursoNombre }}{% else %}Ver cursos e inscribirse{% endif %}</a></p>{% endif %}
     </li>
   {% endfor %}
   </ul>
