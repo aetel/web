@@ -9,17 +9,17 @@ lang: es
   <h1>Eventos</h1>
   <p class="lede">Aquí encontrarás nuestros próximos eventos y actividades.</p>
 </div></section>
-<section class="section"><div class="container">
+<section class="section section-eventos"><div class="container">
 {% if calendario and calendario.length %}
   <ul class="eventos">
   {% for ev in calendario %}
     <li class="evento">
       <h3>{{ ev.title }}</h3>
-      {% if ev.cursoSesion %}<p class="evento-sesion">{% if ev.cursoNombre %}{{ ev.cursoNombre }} · {% endif %}{{ ev.cursoSesion }}</p>{% endif %}
       <p class="evento-fecha"><strong>{{ ev.fechaTexto }}</strong></p>
+      {% if ev.cursoNombre %}<p class="evento-curso">{{ ev.cursoNombre }}{% if ev.sesionNum %} · sesión {{ ev.sesionNum }}{% endif %}{% if ev.horas %} · {{ ev.horas }} h acreditables{% endif %}</p>{% endif %}
       {% if ev.location %}<p class="evento-lugar">{{ ev.location }}</p>{% endif %}
       {% if ev.description %}<p class="evento-desc">{{ ev.description }}</p>{% endif %}
-      {% if ev.isCurso %}<p><a class="btn" href="{{ ev.cursoUrl }}">{% if ev.cursoNombre %}Inscribirse: {{ ev.cursoNombre }}{% else %}Ver cursos e inscribirse{% endif %}</a></p>{% endif %}
+      {% if ev.inscUrl %}<p><a class="btn" href="{{ ev.inscUrl }}">Inscribirme</a></p>{% endif %}
     </li>
   {% endfor %}
   </ul>
@@ -29,3 +29,19 @@ lang: es
   <p><a href="https://calendar.google.com/calendar?cid=Y183ZjE5NzdlMTNmNWVkNGY4NDIxMGM4ZDZjYTRjOGQzNWQ3MjIxYjAyMmNiMDJjMjBmNzA5MzUwNDNiYWM5NDE0QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20" rel="noopener">Añadir el calendario a Google Calendar</a></p>
   <p>Crónica de eventos pasados (Sphera, 3D Printer Party, viajes IEEE…) en <a href="/noticias/">Noticias</a>.</p>
 </div></section>
+
+<style>
+	/* Footer al suelo en páginas cortas */
+	body { min-height: 100vh; display: flex; flex-direction: column; }
+	body > footer, body > .site-footer { margin-top: auto; }
+	/* Menos hueco entre el título y la lista */
+	.hero + .section-eventos { padding-top: 1rem; }
+	.hero:has(+ .section-eventos) { padding-bottom: 1rem; }
+	.eventos { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+	.evento { margin: 0; padding: 1rem 0; border-bottom: 1px solid rgba(128, 128, 128, .25); }
+	.evento:first-child { padding-top: 0; }
+	.evento h3 { margin: 0 0 .25rem; }
+	.evento p { margin: 0 0 .25rem; }
+	.evento-desc { white-space: pre-line; }
+	.evento .btn { margin-top: .4rem; }
+</style>

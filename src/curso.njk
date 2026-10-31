@@ -10,11 +10,11 @@ lang: es
   <h1>Curso</h1>
   <p class="lede">
     Consulta la información del curso y rellena el formulario para
-    inscribirte. Si tienes cualquier duda, escribe a la Junta Directiva.
+    inscribirte. Puedes apuntarte solo a las sesiones que te interesen.
   </p>
 </div></section>
 
-<section class="section"><div class="container">
+<section class="section section-curso"><div class="container">
 
   <div class="aetel-form">
     <iframe
@@ -38,14 +38,39 @@ lang: es
 
 </div></section>
 
+<style>
+	body { min-height: 100vh; display: flex; flex-direction: column; }
+	body > footer, body > .site-footer { margin-top: auto; }
+	.hero + .section-curso { padding-top: 1rem; }
+	.hero:has(+ .section-curso) { padding-bottom: 1rem; }
+
+	.aetel-form {
+		width: 100%;
+		margin: 1rem 0 2rem;
+		overflow: hidden;
+	}
+
+	.aetel-form iframe {
+		display: block;
+		width: 100%;
+		min-height: 600px;
+		border: 0;
+	}
+</style>
+
 <script>
 	(function () {
 		var frame = document.getElementById('aetel-curso-frame');
+		var params = new URLSearchParams(location.search);
 		var src = new URL('https://erp-app.aetel.org/custom/externalaccess/public/curso.php');
 		src.searchParams.set('embed', '1');
-		var c = (new URLSearchParams(location.search).get('curso') || '').toLowerCase();
+		var c = (params.get('curso') || '').toLowerCase();
 		if (/^[a-z0-9-]{1,40}$/.test(c)) {
 			src.searchParams.set('curso', c);
+		}
+		var s = params.get('sesion') || '';
+		if (/^[0-9]{1,9}$/.test(s)) {
+			src.searchParams.set('sesion', s);
 		}
 		frame.src = src.toString();
 
