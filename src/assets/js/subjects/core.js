@@ -155,8 +155,10 @@ export function measure(t, y) {
 // ---------- dibujo ----------
 export function setup(cv) {
 	const w = cv.clientWidth;
-	const h = +cv.getAttribute("height");
+	if (!cv.dataset.h) cv.dataset.h = cv.getAttribute("height");
+	const h = +cv.dataset.h;
 	const d = window.devicePixelRatio || 1;
+	cv.style.height = h + "px";
 	cv.width = w * d;
 	cv.height = h * d;
 	const g = cv.getContext("2d");

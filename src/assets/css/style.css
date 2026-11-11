@@ -430,16 +430,17 @@ nav.main-nav a:hover { color: var(--color-primary); }
 
 /* Widgets interactivos */
 .wg {
-  display: grid; grid-template-columns: 290px 1fr; gap: 1.25rem; margin: 1.25rem 0 1.75rem;
+  display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 1.25rem; margin: 1.25rem 0 1.75rem;
   padding: 1.1rem; border: 1px solid var(--color-border); border-left: 4px solid var(--color-accent);
   border-radius: var(--radius); background: var(--color-base);
 }
-@media (max-width: 760px) { .wg { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .wg { grid-template-columns: minmax(0, 1fr); } }
+.wg > * { min-width: 0; }
 .wg-label { display: block; margin: 0.6rem 0 0; font-size: 0.9rem; }
 .wg-label b { color: var(--color-primary-dark); font-variant-numeric: tabular-nums; }
 .wg-label input[type=range] { width: 100%; accent-color: var(--color-primary); }
 .wg-label select { width: 100%; }
-.wg-canvas { width: 100%; display: block; margin-bottom: 0.6rem; background: var(--color-base); border: 1px solid var(--color-border); border-radius: 10px; }
+.wg-canvas { width: 100%; max-width: 100%; display: block; margin-bottom: 0.6rem; background: var(--color-base); border: 1px solid var(--color-border); border-radius: 10px; }
 .wg-res { margin-top: 0.9rem; padding: 0.6rem 0.8rem; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-surface); font-size: 0.88rem; }
 .wg-res div { display: flex; justify-content: space-between; gap: 0.5rem; }
 .wg-res span:last-child { font-weight: 700; font-variant-numeric: tabular-nums; }
