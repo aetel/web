@@ -17,7 +17,7 @@
           <a href="#">{{ nav.servicios.label }}</a>
           <ul class="dropdown">
             {% for item in nav.servicios.items %}
-            <li><a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.label }}</a></li>
+            <li><a href="{{ item.url }}"{% if item.url.startsWith("http") %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a></li>
             {% endfor %}
           </ul>
         </li>

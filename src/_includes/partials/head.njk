@@ -2,5 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }}{% if titleSuffix %} — {{ titleSuffix }}{% endif %}</title>
 <meta name="description" content="{{ description }}">
+{% if noindex %}<meta name="robots" content="noindex, nofollow">
+{% endif %}
 <link rel="icon" href="/assets/img/favicon-32.png" type="image/png">
 <link rel="stylesheet" href="/assets/css/style.css">

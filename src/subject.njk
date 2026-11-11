@@ -1,0 +1,84 @@
+---
+layout: base.njk
+pagination:
+  data: subjects
+  size: 1
+  alias: a
+permalink: "/subjects/{{ a.id }}/"
+noindex: true
+eleventyComputed:
+  title: "{{ a.nombre }}"
+---
+<style>
+	.tema-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start; }
+	.tema-card h3 { margin: 0 0 0.75rem; }
+	.tema-card h4 { margin: 1.1rem 0 0.4rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-muted); }
+	.tema-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+	.tema-card li a { font-weight: 600; text-decoration: none; }
+	.tema-card .tag { margin-left: 0.4rem; }
+</style>
+<section class="hero">
+	<div class="container">
+		<p class="breadcrumb"><a href="/subjects/">Material para el estudio</a></p>
+		<h1>{{ a.nombre }}</h1>
+		<p class="lede">{{ a.descripcion }}</p>
+	</div>
+</section>
+<section class="section">
+	<div class="container">
+		{% if a.apuntes.length %}
+		<h2>Documentos</h2>
+		<ul class="simple-list">
+		{% for d in a.apuntes %}
+			<li>{{ d.titulo }}: <a href="{{ d.pdf }}" target="_blank" rel="noopener">PDF</a> · <a href="{{ d.tex }}" download>fuentes TeX</a></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% if a.descargas.length %}
+		<h2>Código para descargar</h2>
+		<ul class="simple-list">
+		{% for d in a.descargas %}
+			<li><a href="{{ d.url }}" download>{{ d.titulo }}</a>{% if d.desc %}: {{ d.desc }}{% endif %}</li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+
+		{# Grupos = parte de "tema" antes de " · ". Primero los simples (Bloque 1, Bloque 2...), al final los combinados ("Bloque 1 y 2"). #}
+		{% set grupos = [] %}
+		{% for p in collections.subjects | sort(false, false, "data.orden") %}
+			{% if p.data.asignatura == a.id %}
+				{% set g = p.data.tema.split(" · ")[0] %}
+				{% if " y " not in g and g not in grupos %}{% set _ = grupos.push(g) %}{% endif %}
+			{% endif %}
+		{% endfor %}
+		{% for p in collections.subjects | sort(false, false, "data.orden") %}
+			{% if p.data.asignatura == a.id %}
+				{% set g = p.data.tema.split(" · ")[0] %}
+				{% if " y " in g and g not in grupos %}{% set _ = grupos.push(g) %}{% endif %}
+			{% endif %}
+		{% endfor %}
+
+		{% set titulos = { "apunte": "Teoría", "herramienta": "Herramientas interactivas", "ejercicio": "Ejemplos resueltos", "test": "Autoevaluación" } %}
+		<div class="grid tema-grid" style="margin-top:1.5rem">
+		{% for g in grupos %}
+			<div class="card tema-card">
+				<h3>{{ g }}</h3>
+				{% for tipo in ["apunte", "herramienta", "ejercicio", "test"] %}
+					{% set items = [] %}
+					{% for p in collections.subjects | sort(false, false, "data.orden") %}
+						{% if p.data.asignatura == a.id and p.data.tema.split(" · ")[0] == g and p.data.tipo == tipo %}{% set _ = items.push(p) %}{% endif %}
+					{% endfor %}
+					{% if items.length %}
+					<h4>{{ titulos[tipo] }}</h4>
+					<ul>
+					{% for p in items %}
+						<li><a href="{{ p.url }}"{% if p.data.resumen %} title="{{ p.data.resumen | escape }}"{% endif %}>{{ p.data.title }}</a>{% if " · " in p.data.tema %}<span class="tag">{{ p.data.tema.split(" · ")[1] }}</span>{% endif %}</li>
+					{% endfor %}
+					</ul>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+</section>

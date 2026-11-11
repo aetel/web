@@ -1,0 +1,10 @@
+[
+	{ "pregunta": "Un sistema tipo 1 ante entrada rampa tiene error en RP…", "opciones": ["nulo", "constante finito (1/K₁)", "infinito"], "correcta": 1, "explicacion": "El tipo 1 sigue la rampa con un retraso constante 1/Kv." },
+	{ "pregunta": "Polos en −1 y −20. ¿Cuál domina?", "opciones": ["−20", "−1", "ambos igual"], "correcta": 1, "explicacion": "Domina el más cercano al eje imaginario: el lento." },
+	{ "pregunta": "Polo doble real frente a un polo simple del mismo valor:", "opciones": ["más rápida", "igual", "≈60 % más lenta (tₛ)"], "correcta": 2, "explicacion": "Aparece el factor t y el tₛ sube un 1,6." },
+	{ "pregunta": "Un sistema discreto es estable si…", "opciones": ["Re[p] < 0", "|p| < 1", "|p| > 1"], "correcta": 1, "explicacion": "Todos los polos dentro del círculo unidad." },
+	{ "pregunta": "Dos sistemas continuos con la misma Re[p] tienen en común…", "opciones": ["el tiempo de establecimiento", "el periodo de oscilación", "el sobreimpulso"], "correcta": 0, "explicacion": "tₛ = π/|Re[p]|. El periodo lo fija Im[p]." },
+	{ "pregunta": "Dos sistemas discretos con la misma fase de sus polos tienen en común…", "opciones": ["el tₛ", "el periodo de oscilación (en muestras)", "la ganancia"], "correcta": 1, "explicacion": "kₐ = 2π/∠p." },
+	{ "pregunta": "Polo discreto en z = −0,6. La respuesta al escalón…", "opciones": ["crece monótona", "alterna de signo y se amortigua", "no se amortigua"], "correcta": 1, "explicacion": "Polo real negativo: signo alterno. Un EQD con ZOH nunca lo tiene." },
+	{ "pregunta": "Aumentar |Im[p]| con Re[p] constante provoca…", "opciones": ["más sobreimpulso, mismo tₛ", "menos sobreimpulso", "más tₛ"], "correcta": 0, "explicacion": "Mₚ = e^(π·Re/Im) crece al subir Im. tₛ no cambia." }
+]

@@ -1,0 +1,11 @@
+---
+permalink: /subjects/indice.json
+eleventyExcludeFromCollections: true
+---
+[
+{%- for p in collections.subjects %}
+{%- set nombre = "" %}
+{%- for a in subjects %}{% if a.id == p.data.asignatura %}{% set nombre = a.nombre %}{% endif %}{% endfor %}
+{{ { "url": p.url, "titulo": p.data.title, "asignatura": p.data.asignatura, "asignaturaNombre": nombre, "tipo": p.data.tipo, "tema": p.data.tema, "keywords": p.data.keywords, "resumen": p.data.resumen, "texto": (p.templateContent | striptags | truncate(3000, true, "")) } | dump | safe }}{% if not loop.last %},{% endif %}
+{%- endfor %}
+]

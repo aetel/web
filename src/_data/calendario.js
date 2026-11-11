@@ -1,4 +1,4 @@
-const ical = require("node-ical");
+import ical from "node-ical";
 
 const ICS_DEFECTO = "https://calendar.google.com/calendar/ical/c_7f1977e13f5ed4f84210c8d6ca4c8d35d7221b022cb02c20f70935043bac9414%40group.calendar.google.com/public/basic.ics";
 const CURSOS_DEFECTO = "https://erp-app.aetel.org/custom/externalaccess/public/cursos_json.php";
@@ -43,41 +43,66 @@ function textoFecha(s, e, allDay) {
 	return fFecha.format(s) + " " + fHora.format(s) + " – " + fFecha.format(e) + " " + fHora.format(e);
 }
 
-// evento_id de Dolibarr -> curso/sesión. Sin conexión o sin cursos: lista vacía y la web sigue funcionando.
+// evento_id de Dolibarr -> curso/sesión.
 async function cargarCursos() {
 	const url = process.env.AETEL_CURSOS_URL || CURSOS_DEFECTO;
 	const mapa = [];
+
 	try {
 		const ctl = new AbortController();
 		const t = setTimeout(() => ctl.abort(), 15000);
-		const r = await fetch(url, { signal: ctl.signal, headers: { Accept: "application/json" } });
+		const r = await fetch(url, {
+			signal: ctl.signal,
+			headers: { Accept: "application/json" }
+		});
 		clearTimeout(t);
+
 		if (!r.ok) {
 			throw new Error("HTTP " + r.status);
 		}
+
 		const datos = await r.json();
+
 		for (const c of datos.cursos || []) {
 			if (c.evento_id) {
-				mapa.push({ evento: c.evento_id, ref: c.ref, nombre: c.nombre, sesion: 0, sesionNum: 0, horas: 0 });
+				mapa.push({
+					evento: c.evento_id,
+					ref: c.ref,
+					nombre: c.nombre,
+					sesion: 0,
+					sesionNum: 0,
+					horas: 0
+				});
 			}
+
 			for (const s of c.sesiones || []) {
 				if (s.evento_id) {
-					mapa.push({ evento: s.evento_id, ref: c.ref, nombre: c.nombre, sesion: s.id, sesionNum: s.orden, horas: s.horas || 0 });
+					mapa.push({
+						evento: s.evento_id,
+						ref: c.ref,
+						nombre: c.nombre,
+						sesion: s.id,
+						sesionNum: s.orden,
+						horas: s.horas || 0
+					});
 				}
 			}
 		}
 	} catch (err) {
 		console.warn("[calendario] no se pudieron leer los cursos:", err.message);
 	}
+
 	return mapa;
 }
 
-// El UID del ICS de Google es "<id>@google.com"; las instancias de eventos periódicos llevan sufijo _FECHA en el evento_id.
+// El UID del ICS de Google es "<id>@google.com".
 function buscarCurso(mapa, uid) {
 	const id = String(uid || "").replace(/@google\.com$/i, "").toLowerCase();
+
 	if (!id) {
 		return null;
 	}
+
 	return mapa.find((m) => m.evento === id || m.evento.startsWith(id + "_")) || null;
 }
 
@@ -90,6 +115,7 @@ function mapear(ev, s, e, mapa) {
 
 	let ref = "";
 	let sesion = 0;
+
 	if (enlazado) {
 		ref = enlazado.ref;
 		sesion = enlazado.sesion;
@@ -113,15 +139,17 @@ function mapear(ev, s, e, mapa) {
 	};
 }
 
-module.exports = async function () {
+export default async function () {
 	const url = process.env.AETEL_ICS_URL || ICS_DEFECTO;
 	let datos;
+
 	try {
 		datos = await ical.async.fromURL(url);
 	} catch (err) {
 		console.warn("[calendario] no se pudo leer el ICS:", err.message);
 		return [];
 	}
+
 	const mapa = await cargarCursos();
 
 	const ahora = new Date();
@@ -129,21 +157,28 @@ module.exports = async function () {
 	limite.setMonth(limite.getMonth() + MESES_VENTANA);
 
 	const out = [];
+
 	for (const ev of Object.values(datos)) {
 		if (ev.type !== "VEVENT" || !ev.start || ev.status === "CANCELLED") {
 			continue;
 		}
+
 		const s0 = new Date(ev.start);
 		const e0 = ev.end ? new Date(ev.end) : new Date(s0);
 		const dur = e0 - s0;
 
 		if (ev.rrule) {
-			const excluidas = ev.exdate ? Object.values(ev.exdate).map((d) => +new Date(d)) : [];
+			const excluidas = ev.exdate
+				? Object.values(ev.exdate).map((d) => +new Date(d))
+				: [];
+
 			const desde = new Date(ahora.getTime() - dur);
+
 			for (const d of ev.rrule.between(desde, limite, true)) {
 				if (excluidas.includes(+d)) {
 					continue;
 				}
+
 				out.push(mapear(ev, d, new Date(d.getTime() + dur), mapa));
 			}
 		} else if (e0 >= ahora && s0 <= limite) {
@@ -152,5 +187,6 @@ module.exports = async function () {
 	}
 
 	out.sort((a, b) => new Date(a.start) - new Date(b.start));
+
 	return out.slice(0, MAX_EVENTOS);
 };

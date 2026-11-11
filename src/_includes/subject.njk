@@ -1,0 +1,35 @@
+---
+layout: base.njk
+---
+{# Layout de cada pagina de asignatura. Campos de front matter:
+   title, asignatura (id de _data/subjects.json), tipo (apunte|herramienta|ejercicio|test),
+   tema, orden, resumen, keywords[], refs[{doc, pagina, texto}] #}
+{% set asig = null %}
+{% for a in subjects %}{% if a.id == asignatura %}{% set asig = a %}{% endif %}{% endfor %}
+<section class="hero">
+	<div class="container">
+		<p class="breadcrumb"><a href="/subjects/">Recursos</a> › <a href="/subjects/{{ asignatura }}/">{{ asig.nombre }}</a>{% if tema %} › {{ tema }}{% endif %}</p>
+		<h1>{{ title }}</h1>
+		{% if resumen %}<p class="lede">{{ resumen }}</p>{% endif %}
+	</div>
+</section>
+<section class="section">
+	<div class="container prose asig-body">
+		{{ content | safe }}
+
+		{% if refs %}
+		<aside class="callout asig-refs">
+			<h3>Documentación relacionada</h3>
+			<ul>
+			{% for r in refs %}
+				{% for d in asig.apuntes %}{% if d.id == r.doc %}
+				<li><a href="{{ d.pdf }}#page={{ r.pagina }}" target="_blank" rel="noopener">{{ d.titulo }}, pág. {{ r.pagina }}</a>{% if r.texto %}: {{ r.texto }}{% endif %}
+					· <a href="{{ d.tex }}" download>fuentes TeX</a></li>
+				{% endif %}{% endfor %}
+			{% endfor %}
+			</ul>
+		</aside>
+		{% endif %}
+	</div>
+</section>
+<script type="module" src="/assets/js/subjects/loader.js"></script>

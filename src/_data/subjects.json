@@ -1,0 +1,33 @@
+[
+	{
+		"id": "sistemas-control",
+		"nombre": "Sistemas de Control",
+		"descripcion": "Análisis temporal de sistemas continuos y discretos: error en régimen permanente, polos dominantes, respuesta sobreamortiguada, crítica y subamortiguada.",
+		"apuntes": [
+			{
+				"id": "resumen-t2",
+				"titulo": "Resumen Tema 2 (ilustrado)",
+				"pdf": "/assets/docs/subjects/sistemas-control/Resumen_T2_ilustrado.pdf",
+				"tex": "/assets/docs/subjects/sistemas-control/Resumen_T2_tex.zip"
+			}
+		]
+	},
+	{
+		"id": "sbm",
+		"nombre": "Sistemas Basados en Microprocesadores",
+		"descripcion": "Periféricos del STM32F429 en la placa Nucleo-144: reloj y PLL, timers, interrupciones, GPIO, USART, I2C, SPI y CMSIS-RTOS2.",
+		"apuntes": [],
+		"descargas": [
+			{
+				"titulo": "tim_param_calc.c",
+				"url": "/assets/docs/subjects/sbm/tim_param_calc.c",
+				"desc": "Calcula PSC y ARR en el propio micro a partir del reloj real del timer."
+			},
+			{
+				"titulo": "tim_param_calc.h",
+				"url": "/assets/docs/subjects/sbm/tim_param_calc.h",
+				"desc": "Cabecera con tim_config(), tim_calc() y tim_get_clock()."
+			}
+		]
+	}
+]

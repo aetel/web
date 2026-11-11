@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: Material para el estudio
+permalink: /subjects/
+noindex: true
+---
+<section class="hero">
+	<div class="container">
+		<h1>Material para el estudio</h1>
+		<p class="lede">Herramientas interactivas y material de apoyo. Busca por concepto o entra en una colección.</p>
+	</div>
+</section>
+<section class="section">
+	<div class="container">
+		<div class="buscador">
+			<input id="buscar-q" type="search" placeholder="Buscar: polo dominante, error en rampa, tipo de sistema…" aria-label="Buscar">
+			<select id="buscar-asig" aria-label="Colección"><option value="">Todas las colecciones</option></select>
+			<select id="buscar-tipo" aria-label="Tipo"><option value="">Todo tipo</option></select>
+		</div>
+		<ul id="buscar-res" class="post-list" hidden></ul>
+		<div id="subjects-boxes">
+			<div class="grid subject-grid">
+			{% set etiquetas = { "apunte": "Teoría", "herramienta": "Herramientas", "ejercicio": "Ejemplos", "test": "Tests" } %}
+			{% for a in subjects %}
+				<div class="card subject-card">
+					<h3><a href="/subjects/{{ a.id }}/">{{ a.nombre }}</a></h3>
+					<p>{{ a.descripcion }}</p>
+					<ul class="subject-chips">
+					{% for tipo in ["apunte", "herramienta", "ejercicio", "test"] %}
+						{% set items = [] %}
+						{% for p in collections.subjects %}
+							{% if p.data.asignatura == a.id and p.data.tipo == tipo %}{% set _ = items.push(p) %}{% endif %}
+						{% endfor %}
+						{% if items.length %}<li class="tag">{{ items.length }} · {{ etiquetas[tipo] }}</li>{% endif %}
+					{% endfor %}
+					</ul>
+					<a class="btn btn-outline" href="/subjects/{{ a.id }}/">Entrar</a>
+				</div>
+			{% endfor %}
+			</div>
+			<p class="notice" style="margin-top:1.5rem">¿Tienes algo que aportar? Escríbenos desde <a href="/contacto">Contacto</a>.</p>
+		</div>
+	</div>
+</section>
+<script type="module" src="/assets/js/subjects/buscar.js"></script>
