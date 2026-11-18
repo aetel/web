@@ -1,4 +1,9 @@
+import pluginMermaid from "@kevingimbel/eleventy-plugin-mermaid";
+
 export default function (eleventyConfig) {
+  // Add the Mermaid plugin
+  eleventyConfig.addPlugin(pluginMermaid);
+
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("CNAME");
 

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="nucleo-svg"
+   viewBox="0 0 230 285"
+   width="800"
+   height="990"
+   version="1.1">
+  <style id="svg-styles">
+    .pin {
+      stroke: #111;
+      stroke-width: 0.25px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .pin:hover, .pin.selected {
+      stroke: #fff;
+      stroke-width: 0.65px;
+      fill: #00e5ff !important;
+    }
+    .pin.search-match {
+      fill: #00ff66 !important;
+      stroke: #003311;
+      stroke-width: 0.55px;
+    }
+    .pin.dimmed {
+      opacity: 0.22;
+    }
+    .io  { fill: #d8e2ff; }
+    .vcc { fill: #ef4444; }
+    .gnd { fill: #1e293b; }
+    .rst { fill: #facc15; }
+    .nc  { fill: #94a3b8; }
+
+    .silk-pin { font-family: 'Consolas', monospace; font-size: 2.35px; fill: #1e293b; font-weight: 600; pointer-events: none; }
+    .silk-alt { font-family: 'Consolas', monospace; font-size: 2.05px; fill: #0369a1; pointer-events: none; }
+    .silk-small { font-family: sans-serif; font-size: 2px; fill: #334155; pointer-events: none; }
+    .conn-hdr { font-family: sans-serif; font-size: 3.1px; font-weight: 800; fill: #0f172a; pointer-events: none; }
+  </style>
+
+  <defs>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="30%" stop-color="#e2e8f0" />
+      <stop offset="70%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+    <filter id="compShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0.4" dy="0.6" stdDeviation="0.5" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- ================= CAPA 1: SILUETA DE LA PCB (MB1137) ================= -->
+  <g id="layer-pcb" inkscape:groupmode="layer" inkscape:label="outline">
+    <path d="M 48,14 
+             L 182,14 
+             Q 185,14 185,17 
+             L 185,55 
+             L 181,55 L 181,59 L 185,59 
+             L 185,256 
+             L 178,263 
+             L 52,263 
+             L 45,256 
+             L 45,59 
+             L 49,59 L 49,55 L 45,55 
+             L 45,17 
+             Q 45,14 48,14 Z"
+          fill="#f8fafc" stroke="#1e293b" stroke-width="0.7" filter="url(#compShadow)" />
+
+    <line x1="49" y1="57" x2="181" y2="57" stroke="#94a3b8" stroke-width="0.45" stroke-dasharray="1.8,1.5" />
+
+    <!-- 4 Agujeros de montaje con anillo dorado -->
+    <g>
+      <circle cx="54" cy="64" r="3.4" fill="#eab308" stroke="#a16207" stroke-width="0.3" />
+      <circle cx="54" cy="64" r="2.1" fill="#1e2638" />
+      <circle cx="176" cy="64" r="3.4" fill="#eab308" stroke="#a16207" stroke-width="0.3" />
+      <circle cx="176" cy="64" r="2.1" fill="#1e2638" />
+      <circle cx="54" cy="227" r="3.4" fill="#eab308" stroke="#a16207" stroke-width="0.3" />
+      <circle cx="54" cy="227" r="2.1" fill="#1e2638" />
+      <circle cx="176" cy="227" r="3.4" fill="#eab308" stroke="#a16207" stroke-width="0.3" />
+      <circle cx="176" cy="227" r="2.1" fill="#1e2638" />
+    </g>
+
+    <!-- Serigrafía inferior ST y Nucleo -->
+    <text x="148" y="232" font-family="sans-serif" font-size="8" font-weight="900" font-style="italic" fill="#0284c7">ST</text>
+    <text x="140" y="237" font-family="sans-serif" font-size="2.3" font-weight="bold" fill="#0284c7">MB1137 Rev B</text>
+    <text x="82" y="234" font-family="sans-serif" font-size="4.5" font-weight="bold" fill="#0284c7">Nucleo</text>
+    <text x="115" y="241" font-family="sans-serif" font-size="2.2" fill="#334155" text-anchor="middle">www.st.com/stm32nucleo</text>
+  </g>
+
+  <!-- ================= CAPA 2: COMPONENTES ELECTRÓNICOS ================= -->
+  <g id="layer-components" inkscape:groupmode="layer" inkscape:label="components">
+    <rect x="107" y="10" width="16" height="11" rx="0.8" fill="url(#metalGrad)" stroke="#334155" stroke-width="0.4" />
+    <line x1="110" y1="14" x2="120" y2="14" stroke="#475569" stroke-width="0.4" />
+    <text x="105" y="17" class="silk-small" text-anchor="end">CN1</text>
+
+    <g transform="translate(108, 30)">
+      <rect x="0" y="0" width="14" height="14" rx="0.6" fill="#1e293b" stroke="#000" stroke-width="0.3" />
+      <circle cx="2" cy="2" r="0.6" fill="#64748b" />
+      <text x="7" y="6.5" font-family="sans-serif" font-size="2" fill="#cbd5e1" text-anchor="middle">STM32</text>
+      <text x="7" y="9.2" font-family="sans-serif" font-size="1.8" fill="#94a3b8" text-anchor="middle">ST-LINK</text>
+    </g>
+
+    <rect x="74" y="22" width="5" height="9" fill="#1e293b" rx="0.4" />
+    <rect x="74.5" y="23" width="4" height="3" fill="#dc2626" rx="0.3" />
+    <rect x="74.5" y="27" width="4" height="3" fill="#dc2626" rx="0.3" />
+    <text x="72.5" y="27" class="silk-small" text-anchor="end">CN4</text>
+
+    <rect x="131" y="63" width="9" height="5" fill="#1e293b" rx="0.4" />
+    <rect x="134" y="63.5" width="3" height="4" fill="#334155" stroke="#94a3b8" stroke-width="0.2" />
+    <text x="135.5" y="61.5" class="silk-small" text-anchor="middle">JP3 (U5V)</text>
+
+    <g transform="translate(99, 61)">
+      <rect x="0" y="0" width="2.5" height="1.6" fill="#22c55e" stroke="#14532d" stroke-width="0.2" />
+      <text x="1.25" y="-1" class="silk-small" text-anchor="middle">LD1</text>
+      <rect x="7" y="0" width="2.5" height="1.6" fill="#3b82f6" stroke="#1e3a8a" stroke-width="0.2" />
+      <text x="8.25" y="-1" class="silk-small" text-anchor="middle">LD2</text>
+      <rect x="14" y="0" width="2.5" height="1.6" fill="#ef4444" stroke="#7f1d1d" stroke-width="0.2" />
+      <text x="15.25" y="-1" class="silk-small" text-anchor="middle">LD3</text>
+    </g>
+
+    <rect x="73" y="64" width="7" height="4.5" fill="#eab308" stroke="#854d0e" stroke-width="0.25" rx="0.4" />
+    <rect x="73" y="64" width="1.5" height="4.5" fill="#a16207" />
+    <rect x="86" y="63" width="7" height="7" fill="#1e293b" />
+    <rect x="88" y="60.5" width="3" height="2.5" fill="#94a3b8" />
+
+    <!-- MCU PRINCIPAL: STM32F429ZIT6 (LQFP144) -->
+    <g id="mcu-lqfp144" transform="translate(93, 113)">
+      <g id="mcu-pins-group" fill="#cbd5e1" stroke="#64748b" stroke-width="0.1">
+        <rect x="4.2" y="0.5" width="0.55" height="2.5" />
+        <rect x="4.2" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="4.2" width="2.5" height="0.55" />
+        <rect x="41" y="4.2" width="2.5" height="0.55" />
+        <rect x="5.19" y="0.5" width="0.55" height="2.5" />
+        <rect x="5.19" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="5.19" width="2.5" height="0.55" />
+        <rect x="41" y="5.19" width="2.5" height="0.55" />
+        <rect x="6.18" y="0.5" width="0.55" height="2.5" />
+        <rect x="6.18" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="6.18" width="2.5" height="0.55" />
+        <rect x="41" y="6.18" width="2.5" height="0.55" />
+        <rect x="7.17" y="0.5" width="0.55" height="2.5" />
+        <rect x="7.17" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="7.17" width="2.5" height="0.55" />
+        <rect x="41" y="7.17" width="2.5" height="0.55" />
+        <rect x="8.16" y="0.5" width="0.55" height="2.5" />
+        <rect x="8.16" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="8.16" width="2.5" height="0.55" />
+        <rect x="41" y="8.16" width="2.5" height="0.55" />
+        <rect x="9.15" y="0.5" width="0.55" height="2.5" />
+        <rect x="9.15" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="9.15" width="2.5" height="0.55" />
+        <rect x="41" y="9.15" width="2.5" height="0.55" />
+        <rect x="10.14" y="0.5" width="0.55" height="2.5" />
+        <rect x="10.14" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="10.14" width="2.5" height="0.55" />
+        <rect x="41" y="10.14" width="2.5" height="0.55" />
+        <rect x="11.13" y="0.5" width="0.55" height="2.5" />
+        <rect x="11.13" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="11.13" width="2.5" height="0.55" />
+        <rect x="41" y="11.13" width="2.5" height="0.55" />
+        <rect x="12.12" y="0.5" width="0.55" height="2.5" />
+        <rect x="12.12" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="12.12" width="2.5" height="0.55" />
+        <rect x="41" y="12.12" width="2.5" height="0.55" />
+        <rect x="13.11" y="0.5" width="0.55" height="2.5" />
+        <rect x="13.11" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="13.11" width="2.5" height="0.55" />
+        <rect x="41" y="13.11" width="2.5" height="0.55" />
+        <rect x="14.1" y="0.5" width="0.55" height="2.5" />
+        <rect x="14.1" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="14.1" width="2.5" height="0.55" />
+        <rect x="41" y="14.1" width="2.5" height="0.55" />
+        <rect x="15.09" y="0.5" width="0.55" height="2.5" />
+        <rect x="15.09" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="15.09" width="2.5" height="0.55" />
+        <rect x="41" y="15.09" width="2.5" height="0.55" />
+        <rect x="16.08" y="0.5" width="0.55" height="2.5" />
+        <rect x="16.08" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="16.08" width="2.5" height="0.55" />
+        <rect x="41" y="16.08" width="2.5" height="0.55" />
+        <rect x="17.07" y="0.5" width="0.55" height="2.5" />
+        <rect x="17.07" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="17.07" width="2.5" height="0.55" />
+        <rect x="41" y="17.07" width="2.5" height="0.55" />
+        <rect x="18.06" y="0.5" width="0.55" height="2.5" />
+        <rect x="18.06" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="18.06" width="2.5" height="0.55" />
+        <rect x="41" y="18.06" width="2.5" height="0.55" />
+        <rect x="19.05" y="0.5" width="0.55" height="2.5" />
+        <rect x="19.05" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="19.05" width="2.5" height="0.55" />
+        <rect x="41" y="19.05" width="2.5" height="0.55" />
+        <rect x="20.04" y="0.5" width="0.55" height="2.5" />
+        <rect x="20.04" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="20.04" width="2.5" height="0.55" />
+        <rect x="41" y="20.04" width="2.5" height="0.55" />
+        <rect x="21.03" y="0.5" width="0.55" height="2.5" />
+        <rect x="21.03" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="21.03" width="2.5" height="0.55" />
+        <rect x="41" y="21.03" width="2.5" height="0.55" />
+        <rect x="22.02" y="0.5" width="0.55" height="2.5" />
+        <rect x="22.02" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="22.02" width="2.5" height="0.55" />
+        <rect x="41" y="22.02" width="2.5" height="0.55" />
+        <rect x="23.01" y="0.5" width="0.55" height="2.5" />
+        <rect x="23.01" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="23.01" width="2.5" height="0.55" />
+        <rect x="41" y="23.01" width="2.5" height="0.55" />
+        <rect x="24.0" y="0.5" width="0.55" height="2.5" />
+        <rect x="24.0" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="24.0" width="2.5" height="0.55" />
+        <rect x="41" y="24.0" width="2.5" height="0.55" />
+        <rect x="24.99" y="0.5" width="0.55" height="2.5" />
+        <rect x="24.99" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="24.99" width="2.5" height="0.55" />
+        <rect x="41" y="24.99" width="2.5" height="0.55" />
+        <rect x="25.98" y="0.5" width="0.55" height="2.5" />
+        <rect x="25.98" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="25.98" width="2.5" height="0.55" />
+        <rect x="41" y="25.98" width="2.5" height="0.55" />
+        <rect x="26.97" y="0.5" width="0.55" height="2.5" />
+        <rect x="26.97" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="26.97" width="2.5" height="0.55" />
+        <rect x="41" y="26.97" width="2.5" height="0.55" />
+        <rect x="27.96" y="0.5" width="0.55" height="2.5" />
+        <rect x="27.96" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="27.96" width="2.5" height="0.55" />
+        <rect x="41" y="27.96" width="2.5" height="0.55" />
+        <rect x="28.95" y="0.5" width="0.55" height="2.5" />
+        <rect x="28.95" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="28.95" width="2.5" height="0.55" />
+        <rect x="41" y="28.95" width="2.5" height="0.55" />
+        <rect x="29.94" y="0.5" width="0.55" height="2.5" />
+        <rect x="29.94" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="29.94" width="2.5" height="0.55" />
+        <rect x="41" y="29.94" width="2.5" height="0.55" />
+        <rect x="30.93" y="0.5" width="0.55" height="2.5" />
+        <rect x="30.93" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="30.93" width="2.5" height="0.55" />
+        <rect x="41" y="30.93" width="2.5" height="0.55" />
+        <rect x="31.92" y="0.5" width="0.55" height="2.5" />
+        <rect x="31.92" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="31.92" width="2.5" height="0.55" />
+        <rect x="41" y="31.92" width="2.5" height="0.55" />
+        <rect x="32.91" y="0.5" width="0.55" height="2.5" />
+        <rect x="32.91" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="32.91" width="2.5" height="0.55" />
+        <rect x="41" y="32.91" width="2.5" height="0.55" />
+        <rect x="33.9" y="0.5" width="0.55" height="2.5" />
+        <rect x="33.9" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="33.9" width="2.5" height="0.55" />
+        <rect x="41" y="33.9" width="2.5" height="0.55" />
+        <rect x="34.89" y="0.5" width="0.55" height="2.5" />
+        <rect x="34.89" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="34.89" width="2.5" height="0.55" />
+        <rect x="41" y="34.89" width="2.5" height="0.55" />
+        <rect x="35.88" y="0.5" width="0.55" height="2.5" />
+        <rect x="35.88" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="35.88" width="2.5" height="0.55" />
+        <rect x="41" y="35.88" width="2.5" height="0.55" />
+        <rect x="36.87" y="0.5" width="0.55" height="2.5" />
+        <rect x="36.87" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="36.87" width="2.5" height="0.55" />
+        <rect x="41" y="36.87" width="2.5" height="0.55" />
+        <rect x="37.86" y="0.5" width="0.55" height="2.5" />
+        <rect x="37.86" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="37.86" width="2.5" height="0.55" />
+        <rect x="41" y="37.86" width="2.5" height="0.55" />
+        <rect x="38.85" y="0.5" width="0.55" height="2.5" />
+        <rect x="38.85" y="41" width="0.55" height="2.5" />
+        <rect x="0.5" y="38.85" width="2.5" height="0.55" />
+        <rect x="41" y="38.85" width="2.5" height="0.55" />
+      </g>
+      <rect x="3" y="3" width="38" height="38" rx="1" fill="#18181b" stroke="#000" stroke-width="0.4" filter="url(#compShadow)" />
+      <rect x="4.5" y="4.5" width="35" height="35" fill="none" stroke="#27272a" stroke-width="0.3" />
+      <circle cx="7" cy="7" r="1.1" fill="#3f3f46" />
+      <text x="8" y="13" font-family="sans-serif" font-size="3.6" font-weight="900" font-style="italic" fill="#a1a1aa">ST</text>
+      <text x="22" y="19" font-family="monospace" font-size="2.7" font-weight="bold" fill="#d4d4d8" text-anchor="middle">STM32F429ZIT6</text>
+      <text x="22" y="24" font-family="sans-serif" font-size="3.4" font-weight="bold" fill="#a1a1aa" text-anchor="middle">ARM</text>
+      <text x="22" y="28.5" font-family="monospace" font-size="2.1" fill="#71717a" text-anchor="middle">LQFP144 · 180MHz</text>
+    </g>
+
+    <rect x="103" y="164" width="3" height="6" fill="#cbd5e1" stroke="#475569" stroke-width="0.25" />
+    <rect x="111" y="165" width="4.5" height="3.5" fill="#94a3b8" stroke="#334155" stroke-width="0.25" />
+
+    <rect x="122" y="206" width="16" height="12" rx="0.5" fill="#1e293b" stroke="#000" stroke-width="0.3" />
+    <text x="130" y="213" font-family="monospace" font-size="2.1" fill="#94a3b8" text-anchor="middle">LAN8742A / MAG</text>
+
+    <g transform="translate(119, 243)">
+      <rect x="0" y="0" width="26" height="24" rx="0.6" fill="url(#metalGrad)" stroke="#334155" stroke-width="0.45" />
+      <rect x="3" y="18" width="20" height="6" fill="#475569" />
+      <text x="13" y="11" font-family="sans-serif" font-size="2.6" font-weight="bold" fill="#1e293b" text-anchor="middle">ETHERNET</text>
+      <text x="13" y="14.5" font-family="monospace" font-size="2.1" fill="#334155" text-anchor="middle">CN14 (RMII)</text>
+    </g>
+
+    <g transform="translate(77, 255)">
+      <rect x="0" y="0" width="14" height="10" rx="0.6" fill="url(#metalGrad)" stroke="#334155" stroke-width="0.4" />
+      <text x="7" y="6" font-family="sans-serif" font-size="2.1" font-weight="bold" fill="#1e293b" text-anchor="middle">USB OTG</text>
+    </g>
+
+    <g transform="translate(51, 245)">
+      <rect x="0" y="0" width="10" height="10" rx="0.8" fill="#cbd5e1" stroke="#475569" stroke-width="0.3" />
+      <circle cx="5" cy="5" r="3.1" fill="#2563eb" stroke="#1d4ed8" stroke-width="0.3" />
+      <text x="5" y="13" class="silk-small" text-anchor="middle">B1 USER</text>
+    </g>
+
+    <g transform="translate(169, 245)">
+      <rect x="0" y="0" width="10" height="10" rx="0.8" fill="#cbd5e1" stroke="#475569" stroke-width="0.3" />
+      <circle cx="5" cy="5" r="3.1" fill="#1e293b" stroke="#000" stroke-width="0.3" />
+      <text x="5" y="13" class="silk-small" text-anchor="middle">B2 RESET</text>
+    </g>
+
+    <!-- CARCASAS DE LOS 4 CONECTORES HEMBRA ST ZIO -->
+    <rect x="57" y="75" width="9.5" height="33.5" rx="0.6" fill="#18181b" stroke="#000" stroke-width="0.4" filter="url(#compShadow)" />
+    <text x="61.75" y="73.2" class="conn-hdr" text-anchor="middle">CN8</text>
+
+    <rect x="57" y="114" width="9.5" height="61.5" rx="0.6" fill="#18181b" stroke="#000" stroke-width="0.4" filter="url(#compShadow)" />
+    <text x="61.75" y="112.2" class="conn-hdr" text-anchor="middle">CN9</text>
+
+    <rect x="163.5" y="75" width="9.5" height="41.5" rx="0.6" fill="#18181b" stroke="#000" stroke-width="0.4" filter="url(#compShadow)" />
+    <text x="168.25" y="73.2" class="conn-hdr" text-anchor="middle">CN7</text>
+
+    <rect x="163.5" y="122" width="9.5" height="69.5" rx="0.6" fill="#18181b" stroke="#000" stroke-width="0.4" filter="url(#compShadow)" />
+    <text x="168.25" y="120.2" class="conn-hdr" text-anchor="middle">CN10</text>
+  </g>
+
+  <!-- ================= CAPA 3: PINES INTERACTIVOS ================= -->
+  <g id="layer-pins" inkscape:groupmode="layer" inkscape:label="pins">
+    <rect id="CN8-1" class="pin nc" x="58.2" y="76.2" width="3.0" height="3.0" rx="0.3" inkscape:name="NC (NC) - No Conectado" data-stm="NC" data-zio="NC" data-port="" data-funcs="No Conectado" />
+    <rect id="CN8-3" class="pin vcc" x="58.2" y="80.2" width="3.0" height="3.0" rx="0.3" inkscape:name="IOREF (IOREF) - +3.3V Referencia I/O Arduino" data-stm="IOREF" data-zio="IOREF" data-port="" data-funcs="+3.3V Referencia I/O Arduino" />
+    <rect id="CN8-5" class="pin rst" x="58.2" y="84.2" width="3.0" height="3.0" rx="0.3" inkscape:name="NRST (RESET) - RESET del Microcontrolador | B2 Push-Button" data-stm="NRST" data-zio="RESET" data-port="" data-funcs="RESET del Microcontrolador | B2 Push-Button" />
+    <rect id="CN8-7" class="pin vcc" x="58.2" y="88.2" width="3.0" height="3.0" rx="0.3" inkscape:name="+3.3V (+3V3) - Salida/Entrada +3.3V (500mA max)" data-stm="+3.3V" data-zio="+3V3" data-port="" data-funcs="Salida/Entrada +3.3V (500mA max)" />
+    <rect id="CN8-9" class="pin vcc" x="58.2" y="92.2" width="3.0" height="3.0" rx="0.3" inkscape:name="+5V (+5V) - Salida +5V" data-stm="+5V" data-zio="+5V" data-port="" data-funcs="Salida +5V" />
+    <rect id="CN8-11" class="pin gnd" x="58.2" y="96.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN8-13" class="pin gnd" x="58.2" y="100.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN8-15" class="pin vcc" x="58.2" y="104.2" width="3.0" height="3.0" rx="0.3" inkscape:name="VIN (VIN) - Entrada Alimentación Externa (7V - 12V)" data-stm="VIN" data-zio="VIN" data-port="" data-funcs="Entrada Alimentación Externa (7V - 12V)" />
+    <rect id="CN8-2" class="pin io pc" x="62.3" y="76.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC8 (D43) - GPIO PC8 | SDMMC_D0 | TIM3_CH3 | TIM8_CH3 | USART6_CK | DCMI_D2" data-stm="PC8" data-zio="D43" data-port="pc" data-funcs="GPIO PC8 | SDMMC_D0 | TIM3_CH3 | TIM8_CH3 | USART6_CK | DCMI_D2" />
+    <rect id="CN8-4" class="pin io pc" x="62.3" y="80.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC9 (D44) - GPIO PC9 | SDMMC_D1 | I2S_A_CKIN | TIM3_CH4 | TIM8_CH4 | I2C3_SDA | DCMI_D3" data-stm="PC9" data-zio="D44" data-port="pc" data-funcs="GPIO PC9 | SDMMC_D1 | I2S_A_CKIN | TIM3_CH4 | TIM8_CH4 | I2C3_SDA | DCMI_D3" />
+    <rect id="CN8-6" class="pin io pc" x="62.3" y="84.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC10 (D45) - GPIO PC10 | SDMMC_D2 | SPI3_SCK | I2S3_CK | USART3_TX | UART4_TX | DCMI_D8" data-stm="PC10" data-zio="D45" data-port="pc" data-funcs="GPIO PC10 | SDMMC_D2 | SPI3_SCK | I2S3_CK | USART3_TX | UART4_TX | DCMI_D8" />
+    <rect id="CN8-8" class="pin io pc" x="62.3" y="88.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC11 (D46) - GPIO PC11 | SDMMC_D3 | SPI3_MISO | USART3_RX | UART4_RX | DCMI_D4" data-stm="PC11" data-zio="D46" data-port="pc" data-funcs="GPIO PC11 | SDMMC_D3 | SPI3_MISO | USART3_RX | UART4_RX | DCMI_D4" />
+    <rect id="CN8-10" class="pin io pc" x="62.3" y="92.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC12 (D47) - GPIO PC12 | SDMMC_CK | SPI3_MOSI | I2S3_SD | USART3_CK | UART5_TX | DCMI_D9" data-stm="PC12" data-zio="D47" data-port="pc" data-funcs="GPIO PC12 | SDMMC_CK | SPI3_MOSI | I2S3_SD | USART3_CK | UART5_TX | DCMI_D9" />
+    <rect id="CN8-12" class="pin io pd" x="62.3" y="96.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD2 (D48) - GPIO PD2 | SDMMC_CMD | TIM3_ETR | UART5_RX | DCMI_D11" data-stm="PD2" data-zio="D48" data-port="pd" data-funcs="GPIO PD2 | SDMMC_CMD | TIM3_ETR | UART5_RX | DCMI_D11" />
+    <rect id="CN8-14" class="pin io pg" x="62.3" y="100.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PG2 (D49) - GPIO PG2 | FMC_A12" data-stm="PG2" data-zio="D49" data-port="pg" data-funcs="GPIO PG2 | FMC_A12" />
+    <rect id="CN8-16" class="pin io pg" x="62.3" y="104.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PG3 (D50) - GPIO PG3 | FMC_A13" data-stm="PG3" data-zio="D50" data-port="pg" data-funcs="GPIO PG3 | FMC_A13" />
+    <rect id="CN9-1" class="pin io pa" x="58.2" y="115.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA3 (A0) - GPIO PA3 | ADC123_IN3 | TIM2_CH4 | TIM5_CH4 | TIM9_CH2 | USART2_RX | OTG_HS_ULPI_D0" data-stm="PA3" data-zio="A0" data-port="pa" data-funcs="GPIO PA3 | ADC123_IN3 | TIM2_CH4 | TIM5_CH4 | TIM9_CH2 | USART2_RX | OTG_HS_ULPI_D0" />
+    <rect id="CN9-3" class="pin io pc" x="58.2" y="119.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC0 (A1) - GPIO PC0 | ADC123_IN10 | OTG_HS_ULPI_STP | FMC_SDNWE" data-stm="PC0" data-zio="A1" data-port="pc" data-funcs="GPIO PC0 | ADC123_IN10 | OTG_HS_ULPI_STP | FMC_SDNWE" />
+    <rect id="CN9-5" class="pin io pc" x="58.2" y="123.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC3 (A2) - GPIO PC3 | ADC123_IN13 | SPI2_MOSI | I2S2_SD | OTG_HS_ULPI_NXT | ETH_TX_CLK" data-stm="PC3" data-zio="A2" data-port="pc" data-funcs="GPIO PC3 | ADC123_IN13 | SPI2_MOSI | I2S2_SD | OTG_HS_ULPI_NXT | ETH_TX_CLK" />
+    <rect id="CN9-7" class="pin io pf" x="58.2" y="127.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF3 (A3) - GPIO PF3 | ADC3_IN9 | FMC_A3" data-stm="PF3" data-zio="A3" data-port="pf" data-funcs="GPIO PF3 | ADC3_IN9 | FMC_A3" />
+    <rect id="CN9-9" class="pin io pf" x="58.2" y="131.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF5 (A4) - GPIO PF5 | ADC3_IN15 | FMC_A5 | Opcional: PB9 (I2C1_SDA)" data-stm="PF5" data-zio="A4" data-port="pf" data-funcs="GPIO PF5 | ADC3_IN15 | FMC_A5 | Opcional: PB9 (I2C1_SDA)" />
+    <rect id="CN9-11" class="pin io pf" x="58.2" y="135.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF10 (A5) - GPIO PF10 | ADC3_IN8 | DCMI_D11 | LCD_DE | Opcional: PB8 (I2C1_SCL)" data-stm="PF10" data-zio="A5" data-port="pf" data-funcs="GPIO PF10 | ADC3_IN8 | DCMI_D11 | LCD_DE | Opcional: PB8 (I2C1_SCL)" />
+    <rect id="CN9-13" class="pin nc" x="58.2" y="139.2" width="3.0" height="3.0" rx="0.3" inkscape:name="NC (D72) - No Conectado" data-stm="NC" data-zio="D72" data-port="" data-funcs="No Conectado" />
+    <rect id="CN9-15" class="pin io pa" x="58.2" y="143.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA7 (D71) - GPIO PA7 | SPI1_MOSI | TIM14_CH1 | TIM3_CH2 | TIM1_CH1N | ADC12_IN7 | ETH_RMII_DV" data-stm="PA7" data-zio="D71" data-port="pa" data-funcs="GPIO PA7 | SPI1_MOSI | TIM14_CH1 | TIM3_CH2 | TIM1_CH1N | ADC12_IN7 | ETH_RMII_DV" />
+    <rect id="CN9-17" class="pin io pf" x="58.2" y="147.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF2 (D70) - GPIO PF2 | I2C2_SMBA | FMC_A2" data-stm="PF2" data-zio="D70" data-port="pf" data-funcs="GPIO PF2 | I2C2_SMBA | FMC_A2" />
+    <rect id="CN9-19" class="pin io pf" x="58.2" y="151.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF1 (D69) - GPIO PF1 | I2C2_SCL | FMC_A1" data-stm="PF1" data-zio="D69" data-port="pf" data-funcs="GPIO PF1 | I2C2_SCL | FMC_A1" />
+    <rect id="CN9-21" class="pin io pf" x="58.2" y="155.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF0 (D68) - GPIO PF0 | I2C2_SDA | FMC_A0" data-stm="PF0" data-zio="D68" data-port="pf" data-funcs="GPIO PF0 | I2C2_SDA | FMC_A0" />
+    <rect id="CN9-23" class="pin gnd" x="58.2" y="159.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN9-25" class="pin io pd" x="58.2" y="163.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD0 (D67) - GPIO PD0 | CAN1_RX | FMC_D2" data-stm="PD0" data-zio="D67" data-port="pd" data-funcs="GPIO PD0 | CAN1_RX | FMC_D2" />
+    <rect id="CN9-27" class="pin io pd" x="58.2" y="167.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD1 (D66) - GPIO PD1 | CAN1_TX | FMC_D3" data-stm="PD1" data-zio="D66" data-port="pd" data-funcs="GPIO PD1 | CAN1_TX | FMC_D3" />
+    <rect id="CN9-29" class="pin io pg" x="58.2" y="171.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PG0 (D65) - GPIO PG0 | FMC_A10" data-stm="PG0" data-zio="D65" data-port="pg" data-funcs="GPIO PG0 | FMC_A10" />
+    <rect id="CN9-2" class="pin io pd" x="62.3" y="115.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD7 (D51) - GPIO PD7 | USART2_CK | FMC_NE1" data-stm="PD7" data-zio="D51" data-port="pd" data-funcs="GPIO PD7 | USART2_CK | FMC_NE1" />
+    <rect id="CN9-4" class="pin io pd" x="62.3" y="119.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD6 (D52) - GPIO PD6 | USART2_RX | SPI3_MOSI | I2S3_SD | SAI1_SD_A | DCMI_D10" data-stm="PD6" data-zio="D52" data-port="pd" data-funcs="GPIO PD6 | USART2_RX | SPI3_MOSI | I2S3_SD | SAI1_SD_A | DCMI_D10" />
+    <rect id="CN9-6" class="pin io pd" x="62.3" y="123.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD5 (D53) - GPIO PD5 | USART2_TX | FMC_NWE" data-stm="PD5" data-zio="D53" data-port="pd" data-funcs="GPIO PD5 | USART2_TX | FMC_NWE" />
+    <rect id="CN9-8" class="pin io pd" x="62.3" y="127.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD4 (D54) - GPIO PD4 | USART2_RTS | FMC_NOE" data-stm="PD4" data-zio="D54" data-port="pd" data-funcs="GPIO PD4 | USART2_RTS | FMC_NOE" />
+    <rect id="CN9-10" class="pin io pd" x="62.3" y="131.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD3 (D55) - GPIO PD3 | USART2_CTS | SPI2_SCK | I2S2_CK | DCMI_D5 | LCD_G7" data-stm="PD3" data-zio="D55" data-port="pd" data-funcs="GPIO PD3 | USART2_CTS | SPI2_SCK | I2S2_CK | DCMI_D5 | LCD_G7" />
+    <rect id="CN9-12" class="pin gnd" x="62.3" y="135.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN9-14" class="pin io pe" x="62.3" y="139.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE2 (D56) - GPIO PE2 | SAI1_MCLK_A | SPI4_SCK | ETH_TXD3 | TRACECLK" data-stm="PE2" data-zio="D56" data-port="pe" data-funcs="GPIO PE2 | SAI1_MCLK_A | SPI4_SCK | ETH_TXD3 | TRACECLK" />
+    <rect id="CN9-16" class="pin io pe" x="62.3" y="143.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE4 (D57) - GPIO PE4 | SAI1_FS_A | SPI4_NSS | DCMI_D4 | LCD_B0" data-stm="PE4" data-zio="D57" data-port="pe" data-funcs="GPIO PE4 | SAI1_FS_A | SPI4_NSS | DCMI_D4 | LCD_B0" />
+    <rect id="CN9-18" class="pin io pe" x="62.3" y="147.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE5 (D58) - GPIO PE5 | SAI1_SCK_A | TIM9_CH1 | SPI4_MISO | DCMI_D6 | LCD_G0" data-stm="PE5" data-zio="D58" data-port="pe" data-funcs="GPIO PE5 | SAI1_SCK_A | TIM9_CH1 | SPI4_MISO | DCMI_D6 | LCD_G0" />
+    <rect id="CN9-20" class="pin io pe" x="62.3" y="151.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE6 (D59) - GPIO PE6 | SAI1_SD_A | TIM9_CH2 | SPI4_MOSI | DCMI_D7 | LCD_G1" data-stm="PE6" data-zio="D59" data-port="pe" data-funcs="GPIO PE6 | SAI1_SD_A | TIM9_CH2 | SPI4_MOSI | DCMI_D7 | LCD_G1" />
+    <rect id="CN9-22" class="pin io pe" x="62.3" y="155.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE3 (D60) - GPIO PE3 | SAI1_SD_B | TRACED0" data-stm="PE3" data-zio="D60" data-port="pe" data-funcs="GPIO PE3 | SAI1_SD_B | TRACED0" />
+    <rect id="CN9-24" class="pin io pf" x="62.3" y="159.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF8 (D61) - GPIO PF8 | SAI1_SCK_B | SPI5_MISO | TIM13_CH1 | ADC3_IN6" data-stm="PF8" data-zio="D61" data-port="pf" data-funcs="GPIO PF8 | SAI1_SCK_B | SPI5_MISO | TIM13_CH1 | ADC3_IN6" />
+    <rect id="CN9-26" class="pin io pf" x="62.3" y="163.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF7 (D62) - GPIO PF7 | SAI1_MCLK_B | SPI5_SCK | TIM11_CH1 | ADC3_IN5" data-stm="PF7" data-zio="D62" data-port="pf" data-funcs="GPIO PF7 | SAI1_MCLK_B | SPI5_SCK | TIM11_CH1 | ADC3_IN5" />
+    <rect id="CN9-28" class="pin io pf" x="62.3" y="167.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF9 (D63) - GPIO PF9 | SAI1_FS_B | SPI5_MOSI | TIM14_CH1 | ADC3_IN7" data-stm="PF9" data-zio="D63" data-port="pf" data-funcs="GPIO PF9 | SAI1_FS_B | SPI5_MOSI | TIM14_CH1 | ADC3_IN7" />
+    <rect id="CN9-30" class="pin io pg" x="62.3" y="171.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PG1 (D64) - GPIO PG1 | FMC_A11" data-stm="PG1" data-zio="D64" data-port="pg" data-funcs="GPIO PG1 | FMC_A11" />
+    <rect id="CN7-1" class="pin io pc" x="164.7" y="76.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC6 (D16) - GPIO PC6 | I2S2_MCK | TIM3_CH1 | TIM8_CH1 | USART6_TX | SDMMC_D6 | DCMI_D0" data-stm="PC6" data-zio="D16" data-port="pc" data-funcs="GPIO PC6 | I2S2_MCK | TIM3_CH1 | TIM8_CH1 | USART6_TX | SDMMC_D6 | DCMI_D0" />
+    <rect id="CN7-3" class="pin io pb" x="164.7" y="80.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB15 (D17) - GPIO PB15 | SPI2_MOSI | I2S2_SD | TIM1_CH3N | TIM8_CH3N | TIM12_CH2 | RTC_REFIN" data-stm="PB15" data-zio="D17" data-port="pb" data-funcs="GPIO PB15 | SPI2_MOSI | I2S2_SD | TIM1_CH3N | TIM8_CH3N | TIM12_CH2 | RTC_REFIN" />
+    <rect id="CN7-5" class="pin io pb" x="164.7" y="84.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB13 (D18) - GPIO PB13 | SPI2_SCK | I2S2_CK | TIM1_CH1N | CAN2_TX | ETH_RMII_TXD1" data-stm="PB13" data-zio="D18" data-port="pb" data-funcs="GPIO PB13 | SPI2_SCK | I2S2_CK | TIM1_CH1N | CAN2_TX | ETH_RMII_TXD1" />
+    <rect id="CN7-7" class="pin io pb" x="164.7" y="88.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB12 (D19) - GPIO PB12 | SPI2_NSS | I2S2_WS | TIM1_BKIN | I2C2_SMBA | CAN2_RX" data-stm="PB12" data-zio="D19" data-port="pb" data-funcs="GPIO PB12 | SPI2_NSS | I2S2_WS | TIM1_BKIN | I2C2_SMBA | CAN2_RX" />
+    <rect id="CN7-9" class="pin io pa" x="164.7" y="92.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA15 (D20) - GPIO PA15 | SPI3_NSS | I2S3_WS | SPI1_NSS | TIM2_CH1 | TIM2_ETR | JTDI" data-stm="PA15" data-zio="D20" data-port="pa" data-funcs="GPIO PA15 | SPI3_NSS | I2S3_WS | SPI1_NSS | TIM2_CH1 | TIM2_ETR | JTDI" />
+    <rect id="CN7-11" class="pin io pc" x="164.7" y="96.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC7 (D21) - GPIO PC7 | I2S3_MCK | TIM3_CH2 | TIM8_CH2 | USART6_RX | SDMMC_D7 | DCMI_D1" data-stm="PC7" data-zio="D21" data-port="pc" data-funcs="GPIO PC7 | I2S3_MCK | TIM3_CH2 | TIM8_CH2 | USART6_RX | SDMMC_D7 | DCMI_D1" />
+    <rect id="CN7-13" class="pin io pb" x="164.7" y="100.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB5 (D22) - GPIO PB5 | SPI3_MOSI | I2S3_SD | SPI1_MOSI | TIM3_CH2 | I2C1_SMBA | CAN2_RX" data-stm="PB5" data-zio="D22" data-port="pb" data-funcs="GPIO PB5 | SPI3_MOSI | I2S3_SD | SPI1_MOSI | TIM3_CH2 | I2C1_SMBA | CAN2_RX" />
+    <rect id="CN7-15" class="pin io pb" x="164.7" y="104.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB3 (D23) - GPIO PB3 | SPI3_SCK | I2S3_CK | SPI1_SCK | TIM2_CH2 | SWO / JTDO" data-stm="PB3" data-zio="D23" data-port="pb" data-funcs="GPIO PB3 | SPI3_SCK | I2S3_CK | SPI1_SCK | TIM2_CH2 | SWO / JTDO" />
+    <rect id="CN7-17" class="pin io pa" x="164.7" y="108.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA4 (D24) - GPIO PA4 | SPI3_NSS | I2S3_WS | SPI1_NSS | USART2_CK | ADC12_IN4 | DAC_OUT1" data-stm="PA4" data-zio="D24" data-port="pa" data-funcs="GPIO PA4 | SPI3_NSS | I2S3_WS | SPI1_NSS | USART2_CK | ADC12_IN4 | DAC_OUT1" />
+    <rect id="CN7-19" class="pin io pb" x="164.7" y="112.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB4 (D25) - GPIO PB4 | SPI3_MISO | SPI1_MISO | TIM3_CH1 | NJTRST" data-stm="PB4" data-zio="D25" data-port="pb" data-funcs="GPIO PB4 | SPI3_MISO | SPI1_MISO | TIM3_CH1 | NJTRST" />
+    <rect id="CN7-2" class="pin io pb" x="168.8" y="76.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB8 (D15) - GPIO PB8 | I2C1_SCL | TIM4_CH3 | TIM10_CH1 | CAN1_RX | SDMMC_D4 | DCMI_D6" data-stm="PB8" data-zio="D15" data-port="pb" data-funcs="GPIO PB8 | I2C1_SCL | TIM4_CH3 | TIM10_CH1 | CAN1_RX | SDMMC_D4 | DCMI_D6" />
+    <rect id="CN7-4" class="pin io pb" x="168.8" y="80.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB9 (D14) - GPIO PB9 | I2C1_SDA | TIM4_CH4 | TIM11_CH1 | SPI2_NSS | I2S2_WS | CAN1_TX | SDMMC_D5" data-stm="PB9" data-zio="D14" data-port="pb" data-funcs="GPIO PB9 | I2C1_SDA | TIM4_CH4 | TIM11_CH1 | SPI2_NSS | I2S2_WS | CAN1_TX | SDMMC_D5" />
+    <rect id="CN7-6" class="pin vcc" x="168.8" y="84.2" width="3.0" height="3.0" rx="0.3" inkscape:name="AREF (AREF) - Referencia Analógica (AVDD / VREF+)" data-stm="AREF" data-zio="AREF" data-port="" data-funcs="Referencia Analógica (AVDD / VREF+)" />
+    <rect id="CN7-8" class="pin gnd" x="168.8" y="88.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN7-10" class="pin io pa" x="168.8" y="92.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA5 (D13) - GPIO PA5 | SPI1_SCK | TIM2_CH1 | TIM8_CH1N | ADC12_IN5 | DAC_OUT2" data-stm="PA5" data-zio="D13" data-port="pa" data-funcs="GPIO PA5 | SPI1_SCK | TIM2_CH1 | TIM8_CH1N | ADC12_IN5 | DAC_OUT2" />
+    <rect id="CN7-12" class="pin io pa" x="168.8" y="96.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA6 (D12) - GPIO PA6 | SPI1_MISO | TIM3_CH1 | TIM13_CH1 | TIM1_BKIN | ADC12_IN6 | DCMI_PIXCLK" data-stm="PA6" data-zio="D12" data-port="pa" data-funcs="GPIO PA6 | SPI1_MISO | TIM3_CH1 | TIM13_CH1 | TIM1_BKIN | ADC12_IN6 | DCMI_PIXCLK" />
+    <rect id="CN7-14" class="pin io pa" x="168.8" y="100.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA7 (D11) - GPIO PA7 | SPI1_MOSI | TIM14_CH1 | TIM3_CH2 | TIM1_CH1N | ADC12_IN7" data-stm="PA7" data-zio="D11" data-port="pa" data-funcs="GPIO PA7 | SPI1_MOSI | TIM14_CH1 | TIM3_CH2 | TIM1_CH1N | ADC12_IN7" />
+    <rect id="CN7-16" class="pin io pd" x="168.8" y="104.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD14 (D10) - GPIO PD14 | SPI1_CS (SW) | TIM4_CH3 | FMC_D0" data-stm="PD14" data-zio="D10" data-port="pd" data-funcs="GPIO PD14 | SPI1_CS (SW) | TIM4_CH3 | FMC_D0" />
+    <rect id="CN7-18" class="pin io pd" x="168.8" y="108.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD15 (D9) - GPIO PD15 | TIM4_CH4 | FMC_D1" data-stm="PD15" data-zio="D9" data-port="pd" data-funcs="GPIO PD15 | TIM4_CH4 | FMC_D1" />
+    <rect id="CN7-20" class="pin io pf" x="168.8" y="112.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF12 (D8) - GPIO PF12 | FMC_A6" data-stm="PF12" data-zio="D8" data-port="pf" data-funcs="GPIO PF12 | FMC_A6" />
+    <rect id="CN10-1" class="pin vcc" x="164.7" y="123.2" width="3.0" height="3.0" rx="0.3" inkscape:name="AVDD (AVDD) - Alimentación Analógica (AVDD)" data-stm="AVDD" data-zio="AVDD" data-port="" data-funcs="Alimentación Analógica (AVDD)" />
+    <rect id="CN10-3" class="pin gnd" x="164.7" y="127.2" width="3.0" height="3.0" rx="0.3" inkscape:name="AGND (AGND) - Tierra Analógica (AGND)" data-stm="AGND" data-zio="AGND" data-port="" data-funcs="Tierra Analógica (AGND)" />
+    <rect id="CN10-5" class="pin gnd" x="164.7" y="131.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN10-7" class="pin io pb" x="164.7" y="135.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB1 (A6) - GPIO PB1 | ADC12_IN9 | TIM3_CH4 | TIM1_CH3N | TIM8_CH3N | LCD_R6" data-stm="PB1" data-zio="A6" data-port="pb" data-funcs="GPIO PB1 | ADC12_IN9 | TIM3_CH4 | TIM1_CH3N | TIM8_CH3N | LCD_R6" />
+    <rect id="CN10-9" class="pin io pc" x="164.7" y="139.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PC2 (A7) - GPIO PC2 | ADC123_IN12 | SPI2_MISO | OTG_HS_ULPI_DIR | ETH_TXD2" data-stm="PC2" data-zio="A7" data-port="pc" data-funcs="GPIO PC2 | ADC123_IN12 | SPI2_MISO | OTG_HS_ULPI_DIR | ETH_TXD2" />
+    <rect id="CN10-11" class="pin io pf" x="164.7" y="143.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF4 (A8) - GPIO PF4 | ADC3_IN14 | FMC_A4" data-stm="PF4" data-zio="A8" data-port="pf" data-funcs="GPIO PF4 | ADC3_IN14 | FMC_A4" />
+    <rect id="CN10-13" class="pin io pb" x="164.7" y="147.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB6 (D26) - GPIO PB6 | TIM4_CH1 | I2C1_SCL | USART1_TX | CAN2_TX | DCMI_D5" data-stm="PB6" data-zio="D26" data-port="pb" data-funcs="GPIO PB6 | TIM4_CH1 | I2C1_SCL | USART1_TX | CAN2_TX | DCMI_D5" />
+    <rect id="CN10-15" class="pin io pb" x="164.7" y="151.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB2 (D27) - GPIO PB2 | BOOT1" data-stm="PB2" data-zio="D27" data-port="pb" data-funcs="GPIO PB2 | BOOT1" />
+    <rect id="CN10-17" class="pin gnd" x="164.7" y="155.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN10-19" class="pin io pd" x="164.7" y="159.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD13 (D28) - GPIO PD13 | TIM4_CH2 | FMC_A18" data-stm="PD13" data-zio="D28" data-port="pd" data-funcs="GPIO PD13 | TIM4_CH2 | FMC_A18" />
+    <rect id="CN10-21" class="pin io pd" x="164.7" y="163.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD12 (D29) - GPIO PD12 | TIM4_CH1 | USART3_RTS | FMC_A17" data-stm="PD12" data-zio="D29" data-port="pd" data-funcs="GPIO PD12 | TIM4_CH1 | USART3_RTS | FMC_A17" />
+    <rect id="CN10-23" class="pin io pd" x="164.7" y="167.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PD11 (D30) - GPIO PD11 | USART3_CTS | FMC_A16" data-stm="PD11" data-zio="D30" data-port="pd" data-funcs="GPIO PD11 | USART3_CTS | FMC_A16" />
+    <rect id="CN10-25" class="pin io pe" x="164.7" y="171.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE2 (D31) - GPIO PE2 | SPI4_SCK | SAI1_MCLK_A | ETH_TXD3" data-stm="PE2" data-zio="D31" data-port="pe" data-funcs="GPIO PE2 | SPI4_SCK | SAI1_MCLK_A | ETH_TXD3" />
+    <rect id="CN10-27" class="pin gnd" x="164.7" y="175.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN10-29" class="pin io pa" x="164.7" y="179.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PA0 (D32) - GPIO PA0 | TIM2_CH1 | TIM5_CH1 | TIM8_ETR | USART2_CTS | UART4_TX | ADC123_IN0 | WKUP" data-stm="PA0" data-zio="D32" data-port="pa" data-funcs="GPIO PA0 | TIM2_CH1 | TIM5_CH1 | TIM8_ETR | USART2_CTS | UART4_TX | ADC123_IN0 | WKUP" />
+    <rect id="CN10-31" class="pin io pb" x="164.7" y="183.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB0 (D33) - GPIO PB0 | LED1 Verde (User) | TIM3_CH3 | TIM1_CH2N | TIM8_CH2N | ADC12_IN8" data-stm="PB0" data-zio="D33" data-port="pb" data-funcs="GPIO PB0 | LED1 Verde (User) | TIM3_CH3 | TIM1_CH2N | TIM8_CH2N | ADC12_IN8" />
+    <rect id="CN10-33" class="pin io pe" x="164.7" y="187.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE0 (D34) - GPIO PE0 | TIM4_ETR | UART8_RX | DCMI_D2 | FMC_NBL0" data-stm="PE0" data-zio="D34" data-port="pe" data-funcs="GPIO PE0 | TIM4_ETR | UART8_RX | DCMI_D2 | FMC_NBL0" />
+    <rect id="CN10-2" class="pin io pf" x="168.8" y="123.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF13 (D7) - GPIO PF13 | FMC_A7" data-stm="PF13" data-zio="D7" data-port="pf" data-funcs="GPIO PF13 | FMC_A7" />
+    <rect id="CN10-4" class="pin io pe" x="168.8" y="127.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE9 (D6) - GPIO PE9 | TIM1_CH1 | FMC_D6" data-stm="PE9" data-zio="D6" data-port="pe" data-funcs="GPIO PE9 | TIM1_CH1 | FMC_D6" />
+    <rect id="CN10-6" class="pin io pe" x="168.8" y="131.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE11 (D5) - GPIO PE11 | TIM1_CH2 | SPI4_NSS | FMC_D8 | LCD_G3" data-stm="PE11" data-zio="D5" data-port="pe" data-funcs="GPIO PE11 | TIM1_CH2 | SPI4_NSS | FMC_D8 | LCD_G3" />
+    <rect id="CN10-8" class="pin io pf" x="168.8" y="135.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF14 (D4) - GPIO PF14 | FMC_A8" data-stm="PF14" data-zio="D4" data-port="pf" data-funcs="GPIO PF14 | FMC_A8" />
+    <rect id="CN10-10" class="pin io pe" x="168.8" y="139.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE13 (D3) - GPIO PE13 | TIM1_CH3 | SPI4_MISO | FMC_D10 | LCD_DE" data-stm="PE13" data-zio="D3" data-port="pe" data-funcs="GPIO PE13 | TIM1_CH3 | SPI4_MISO | FMC_D10 | LCD_DE" />
+    <rect id="CN10-12" class="pin io pf" x="168.8" y="143.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PF15 (D2) - GPIO PF15 | FMC_A9" data-stm="PF15" data-zio="D2" data-port="pf" data-funcs="GPIO PF15 | FMC_A9" />
+    <rect id="CN10-14" class="pin io pg" x="168.8" y="147.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PG14 (D1) - GPIO PG14 | USART6_TX | SPI6_MOSI | ETH_TXD1 | FMC_A25" data-stm="PG14" data-zio="D1" data-port="pg" data-funcs="GPIO PG14 | USART6_TX | SPI6_MOSI | ETH_TXD1 | FMC_A25" />
+    <rect id="CN10-16" class="pin io pg" x="168.8" y="151.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PG9 (D0) - GPIO PG9 | USART6_RX | SPI6_MISO | FMC_NE2" data-stm="PG9" data-zio="D0" data-port="pg" data-funcs="GPIO PG9 | USART6_RX | SPI6_MISO | FMC_NE2" />
+    <rect id="CN10-18" class="pin io pe" x="168.8" y="155.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE8 (D42) - GPIO PE8 | TIM1_CH1N | UART7_TX | FMC_D5" data-stm="PE8" data-zio="D42" data-port="pe" data-funcs="GPIO PE8 | TIM1_CH1N | UART7_TX | FMC_D5" />
+    <rect id="CN10-20" class="pin io pe" x="168.8" y="159.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE7 (D41) - GPIO PE7 | TIM1_ETR | UART7_RX | FMC_D4" data-stm="PE7" data-zio="D41" data-port="pe" data-funcs="GPIO PE7 | TIM1_ETR | UART7_RX | FMC_D4" />
+    <rect id="CN10-22" class="pin gnd" x="168.8" y="163.2" width="3.0" height="3.0" rx="0.3" inkscape:name="GND (GND) - Tierra (Ground)" data-stm="GND" data-zio="GND" data-port="" data-funcs="Tierra (Ground)" />
+    <rect id="CN10-24" class="pin io pe" x="168.8" y="167.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE10 (D40) - GPIO PE10 | TIM1_CH2N | FMC_D7" data-stm="PE10" data-zio="D40" data-port="pe" data-funcs="GPIO PE10 | TIM1_CH2N | FMC_D7" />
+    <rect id="CN10-26" class="pin io pe" x="168.8" y="171.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE12 (D39) - GPIO PE12 | TIM1_CH3N | SPI4_SCK | FMC_D9 | LCD_B4" data-stm="PE12" data-zio="D39" data-port="pe" data-funcs="GPIO PE12 | TIM1_CH3N | SPI4_SCK | FMC_D9 | LCD_B4" />
+    <rect id="CN10-28" class="pin io pe" x="168.8" y="175.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE14 (D38) - GPIO PE14 | TIM1_CH4 | SPI4_MOSI | FMC_D11 | LCD_CLK" data-stm="PE14" data-zio="D38" data-port="pe" data-funcs="GPIO PE14 | TIM1_CH4 | SPI4_MOSI | FMC_D11 | LCD_CLK" />
+    <rect id="CN10-30" class="pin io pe" x="168.8" y="179.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PE15 (D37) - GPIO PE15 | TIM1_BKIN | FMC_D12 | LCD_R7" data-stm="PE15" data-zio="D37" data-port="pe" data-funcs="GPIO PE15 | TIM1_BKIN | FMC_D12 | LCD_R7" />
+    <rect id="CN10-32" class="pin io pb" x="168.8" y="183.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB10 (D36) - GPIO PB10 | TIM2_CH3 | I2C2_SCL | SPI2_SCK | I2S2_CK | USART3_TX | ETH_RX_ER" data-stm="PB10" data-zio="D36" data-port="pb" data-funcs="GPIO PB10 | TIM2_CH3 | I2C2_SCL | SPI2_SCK | I2S2_CK | USART3_TX | ETH_RX_ER" />
+    <rect id="CN10-34" class="pin io pb" x="168.8" y="187.2" width="3.0" height="3.0" rx="0.3" inkscape:name="PB11 (D35) - GPIO PB11 | TIM2_CH4 | I2C2_SDA | USART3_RX | ETH_TX_EN" data-stm="PB11" data-zio="D35" data-port="pb" data-funcs="GPIO PB11 | TIM2_CH4 | I2C2_SDA | USART3_RX | ETH_TX_EN" />
+  </g>
+
+  <!-- ================= CAPA 4: SERIGRAFÍA Y ETIQUETAS ================= -->
+  <g id="layer-labels" inkscape:groupmode="layer" inkscape:label="labels">
+    <text x="56.0" y="78.45" text-anchor="end" class="silk-pin">NC</text>
+    <text x="56.0" y="82.45" text-anchor="end" class="silk-pin">IOREF</text>
+    <text x="56.0" y="86.45" text-anchor="end" class="silk-pin">RESET</text>
+    <text x="56.0" y="90.45" text-anchor="end" class="silk-pin">+3V3</text>
+    <text x="56.0" y="94.45" text-anchor="end" class="silk-pin">+5V</text>
+    <text x="56.0" y="98.45" text-anchor="end" class="silk-pin">GND</text>
+    <text x="56.0" y="102.45" text-anchor="end" class="silk-pin">GND</text>
+    <text x="56.0" y="106.45" text-anchor="end" class="silk-pin">VIN</text>
+    <text x="67.1" y="78.45" text-anchor="start"><tspan class="silk-pin">PC8</tspan><tspan class="silk-alt"> · SDMMC_D0</tspan></text>
+    <text x="67.1" y="82.45" text-anchor="start"><tspan class="silk-pin">PC9</tspan><tspan class="silk-alt"> · SDMMC_D1</tspan></text>
+    <text x="67.1" y="86.45" text-anchor="start"><tspan class="silk-pin">PC10</tspan><tspan class="silk-alt"> · SDMMC_D2</tspan></text>
+    <text x="67.1" y="90.45" text-anchor="start"><tspan class="silk-pin">PC11</tspan><tspan class="silk-alt"> · SDMMC_D3</tspan></text>
+    <text x="67.1" y="94.45" text-anchor="start"><tspan class="silk-pin">PC12</tspan><tspan class="silk-alt"> · SDMMC_CK</tspan></text>
+    <text x="67.1" y="98.45" text-anchor="start"><tspan class="silk-pin">PD2</tspan><tspan class="silk-alt"> · SDMMC_CMD</tspan></text>
+    <text x="67.1" y="102.45" text-anchor="start"><tspan class="silk-pin">PG2</tspan><tspan class="silk-alt"> · FMC_A12</tspan></text>
+    <text x="67.1" y="106.45" text-anchor="start"><tspan class="silk-pin">PG3</tspan><tspan class="silk-alt"> · FMC_A13</tspan></text>
+    <text x="56.0" y="117.45" text-anchor="end" class="silk-pin">A0</text>
+    <text x="56.0" y="121.45" text-anchor="end" class="silk-pin">A1</text>
+    <text x="56.0" y="125.45" text-anchor="end" class="silk-pin">A2</text>
+    <text x="56.0" y="129.45" text-anchor="end" class="silk-pin">A3</text>
+    <text x="56.0" y="133.45" text-anchor="end" class="silk-pin">A4</text>
+    <text x="56.0" y="137.45" text-anchor="end" class="silk-pin">A5</text>
+    <text x="56.0" y="141.45" text-anchor="end" class="silk-pin">D72</text>
+    <text x="56.0" y="145.45" text-anchor="end" class="silk-pin">D71</text>
+    <text x="56.0" y="149.45" text-anchor="end" class="silk-pin">D70</text>
+    <text x="56.0" y="153.45" text-anchor="end" class="silk-pin">D69</text>
+    <text x="56.0" y="157.45" text-anchor="end" class="silk-pin">D68</text>
+    <text x="56.0" y="161.45" text-anchor="end" class="silk-pin">GND</text>
+    <text x="56.0" y="165.45" text-anchor="end" class="silk-pin">D67</text>
+    <text x="56.0" y="169.45" text-anchor="end" class="silk-pin">D66</text>
+    <text x="56.0" y="173.45" text-anchor="end" class="silk-pin">D65</text>
+    <text x="67.1" y="117.45" text-anchor="start"><tspan class="silk-pin">PD7</tspan><tspan class="silk-alt"> · USART2_CK</tspan></text>
+    <text x="67.1" y="121.45" text-anchor="start"><tspan class="silk-pin">PD6</tspan><tspan class="silk-alt"> · USART2_RX</tspan></text>
+    <text x="67.1" y="125.45" text-anchor="start"><tspan class="silk-pin">PD5</tspan><tspan class="silk-alt"> · USART2_TX</tspan></text>
+    <text x="67.1" y="129.45" text-anchor="start"><tspan class="silk-pin">PD4</tspan><tspan class="silk-alt"> · USART2_RTS</tspan></text>
+    <text x="67.1" y="133.45" text-anchor="start"><tspan class="silk-pin">PD3</tspan><tspan class="silk-alt"> · USART2_CTS</tspan></text>
+    <text x="67.1" y="137.45" text-anchor="start"><tspan class="silk-pin">GND</tspan><tspan class="silk-alt"></tspan></text>
+    <text x="67.1" y="141.45" text-anchor="start"><tspan class="silk-pin">PE2</tspan><tspan class="silk-alt"> · SAI1_MCLK_A</tspan></text>
+    <text x="67.1" y="145.45" text-anchor="start"><tspan class="silk-pin">PE4</tspan><tspan class="silk-alt"> · SAI1_FS_A</tspan></text>
+    <text x="67.1" y="149.45" text-anchor="start"><tspan class="silk-pin">PE5</tspan><tspan class="silk-alt"> · SAI1_SCK_A</tspan></text>
+    <text x="67.1" y="153.45" text-anchor="start"><tspan class="silk-pin">PE6</tspan><tspan class="silk-alt"> · SAI1_SD_A</tspan></text>
+    <text x="67.1" y="157.45" text-anchor="start"><tspan class="silk-pin">PE3</tspan><tspan class="silk-alt"> · SAI1_SD_B</tspan></text>
+    <text x="67.1" y="161.45" text-anchor="start"><tspan class="silk-pin">PF8</tspan><tspan class="silk-alt"> · SAI1_SCK_B</tspan></text>
+    <text x="67.1" y="165.45" text-anchor="start"><tspan class="silk-pin">PF7</tspan><tspan class="silk-alt"> · SAI1_MCLK_B</tspan></text>
+    <text x="67.1" y="169.45" text-anchor="start"><tspan class="silk-pin">PF9</tspan><tspan class="silk-alt"> · SAI1_FS_B</tspan></text>
+    <text x="67.1" y="173.45" text-anchor="start"><tspan class="silk-pin">PG1</tspan><tspan class="silk-alt"> · FMC_A11</tspan></text>
+    <text x="162.5" y="78.45" text-anchor="end"><tspan class="silk-alt">I2S2_MCK · </tspan><tspan class="silk-pin">PC6</tspan></text>
+    <text x="162.5" y="82.45" text-anchor="end"><tspan class="silk-alt">SPI2_MOSI · </tspan><tspan class="silk-pin">PB15</tspan></text>
+    <text x="162.5" y="86.45" text-anchor="end"><tspan class="silk-alt">SPI2_SCK · </tspan><tspan class="silk-pin">PB13</tspan></text>
+    <text x="162.5" y="90.45" text-anchor="end"><tspan class="silk-alt">SPI2_NSS · </tspan><tspan class="silk-pin">PB12</tspan></text>
+    <text x="162.5" y="94.45" text-anchor="end"><tspan class="silk-alt">SPI3_NSS · </tspan><tspan class="silk-pin">PA15</tspan></text>
+    <text x="162.5" y="98.45" text-anchor="end"><tspan class="silk-alt">I2S3_MCK · </tspan><tspan class="silk-pin">PC7</tspan></text>
+    <text x="162.5" y="102.45" text-anchor="end"><tspan class="silk-alt">SPI3_MOSI · </tspan><tspan class="silk-pin">PB5</tspan></text>
+    <text x="162.5" y="106.45" text-anchor="end"><tspan class="silk-alt">SPI3_SCK · </tspan><tspan class="silk-pin">PB3</tspan></text>
+    <text x="162.5" y="110.45" text-anchor="end"><tspan class="silk-alt">SPI3_NSS · </tspan><tspan class="silk-pin">PA4</tspan></text>
+    <text x="162.5" y="114.45" text-anchor="end"><tspan class="silk-alt">SPI3_MISO · </tspan><tspan class="silk-pin">PB4</tspan></text>
+    <text x="173.6" y="78.45" text-anchor="start" class="silk-pin">D15</text>
+    <text x="173.6" y="82.45" text-anchor="start" class="silk-pin">D14</text>
+    <text x="173.6" y="86.45" text-anchor="start" class="silk-pin">AREF</text>
+    <text x="173.6" y="90.45" text-anchor="start" class="silk-pin">GND</text>
+    <text x="173.6" y="94.45" text-anchor="start" class="silk-pin">D13</text>
+    <text x="173.6" y="98.45" text-anchor="start" class="silk-pin">D12</text>
+    <text x="173.6" y="102.45" text-anchor="start" class="silk-pin">D11</text>
+    <text x="173.6" y="106.45" text-anchor="start" class="silk-pin">D10</text>
+    <text x="173.6" y="110.45" text-anchor="start" class="silk-pin">D9</text>
+    <text x="173.6" y="114.45" text-anchor="start" class="silk-pin">D8</text>
+    <text x="162.5" y="125.45" text-anchor="end"><tspan class="silk-alt"></tspan><tspan class="silk-pin">AVDD</tspan></text>
+    <text x="162.5" y="129.45" text-anchor="end"><tspan class="silk-alt"></tspan><tspan class="silk-pin">AGND</tspan></text>
+    <text x="162.5" y="133.45" text-anchor="end"><tspan class="silk-alt"></tspan><tspan class="silk-pin">GND</tspan></text>
+    <text x="162.5" y="137.45" text-anchor="end"><tspan class="silk-alt">ADC12_IN9 · </tspan><tspan class="silk-pin">PB1</tspan></text>
+    <text x="162.5" y="141.45" text-anchor="end"><tspan class="silk-alt">ADC123_IN12 · </tspan><tspan class="silk-pin">PC2</tspan></text>
+    <text x="162.5" y="145.45" text-anchor="end"><tspan class="silk-alt">ADC3_IN14 · </tspan><tspan class="silk-pin">PF4</tspan></text>
+    <text x="162.5" y="149.45" text-anchor="end"><tspan class="silk-alt">TIM4_CH1 · </tspan><tspan class="silk-pin">PB6</tspan></text>
+    <text x="162.5" y="153.45" text-anchor="end"><tspan class="silk-alt">BOOT1 · </tspan><tspan class="silk-pin">PB2</tspan></text>
+    <text x="162.5" y="157.45" text-anchor="end"><tspan class="silk-alt"></tspan><tspan class="silk-pin">GND</tspan></text>
+    <text x="162.5" y="161.45" text-anchor="end"><tspan class="silk-alt">TIM4_CH2 · </tspan><tspan class="silk-pin">PD13</tspan></text>
+    <text x="162.5" y="165.45" text-anchor="end"><tspan class="silk-alt">TIM4_CH1 · </tspan><tspan class="silk-pin">PD12</tspan></text>
+    <text x="162.5" y="169.45" text-anchor="end"><tspan class="silk-alt">USART3_CTS · </tspan><tspan class="silk-pin">PD11</tspan></text>
+    <text x="162.5" y="173.45" text-anchor="end"><tspan class="silk-alt">SPI4_SCK · </tspan><tspan class="silk-pin">PE2</tspan></text>
+    <text x="162.5" y="177.45" text-anchor="end"><tspan class="silk-alt"></tspan><tspan class="silk-pin">GND</tspan></text>
+    <text x="162.5" y="181.45" text-anchor="end"><tspan class="silk-alt">TIM2_CH1 · </tspan><tspan class="silk-pin">PA0</tspan></text>
+    <text x="162.5" y="185.45" text-anchor="end"><tspan class="silk-alt">LED1 Verde (User) · </tspan><tspan class="silk-pin">PB0</tspan></text>
+    <text x="162.5" y="189.45" text-anchor="end"><tspan class="silk-alt">TIM4_ETR · </tspan><tspan class="silk-pin">PE0</tspan></text>
+    <text x="173.6" y="125.45" text-anchor="start" class="silk-pin">D7</text>
+    <text x="173.6" y="129.45" text-anchor="start" class="silk-pin">D6</text>
+    <text x="173.6" y="133.45" text-anchor="start" class="silk-pin">D5</text>
+    <text x="173.6" y="137.45" text-anchor="start" class="silk-pin">D4</text>
+    <text x="173.6" y="141.45" text-anchor="start" class="silk-pin">D3</text>
+    <text x="173.6" y="145.45" text-anchor="start" class="silk-pin">D2</text>
+    <text x="173.6" y="149.45" text-anchor="start" class="silk-pin">D1</text>
+    <text x="173.6" y="153.45" text-anchor="start" class="silk-pin">D0</text>
+    <text x="173.6" y="157.45" text-anchor="start" class="silk-pin">D42</text>
+    <text x="173.6" y="161.45" text-anchor="start" class="silk-pin">D41</text>
+    <text x="173.6" y="165.45" text-anchor="start" class="silk-pin">GND</text>
+    <text x="173.6" y="169.45" text-anchor="start" class="silk-pin">D40</text>
+    <text x="173.6" y="173.45" text-anchor="start" class="silk-pin">D39</text>
+    <text x="173.6" y="177.45" text-anchor="start" class="silk-pin">D38</text>
+    <text x="173.6" y="181.45" text-anchor="start" class="silk-pin">D37</text>
+    <text x="173.6" y="185.45" text-anchor="start" class="silk-pin">D36</text>
+    <text x="173.6" y="189.45" text-anchor="start" class="silk-pin">D35</text>
+  </g>
+</svg>

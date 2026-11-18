@@ -1,0 +1,71 @@
+---
+layout: base.njk
+title: Emuladores
+permalink: /emuladores/
+description: Simulador de la placa NUCLEO-F429ZI en el navegador, con pantalla LCD, LED RGB, joystick y sensores I2C.
+---
+<section class="hero">
+	<div class="container">
+		<p class="breadcrumb"><a href="/">Inicio</a> / Servicios</p>
+		<h1>Emuladores</h1>
+		<p class="lede">Ejecuta en el navegador el firmware de una placa NUCLEO-F429ZI con sus módulos, sin instalar nada.</p>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
+		<div class="callout">
+			<p><strong>Cómo se usa.</strong> Compila tu proyecto para el STM32F429ZI (por ejemplo con Keil MDK) y carga el ejecutable <code>.axf</code> o <code>.elf</code> con el botón de arriba. El simulador ejecuta las instrucciones del microcontrolador, no una aproximación: la pantalla, los LED, el joystick y los sensores reaccionan a lo que haga tu código.</p>
+			<p>Haz clic sobre la placa para usar el teclado: <kbd>Enter</kbd> es el pulsador B1, las flechas y <kbd>C</kbd> son el joystick.</p>
+		</div>
+
+		<div id="emu" class="emu" data-base="/assets/emu/" data-board="nucleo-f429zi" tabindex="0">
+			<div class="emu-bar">
+				<span class="emu-state" id="emu-state">Cargando</span>
+				<div class="emu-actions">
+					<label class="btn btn-outline">Cargar firmware (.axf / .elf)<input type="file" id="emu-fw" accept=".axf,.elf" hidden></label>
+					<button type="button" class="btn btn-outline" id="emu-restart">Reiniciar</button>
+				</div>
+			</div>
+
+			<div class="emu-main">
+				<div class="card emu-board">
+					<div id="emu-svg"><p class="emu-muted">Cargando la placa…</p></div>
+					<div class="emu-chips" id="emu-chips"></div>
+					<p class="emu-pininfo" id="emu-pininfo">Pasa el cursor sobre un pin de los conectores ST Zio para ver sus funciones. Los pines cableados a un módulo aparecen marcados.</p>
+				</div>
+
+				<div>
+					<div id="emu-addons"></div>
+					<section class="card emu-card emu-stats">
+						<h3>Emulador</h3>
+						<div class="emu-row"><span>Firmware</span><b><span id="emu-fwname" style="color:inherit">—</span> · <span id="emu-fwsize" style="color:inherit">—</span></b></div>
+						<div class="emu-row"><span>Rendimiento</span><b id="emu-mips">—</b></div>
+						<div class="emu-row"><span>Velocidad respecto al tiempo real</span><b id="emu-speed">—</b></div>
+						<div class="emu-row"><span>Tiempo en marcha</span><b id="emu-uptime">—</b></div>
+					</section>
+				</div>
+			</div>
+
+			<details class="emu-log">
+				<summary>Registro de eventos</summary>
+				<div id="emu-log"></div>
+			</details>
+		</div>
+
+		<h2 style="margin-top:2rem">Qué está modelado</h2>
+		<ul>
+			<li>CPU Cortex-M4F a 180 MHz con FPU, SysTick y controlador de interrupciones; RTOS (Keil RTX) incluido.</li>
+			<li>Reloj (RCC, PLL), alimentación, GPIO A–K, EXTI, temporizadores TIM1–8, USART/UART, SPI1–6, I2C1–3 y RTC.</li>
+			<li>Placa: LD1, LD2, LD3, pulsador B1 y puerto serie virtual del ST-LINK (USART3).</li>
+			<li>Módulos: pantalla LCD NHD-C12832A1Z (ST7565R, SPI1), LED RGB (PD11, PD12, PD13), joystick (PB10, PB11, PE12, PE14, PE15), LM75B e INA226 (I2C1, PB8 y PB9).</li>
+			<li>Aún no: Ethernet, USB, ADC, DAC y DMA.</li>
+		</ul>
+	</div>
+</section>
+
+<link rel="stylesheet" href="/assets/css/emuladores.css">
+<script src="/assets/emu/libv86.js" defer></script>
+<script src="/assets/emu/dap.js" defer></script>
+<script src="/assets/emu/emu.js" defer></script>
+<script src="/assets/emu/emu-debug.js" defer></script>

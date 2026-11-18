@@ -10,6 +10,7 @@
     "@11ty/eleventy": "^3.0.0"
   },
   "dependencies": {
+    "@kevingimbel/eleventy-plugin-mermaid": "^3.0.1",
     "node-ical": "^0.27.3"
   }
 }

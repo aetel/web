@@ -1,0 +1,50 @@
+{
+	"name": "NUCLEO-F429ZI",
+	"mcu": "stm32f429zi",
+	"arch": "nucleo-f429",
+	"wasm": "v86-cm.wasm",
+	"svg": "nucleo_f429zi.svg",
+	"firmware": "proj.axf",
+	"onboard": [
+		{ "id": "ld1", "type": "led", "label": "LD1", "color": "#22c55e", "pin": "PB0", "at": [100.25, 61.8] },
+		{ "id": "ld2", "type": "led", "label": "LD2", "color": "#3b82f6", "pin": "PB7", "at": [107.25, 61.8] },
+		{ "id": "ld3", "type": "led", "label": "LD3", "color": "#ef4444", "pin": "PB14", "at": [114.25, 61.8] },
+		{ "id": "b1", "type": "button", "label": "B1 USER", "pin": "PC13", "active": "high", "key": "Enter", "at": [56, 250], "r": 3.1 }
+	],
+	"addons": [
+		{
+			"id": "lcd", "type": "display", "model": "st7565r", "label": "LCD NHD-C12832A1Z",
+			"info": "128×32, controlador ST7565R por SPI1",
+			"w": 128, "h": 32,
+			"wires": { "SCK": "PA5", "MOSI": "PA7", "CS": "PD14", "A0": "PF13", "RST": "PA6" }
+		},
+		{
+			"id": "rgb", "type": "rgb_led", "label": "LED RGB",
+			"info": "Cátodo común: se enciende con nivel alto. PWM con TIM4 (PD12 y PD13) o por software",
+			"active": "high",
+			"wires": { "R": "PD13", "G": "PD12", "B": "PD11" }
+		},
+		{
+			"id": "joy", "type": "joystick", "label": "Joystick",
+			"info": "Pulsadores activos a nivel alto; teclas: flechas y C (centro)",
+			"active": "high",
+			"wires": { "UP": "PB10", "DOWN": "PE12", "LEFT": "PE14", "RIGHT": "PB11", "CENTER": "PE15" },
+			"keys": { "UP": "ArrowUp", "DOWN": "ArrowDown", "LEFT": "ArrowLeft", "RIGHT": "ArrowRight", "CENTER": "c" }
+		},
+		{
+			"id": "lm75b", "type": "temp_sensor", "label": "Temperatura LM75B",
+			"info": "I2C1, dirección 0x48. Resolución 0,125 °C",
+			"addr": "0x48", "sensor": 0, "min": -55, "max": 125, "step": 0.125, "value": 25,
+			"wires": { "SCL": "PB8", "SDA": "PB9" }
+		},
+		{
+			"id": "ina226", "type": "power_monitor", "label": "Monitor de potencia INA226",
+			"info": "I2C1, dirección 0x40. El firmware escribe el registro de calibración",
+			"addr": "0x40", "bus_v": 5, "current_ma": 100, "shunt_mohm": 100,
+			"wires": { "SCL": "PB8", "SDA": "PB9" }
+		}
+	],
+	"consoles": [
+		{ "id": "vcp", "label": "Consola serie · USART3 (ST-LINK VCP)", "uart": 2 }
+	]
+}

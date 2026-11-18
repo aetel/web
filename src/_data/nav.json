@@ -9,7 +9,8 @@
     "items": [
       { "label": "AETEL-partdb", "url": "https://partdb.aetel.org" },
       { "label": "Pedidos", "url": "https://aetel.org/pedido" },
-      { "label": "Material para el estudio", "url": "/subjects/" }
+      { "label": "Material para el estudio", "url": "/subjects/" },
+      { "label": "Emuladores", "url": "/emuladores/" }
     ]
   },
   "quienesSomos": {
