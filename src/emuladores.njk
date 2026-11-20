@@ -17,6 +17,8 @@ description: Simulador de la placa NUCLEO-F429ZI en el navegador, con pantalla L
 		<div class="callout">
 			<p><strong>Cómo se usa.</strong> Compila tu proyecto para el STM32F429ZI (por ejemplo con Keil MDK) y carga el ejecutable <code>.axf</code> o <code>.elf</code> con el botón de arriba. El simulador ejecuta las instrucciones del microcontrolador, no una aproximación: la pantalla, los LED, el joystick y los sensores reaccionan a lo que haga tu código.</p>
 			<p>Haz clic sobre la placa para usar el teclado: <kbd>Enter</kbd> es el pulsador B1, las flechas y <kbd>C</kbd> son el joystick.</p>
+			<p>Lo que hay conectado a la placa se elige en el panel <strong>Módulos conectados</strong>: cambia los pines o el bus (SPI1–6, I2C1–3), añade sensores y potenciómetros, o carga un JSON con tu conexionado. El simulador avisa si un pin no puede hacer esa función o si el firmware no lo ha configurado como toca.</p>
+			<p>Los paneles de debajo de la placa se despliegan con un clic. Los módulos (pantalla, LED RGB, sensores…) se mueven arrastrando su título y se ensanchan o estrechan arrastrando su borde derecho. La conexión y la disposición se guardan en este navegador; con <strong>Guardar JSON</strong> te las llevas a otro. Con doble clic en un pin de la placa colocas una sonda de osciloscopio (frecuencia, periodo, anchos de pulso y ciclo de trabajo).</p>
 		</div>
 
 		<div id="emu" class="emu" data-base="/assets/emu/" data-board="nucleo-f429zi" tabindex="0">
@@ -29,22 +31,25 @@ description: Simulador de la placa NUCLEO-F429ZI en el navegador, con pantalla L
 			</div>
 
 			<div class="emu-main">
-				<div class="card emu-board">
-					<div id="emu-svg"><p class="emu-muted">Cargando la placa…</p></div>
-					<div class="emu-chips" id="emu-chips"></div>
-					<p class="emu-pininfo" id="emu-pininfo">Pasa el cursor sobre un pin de los conectores ST Zio para ver sus funciones. Los pines cableados a un módulo aparecen marcados.</p>
-				</div>
+				<div class="emu-left">
+					<div class="card emu-board">
+						<div id="emu-svg"><p class="emu-muted">Cargando la placa…</p></div>
+						<div class="emu-chips" id="emu-chips"></div>
+						<p class="emu-pininfo" id="emu-pininfo">Pasa el cursor sobre un pin de los conectores ST Zio para ver sus funciones. Los pines cableados a un módulo aparecen marcados. Doble clic en un pin: sonda de osciloscopio.</p>
+					</div>
 
-				<div>
-					<div id="emu-addons"></div>
-					<section class="card emu-card emu-stats">
-						<h3>Emulador</h3>
+				<div id="emu-addons" class="emu-panels">
+					<details class="card emu-card emu-panel" data-panel="stats">
+						<summary>Emulador</summary>
 						<div class="emu-row"><span>Firmware</span><b><span id="emu-fwname" style="color:inherit">—</span> · <span id="emu-fwsize" style="color:inherit">—</span></b></div>
 						<div class="emu-row"><span>Rendimiento</span><b id="emu-mips">—</b></div>
 						<div class="emu-row"><span>Velocidad respecto al tiempo real</span><b id="emu-speed">—</b></div>
 						<div class="emu-row"><span>Tiempo en marcha</span><b id="emu-uptime">—</b></div>
-					</section>
+					</details>
 				</div>
+				</div>
+
+				<div id="emu-work" class="emu-work"><div id="emu-modules"></div></div>
 			</div>
 
 			<details class="emu-log">
@@ -56,16 +61,19 @@ description: Simulador de la placa NUCLEO-F429ZI en el navegador, con pantalla L
 		<h2 style="margin-top:2rem">Qué está modelado</h2>
 		<ul>
 			<li>CPU Cortex-M4F a 180 MHz con FPU, SysTick y controlador de interrupciones; RTOS (Keil RTX) incluido.</li>
-			<li>Reloj (RCC, PLL), alimentación, GPIO A–K, EXTI, temporizadores TIM1–8, USART/UART, SPI1–6, I2C1–3 y RTC.</li>
+			<li>Reloj (RCC, PLL), alimentación, GPIO, EXTI, temporizadores TIM1–8, USART/UART, SPI1–6, I2C1–3, ADC1–3 y RTC.</li>
 			<li>Placa: LD1, LD2, LD3, pulsador B1 y puerto serie virtual del ST-LINK (USART3).</li>
-			<li>Módulos: pantalla LCD NHD-C12832A1Z (ST7565R, SPI1), LED RGB (PD11, PD12, PD13), joystick (PB10, PB11, PE12, PE14, PE15), LM75B e INA226 (I2C1, PB8 y PB9).</li>
-			<li>Aún no: Ethernet, USB, ADC, DAC y DMA.</li>
+			<li>Módulos (los eliges tú): pantallas LCD ST7565R, TFT ST7735 y OLED SSD1306; sensores LM75B (temperatura), INA226 (corriente y potencia) y BH1750 (luz) por I2C; potenciómetros en pines del ADC; LED, LED RGB, pulsadores y joystick en cualquier pin.</li>
+			<li>Aún no: Ethernet, USB, DAC, DMA ni disparos del ADC por temporizador.</li>
 		</ul>
 	</div>
 </section>
 
 <link rel="stylesheet" href="/assets/css/emuladores.css">
+<link rel="stylesheet" href="/assets/css/emu-config.css">
 <script src="/assets/emu/libv86.js" defer></script>
 <script src="/assets/emu/dap.js" defer></script>
 <script src="/assets/emu/emu.js" defer></script>
+<script src="/assets/emu/emu-layout.js" defer></script>
+<script src="/assets/emu/emu-scope.js" defer></script>
 <script src="/assets/emu/emu-debug.js" defer></script>

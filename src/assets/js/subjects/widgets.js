@@ -2,6 +2,10 @@
 // Uso en una pagina: <div data-widget="polos-s"></div>
 import { SBM_WIDGETS } from "./sbm.js";
 import { SIST_CONT_WIDGETS } from "./sist_cont.js";
+import { EJ67_WIDGETS } from "./sist_cont_ej67.js";
+import { SZ_WIDGETS } from "./sz.js";
+import { LAZO_WIDGETS } from "./lazo.js";
+import { JUEGO_WIDGETS } from "./juego.js";
 import { el } from "./core.js";
 
 // ---------- test (preguntas en JSON: data-src="/assets/data/quiz/x.json") ----------
@@ -30,5 +34,9 @@ function quiz(root) {
 export const REGISTRY = {
 	"quiz": quiz,
 	...SBM_WIDGETS,
-	...SIST_CONT_WIDGETS
+	...SIST_CONT_WIDGETS,
+	...EJ67_WIDGETS,
+	...SZ_WIDGETS,
+	...LAZO_WIDGETS,
+	...JUEGO_WIDGETS
 };

@@ -70,8 +70,8 @@ function wasm_target(cpu) {
 const dot = el("span", { class: "emu-state" }, "");
 const detail = el("p", { class: "emu-info" }, "");
 const attach = el("button", { type: "button", class: "btn btn-outline" }, "Conectar Keil (usbip attach)");
-const card = el("section", { class: "card emu-card" },
-	el("h3", {}, "Depurador (Keil, CMSIS-DAP)"),
+const card = el("details", { class: "card emu-card emu-panel", "data-panel": "debug" },
+	el("summary", {}, "Depurador (Keil, CMSIS-DAP)"),
 	dot,
 	detail,
 	attach,
@@ -83,6 +83,9 @@ const card = el("section", { class: "card emu-card" },
 			el("li", {}, "Pulsa «Conectar Keil» (o ejecuta: usbip attach -r 127.0.0.1 -b 1-1)."),
 			el("li", {}, "En Keil: Options for Target › Debug › Use: CMSIS-DAP Debugger. Debug › Start."))));
 document.getElementById("emu-addons").prepend(card);
+if (window.emu_api) {
+	window.emu_api.panel(card);
+}
 
 function render() {
 	let text;

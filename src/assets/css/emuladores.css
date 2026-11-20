@@ -320,3 +320,224 @@
 #emu-log .warn { color: #8a6d00; }
 #emu-log .bad { color: var(--emu-bad); }
 #emu-log .ok { color: var(--emu-ok); }
+
+/* ---- disposición: placa + área de módulos, paneles desplegables debajo ---- */
+.emu-work {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	grid-auto-rows: 8px;
+	grid-auto-flow: row dense;
+	column-gap: 1rem;
+	align-content: start;
+	min-height: 6rem;
+}
+
+#emu-modules { display: contents; }
+
+.emu-work .emu-card {
+	grid-column: span var(--w, 6);
+	align-self: start;
+	position: relative;
+	margin: 0 !important;
+}
+
+@media (max-width: 600px) {
+	.emu-work .emu-card { grid-column: 1 / -1; }
+}
+
+.emu-work .emu-card > h3 {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	cursor: grab;
+	touch-action: none;
+	user-select: none;
+}
+
+.emu-work .emu-card > h3::before {
+	content: "⠿";
+	color: var(--emu-muted);
+}
+
+.emu-dragging {
+	z-index: 5;
+	opacity: 0.88;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+	transition: none;
+}
+
+.emu-dragging > h3 { cursor: grabbing; }
+
+.emu-resize {
+	position: absolute;
+	top: 12%;
+	bottom: 12%;
+	right: -0.45rem;
+	width: 0.9rem;
+	cursor: ew-resize;
+	touch-action: none;
+}
+
+.emu-resize::after {
+	content: "";
+	position: absolute;
+	left: 0.35rem;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	border-radius: 2px;
+	background: var(--emu-line);
+}
+
+.emu-resize:hover::after,
+.emu-resize.active::after { background: var(--emu-accent); }
+
+.emu-left { min-width: 0; }
+.emu-board { position: static; }
+
+.emu-panels {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin-top: 0.75rem;
+}
+
+.emu-panels > .emu-card { margin: 0; }
+
+.emu-panel > summary {
+	cursor: pointer;
+	list-style: none;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: var(--color-primary, #00a79d);
+}
+
+.emu-panel > summary::-webkit-details-marker { display: none; }
+
+.emu-panel > summary::before {
+	content: "▸";
+	display: inline-block;
+	margin-right: 0.5rem;
+	transition: transform 0.15s;
+}
+
+.emu-panel[open] > summary { margin-bottom: 0.6rem; }
+.emu-panel[open] > summary::before { transform: rotate(90deg); }
+
+/* el LED RGB no crece con su tarjeta */
+.emu-rgb {
+	width: 3rem;
+	height: 3rem;
+}
+
+/* destino del arrastre */
+.emu-drop-before { box-shadow: -6px 0 0 -2px var(--emu-accent), 0 -6px 0 -2px var(--emu-accent); }
+.emu-drop-after { box-shadow: 6px 0 0 -2px var(--emu-accent), 0 6px 0 -2px var(--emu-accent); }
+
+/* ---- sonda de osciloscopio ---- */
+.emu-x { margin-left: auto; }
+
+.emu-scope {
+	display: block;
+	width: 100%;
+	aspect-ratio: 5 / 2;
+	margin-top: 0.6rem;
+	border: 3px solid #0a1a10;
+	border-radius: 8px;
+	background: #0b1410;
+}
+
+.emu-chlist {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	margin-top: 0.6rem;
+}
+
+.emu-chrow {
+	display: flex;
+	align-items: flex-end;
+	gap: 0.6rem;
+}
+
+.emu-colorsel {
+	padding: 0.3rem 0.4rem;
+	font: inherit;
+	font-size: 0.85rem;
+	border: 2px solid var(--emu-line);
+	border-radius: 6px;
+	background: var(--color-base, #fff);
+}
+
+.emu-swatch {
+	display: inline-block;
+	width: 0.7rem;
+	height: 0.7rem;
+	border-radius: 50%;
+}
+
+.emu-tablewrap {
+	overflow-x: auto;
+	margin-top: 0.6rem;
+}
+
+.emu-meastable {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.8rem;
+	white-space: nowrap;
+}
+
+.emu-meastable th {
+	text-align: left;
+	font-weight: 600;
+	color: var(--emu-muted);
+	padding: 0.15rem 0.6rem 0.15rem 0;
+}
+
+.emu-meastable td {
+	padding: 0.15rem 0.6rem 0.15rem 0;
+	border-top: 1px dashed var(--emu-line);
+	font-variant-numeric: tabular-nums;
+}
+
+/* ---- macros del terminal ---- */
+.emu-check {
+	display: block;
+	margin: 0.4rem 0 0;
+	font-size: 0.85rem;
+	color: var(--emu-muted);
+}
+
+.emu-macros { margin-top: 0.5rem; }
+
+.emu-macrorow {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.25rem 0.4rem;
+	padding: 0.5rem 0;
+	border-top: 1px solid var(--emu-line);
+}
+
+.emu-macro-name,
+.emu-macro-data {
+	grid-column: 1;
+	min-width: 0;
+	padding: 0.3rem 0.5rem;
+	border: 1px solid var(--emu-line);
+	border-radius: 6px;
+	font: 0.85rem ui-monospace, Menlo, Consolas, monospace;
+}
+
+.emu-macro-name { font-family: inherit; }
+.emu-macrorow .emu-mini { grid-column: 2; grid-row: 1; align-self: start; }
+
+.emu-macrorow .emu-sum {
+	grid-column: 1 / -1;
+	color: var(--emu-muted);
+	font: 0.78rem/1.5 ui-monospace, Menlo, Consolas, monospace;
+	overflow-wrap: anywhere;
+}
+
+.emu-macrorow .emu-sum.bad { color: var(--emu-bad); }

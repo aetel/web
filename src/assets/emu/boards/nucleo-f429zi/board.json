@@ -6,45 +6,314 @@
 	"svg": "nucleo_f429zi.svg",
 	"firmware": "proj.axf",
 	"onboard": [
-		{ "id": "ld1", "type": "led", "label": "LD1", "color": "#22c55e", "pin": "PB0", "at": [100.25, 61.8] },
-		{ "id": "ld2", "type": "led", "label": "LD2", "color": "#3b82f6", "pin": "PB7", "at": [107.25, 61.8] },
-		{ "id": "ld3", "type": "led", "label": "LD3", "color": "#ef4444", "pin": "PB14", "at": [114.25, 61.8] },
-		{ "id": "b1", "type": "button", "label": "B1 USER", "pin": "PC13", "active": "high", "key": "Enter", "at": [56, 250], "r": 3.1 }
-	],
-	"addons": [
 		{
-			"id": "lcd", "type": "display", "model": "st7565r", "label": "LCD NHD-C12832A1Z",
-			"info": "128×32, controlador ST7565R por SPI1",
-			"w": 128, "h": 32,
-			"wires": { "SCK": "PA5", "MOSI": "PA7", "CS": "PD14", "A0": "PF13", "RST": "PA6" }
+			"id": "ld1",
+			"type": "led",
+			"label": "LD1",
+			"color": "#22c55e",
+			"pin": "PB0",
+			"at": [
+				100.25,
+				61.8
+			]
 		},
 		{
-			"id": "rgb", "type": "rgb_led", "label": "LED RGB",
-			"info": "Cátodo común: se enciende con nivel alto. PWM con TIM4 (PD12 y PD13) o por software",
+			"id": "ld2",
+			"type": "led",
+			"label": "LD2",
+			"color": "#3b82f6",
+			"pin": "PB7",
+			"at": [
+				107.25,
+				61.8
+			]
+		},
+		{
+			"id": "ld3",
+			"type": "led",
+			"label": "LD3",
+			"color": "#ef4444",
+			"pin": "PB14",
+			"at": [
+				114.25,
+				61.8
+			]
+		},
+		{
+			"id": "b1",
+			"type": "button",
+			"label": "B1 USER",
+			"pin": "PC13",
 			"active": "high",
-			"wires": { "R": "PD13", "G": "PD12", "B": "PD11" }
-		},
-		{
-			"id": "joy", "type": "joystick", "label": "Joystick",
-			"info": "Pulsadores activos a nivel alto; teclas: flechas y C (centro)",
-			"active": "high",
-			"wires": { "UP": "PB10", "DOWN": "PE12", "LEFT": "PE14", "RIGHT": "PB11", "CENTER": "PE15" },
-			"keys": { "UP": "ArrowUp", "DOWN": "ArrowDown", "LEFT": "ArrowLeft", "RIGHT": "ArrowRight", "CENTER": "c" }
-		},
-		{
-			"id": "lm75b", "type": "temp_sensor", "label": "Temperatura LM75B",
-			"info": "I2C1, dirección 0x48. Resolución 0,125 °C",
-			"addr": "0x48", "sensor": 0, "min": -55, "max": 125, "step": 0.125, "value": 25,
-			"wires": { "SCL": "PB8", "SDA": "PB9" }
-		},
-		{
-			"id": "ina226", "type": "power_monitor", "label": "Monitor de potencia INA226",
-			"info": "I2C1, dirección 0x40. El firmware escribe el registro de calibración",
-			"addr": "0x40", "bus_v": 5, "current_ma": 100, "shunt_mohm": 100,
-			"wires": { "SCL": "PB8", "SDA": "PB9" }
+			"key": "Enter",
+			"at": [
+				56,
+				250
+			],
+			"r": 3.1
 		}
 	],
 	"consoles": [
-		{ "id": "vcp", "label": "Consola serie · USART3 (ST-LINK VCP)", "uart": 2 }
+		{
+			"id": "vcp",
+			"label": "Consola serie · USART3 (ST-LINK VCP)",
+			"uart": 2
+		}
+	],
+	"presets": [
+		{
+			"id": "default",
+			"name": "LCD, LED RGB, joystick y sensores I2C",
+			"parts": [
+				{
+					"id": "lcd",
+					"type": "st7565r",
+					"bus": "spi1",
+					"pins": {
+						"SCK": "PA5",
+						"MOSI": "PA7",
+						"CS": "PD14",
+						"A0": "PF13",
+						"RST": "PA6"
+					}
+				},
+				{
+					"id": "rgb",
+					"type": "rgb_led",
+					"active": "high",
+					"pins": {
+						"R": "PD13",
+						"G": "PD12",
+						"B": "PD11"
+					}
+				},
+				{
+					"id": "joy",
+					"type": "joystick",
+					"active": "high",
+					"pins": {
+						"UP": "PB10",
+						"DOWN": "PE12",
+						"LEFT": "PE14",
+						"RIGHT": "PB11",
+						"CENTER": "PE15"
+					}
+				},
+				{
+					"id": "lm75b",
+					"type": "lm75b",
+					"bus": "i2c1",
+					"addr": "0x48",
+					"value": 25,
+					"pins": {
+						"SCL": "PB8",
+						"SDA": "PB9"
+					}
+				},
+				{
+					"id": "ina226",
+					"type": "ina226",
+					"bus": "i2c1",
+					"addr": "0x40",
+					"bus_v": 5,
+					"current_ma": 100,
+					"shunt_mohm": 100,
+					"pins": {
+						"SCL": "PB8",
+						"SDA": "PB9"
+					}
+				}
+			]
+		},
+		{
+			"id": "adc",
+			"name": "2 potenciómetros (PA3, PC0) + LCD",
+			"parts": [
+				{
+					"id": "lcd",
+					"type": "st7565r",
+					"bus": "spi1",
+					"pins": {
+						"SCK": "PA5",
+						"MOSI": "PA7",
+						"CS": "PD14",
+						"A0": "PF13",
+						"RST": "PA6"
+					}
+				},
+				{
+					"id": "pot1",
+					"type": "potentiometer",
+					"pin": "PA3",
+					"value": 1.65
+				},
+				{
+					"id": "pot2",
+					"type": "potentiometer",
+					"pin": "PC0",
+					"value": 1.65
+				}
+			]
+		},
+		{
+			"id": "i2c",
+			"name": "Sensores I2C (LM75B, INA226, BH1750) + LCD",
+			"parts": [
+				{
+					"id": "lcd",
+					"type": "st7565r",
+					"bus": "spi1",
+					"pins": {
+						"SCK": "PA5",
+						"MOSI": "PA7",
+						"CS": "PD14",
+						"A0": "PF13",
+						"RST": "PA6"
+					}
+				},
+				{
+					"id": "lm75b",
+					"type": "lm75b",
+					"bus": "i2c1",
+					"addr": "0x48",
+					"value": 25,
+					"pins": {
+						"SCL": "PB8",
+						"SDA": "PB9"
+					}
+				},
+				{
+					"id": "ina226",
+					"type": "ina226",
+					"bus": "i2c1",
+					"addr": "0x40",
+					"bus_v": 5,
+					"current_ma": 100,
+					"shunt_mohm": 100,
+					"pins": {
+						"SCL": "PB8",
+						"SDA": "PB9"
+					}
+				},
+				{
+					"id": "bh1750",
+					"type": "bh1750",
+					"bus": "i2c1",
+					"addr": "0x23",
+					"value": 300,
+					"pins": {
+						"SCL": "PB8",
+						"SDA": "PB9"
+					}
+				}
+			]
+		},
+		{
+			"id": "oled",
+			"name": "OLED SSD1306 (I2C) + BH1750",
+			"parts": [
+				{
+					"id": "oled",
+					"type": "ssd1306",
+					"bus": "i2c1",
+					"addr": "0x3c",
+					"pins": {
+						"SCL": "PB8",
+						"SDA": "PB9"
+					}
+				},
+				{
+					"id": "bh1750",
+					"type": "bh1750",
+					"bus": "i2c1",
+					"addr": "0x23",
+					"value": 300,
+					"pins": {
+						"SCL": "PB8",
+						"SDA": "PB9"
+					}
+				}
+			]
+		},
+		{
+			"id": "spi2",
+			"name": "LCD en otro SPI (SPI2: PB13, PB15)",
+			"parts": [
+				{
+					"id": "lcd",
+					"type": "st7565r",
+					"bus": "spi2",
+					"pins": {
+						"SCK": "PB13",
+						"MOSI": "PB15",
+						"CS": "PB12",
+						"A0": "PC4",
+						"RST": "PC5"
+					}
+				}
+			]
+		},
+		{
+			"id": "sd",
+			"name": "Tarjeta SD (SDIO, 4 bits) + LCD",
+			"parts": [
+				{
+					"id": "lcd",
+					"type": "st7565r",
+					"bus": "spi1",
+					"pins": {
+						"SCK": "PA5",
+						"MOSI": "PA7",
+						"CS": "PD14",
+						"A0": "PF13",
+						"RST": "PA6"
+					}
+				},
+				{
+					"id": "sd",
+					"type": "sdcard",
+					"bus": "sdio1",
+					"size_mb": 16,
+					"pins": {
+						"CK": "PC12",
+						"CMD": "PD2",
+						"D0": "PC8",
+						"D1": "PC9",
+						"D2": "PC10",
+						"D3": "PC11"
+					}
+				}
+			]
+		},
+		{
+			"id": "sd-spi",
+			"name": "Tarjeta SD (SPI4: PE2, PE5, PE6) + LCD",
+			"parts": [
+				{
+					"id": "lcd",
+					"type": "st7565r",
+					"bus": "spi1",
+					"pins": {
+						"SCK": "PA5",
+						"MOSI": "PA7",
+						"CS": "PD14",
+						"A0": "PF13",
+						"RST": "PA6"
+					}
+				},
+				{
+					"id": "sd",
+					"type": "sdcard",
+					"bus": "spi4",
+					"size_mb": 16,
+					"pins": {
+						"SCK": "PE2",
+						"MISO": "PE5",
+						"MOSI": "PE6",
+						"CS": "PE4"
+					}
+				}
+			]
+		}
 	]
 }

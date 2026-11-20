@@ -1,73 +1,99 @@
 ---
-title: "Ejercicio 6: Control de nivel de tanque, perturbaciones y diseño discreto"
+title: "Ejercicio 6: control de nivel de tanque, perturbaciones y diseño discreto"
 asignatura: sistemas-control
 tipo: ejercicio
 tema: "Tema 2 · Ejercicios en grupo"
 orden: 160
-resumen: "Control del nivel de un tanque industrial: cálculo del error estacionario usando superposición (referencia y fuga) y diseño de la ganancia K para cumplir una especificación temporal en el dominio discreto."
-keywords: [ejercicio 6, nivel, perturbación, superposición, régimen permanente, error, discreto, tiempo de establecimiento, LDR, Mermaid]
+resumen: "Error en régimen permanente con referencia y fuga (superposición) y diseño de K discreta para fijar kₛ con un polo real negativo (oscilaciones ocultas)."
+keywords: [ejercicio 6, nivel, tanque, perturbación, superposición, régimen permanente, error, discreto, tiempo de establecimiento, ks, polo negativo, oscilaciones ocultas, ZOH]
 ---
 
-**Enunciado.** Se desea controlar el nivel de líquido de un tanque industrial. El sistema en lazo abierto (válvula, tanque y sensor) se ha modelado mediante una planta con función de transferencia $G(s) = \frac{3}{0.5s + 1}$ [m/V]. El sistema se realimenta de forma unitaria.
-
-A continuación se muestra el diagrama de bloques del sistema continuo, donde $R(s)$ es la referencia de nivel, $P(s)$ es una perturbación equivalente a una fuga constante en el tanque, y $C(s)$ es el nivel real.
+**Enunciado (resumen).** Planta `G(s) = 3/(0,5s + 1)` [m/V], realimentación unitaria. `R(s)` es la referencia, `P(s)` una fuga constante que **resta a la entrada de la planta** y `C(s)` el nivel.
 
 ```mermaid
 graph LR
-    R((R)) -->|+ | Sum1((+))
-    C_out -->|- | Sum1
-    Sum1 -- E --> F["F(s)"]
-    F -- U --> Sum2((+))
-    P((P)) -->|- | Sum2
-    Sum2 --> G["G(s) = 3 / (0.5s + 1)"]
-    G --> C_out((C))
+    R(("R")) -- "+" --> S1(("Σ"))
+    C(("C")) -- "−" --> S1
+    S1 -- "E" --> F["F(s)"]
+    F -- "U, +" --> S2(("Σ"))
+    P(("P")) -- "−" --> S2
+    S2 --> G["G(s) = 3 / (0,5s + 1)"]
+    G --> C
 ```
 
 Se pide:
-(a) Calcular el error en régimen permanente (RP) si se utiliza un regulador proporcional $F(s) = 2$, una referencia escalón de $2$ V y se produce una perturbación (fuga) constante cuyo efecto a la entrada de la planta equivale a $0.5$ V.
-(b) Se decide digitalizar el control con un bloqueador de orden cero (ZOH) a un periodo $T = 50$ ms. Sabiendo que el equivalente discreto de la planta es $B_0G(z) = \frac{0.2856}{z - 0.9048}$, calcula el parámetro $k_s$ (en muestras) si se desea que el sistema realimentado tenga exactamente el mismo tiempo de establecimiento que la planta continua en lazo abierto.
-(c) Hallar la ganancia $K$ del regulador discreto $F(z) = K$ necesaria para cumplir el objetivo del apartado (b) forzando un polo dominante de lazo cerrado que provoque una respuesta con oscilaciones ocultas.
+
+- **a)** Error en régimen permanente con `F(s) = 2`, `R = 2` V (escalón) y una fuga que equivale a `P = 0,5` V a la entrada de la planta.
+- **b)** Se digitaliza con ZOH a `T = 50` ms, con `B₀G(z) = 0,2856/(z − 0,9048)`. Calcula `k_s` (muestras) para que el lazo cerrado tenga el mismo tiempo de establecimiento que la planta continua en lazo abierto.
+- **c)** Halla la ganancia `K` de `F(z) = K` que cumple (b) con un polo de lazo cerrado que produzca **oscilaciones ocultas**.
 
 ## Qué te están preguntando
 
-Este problema evalúa tu capacidad para aplicar el **principio de superposición** frente a perturbaciones en estado estacionario y tu habilidad para trasladar especificaciones temporales (como el tiempo de establecimiento, $t_s$) del dominio de Laplace al dominio discreto $Z$.
+(a) es **superposición**: dos entradas, un error. La fuga no entra donde entra `R`, y eso cambia su peso. (b) y (c) trasladan una especificación de tiempo de s a z: mismo `t_s`, mismo `k_s`, y de ahí sale el módulo del polo.
 
 <details>
 <summary>Solución paso a paso</summary>
 
-**a) Error en RP con perturbación (Superposición).**
-La ganancia estática de la cadena abierta es $K_0[CA] = F(0) \cdot G(0) = 2 \cdot 3 = 6$.
-Al ser un sistema de Tipo 0 (sin integradores), el error será constante. El error total es la suma de los efectos de la referencia ($R$) y la perturbación ($P$).
-- Efecto de la referencia ($R = 2$):
-  $$e_{rp-R} = \frac{R}{1 + K_0[CA]} = \frac{2}{1 + 6} = \frac{2}{7} \approx 0.286 \text{ V}$$
-- Efecto de la perturbación ($P = 0.5$). La perturbación entra restando *después* del controlador, por lo que su contribución al error de realimentación (entrada menos salida) se calcula como:
-  $$e_{rp-P} = \frac{P \cdot G(0)}{1 + K_0[CA]} \cdot \frac{1}{G(0)} = \frac{P}{1 + K_0[CA]} = \frac{0.5}{7} \approx 0.071 \text{ V}$$
-- Error total: 
-  $$e_{rp} = e_{rp-R} + e_{rp-P} = \frac{2.5}{7} \approx 0.357 \text{ V}$$
+**a) Error en RP con referencia y fuga.**
 
-**b) Especificación del tiempo de establecimiento discreto.**
-El tiempo de establecimiento de la planta continua pura ($G(s) = \frac{3}{0.5s + 1}$) depende de su constante de tiempo $\tau = 0.5$ s. Asumiendo el criterio general del 5%:
-$$t_s = \pi \tau = \pi \cdot 0.5 \approx 1.57 \text{ s}$$
-Para trasladar esto a muestras ($k_s$) con un periodo $T = 0.05$ s:
-$$k_s = \lceil \frac{t_s}{T} \rceil = \lceil \frac{1.57}{0.05} \rceil = \lceil 31.4 \rceil = 32 \text{ muestras}$$
+Ganancia estática de la cadena abierta: `K₀ = F(0)·G(0) = 2·3 = 6`. Sin integradores (tipo 0), el error es finito.
 
-**c) Cálculo de la ganancia K.**
-Buscamos un polo de lazo cerrado cuyo módulo cumpla con el $k_s$ deseado: $|p| = e^{-\pi / k_s}$.
-$$|p| = e^{-\pi / 32} \approx 0.9065$$
-La ecuación característica del lazo cerrado es $1 + K \cdot B_0G(z) = 0$:
-$$1 + K \frac{0.2856}{z - 0.9048} = 0 \implies z - 0.9048 + 0.2856K = 0$$
-El polo de lazo cerrado está en $z = 0.9048 - 0.2856K$.
-Como nos piden una respuesta con "oscilaciones ocultas" (frecuencia de oscilación máxima en discreto), el polo debe estar en el semieje real negativo. Igualamos a $-|p|$:
-$$0.9048 - 0.2856K = -0.9065 \implies 0.2856K = 1.8113 \implies K \approx 6.34$$
+La fuga entra **después** del regulador y **antes** de la planta, restando. En régimen permanente (`s → 0`, todo constante):
+
+<p class="eq">c = G(0)·[ F(0)·(R − c) − P ]   ⇒   c = (K₀·R − G(0)·P) / (1 + K₀)</p>
+
+<p class="eq">c(∞) = (6·2 − 3·0,5)/7 = 10,5/7 = 1,5 V   ⇒   e = R − c = <b>0,5 V</b></p>
+
+Por superposición, `e = e_R + e_P`:
+
+| Efecto | Fórmula | Valor |
+|---|---|---|
+| Referencia | `R/(1 + K₀)` | `2/7 = 0,286 V` |
+| Fuga | `G(0)·P/(1 + K₀)` | `1,5/7 = 0,214 V` |
+| **Total** | | **0,5 V** |
+
+**Cuidado.** La fuga llega a la salida **a través de la planta**, por eso aparece `G(0) = 3`. Si se usa `P/(1 + K₀)` sin `G(0)` sale 0,357 V, que es incorrecto: es como si la fuga entrara a la salida.
+
+**b) Especificación de `k_s`.**
+
+El polo continuo está en `s = −1/τ = −2`. Con el criterio del curso, `t_s = π/|σ|`:
+
+<p class="eq">t_s = π/2 = 1,571 s   ⇒   k_s = ⌈t_s/T⌉ = ⌈1,571/0,05⌉ = ⌈31,4⌉ = <b>32</b> muestras</p>
+
+Comprobación: el polo discreto de la planta es `e^(−2·0,05) = e^(−0,1) = 0,9048`, y `⌈−π/ln 0,9048⌉ = ⌈π/0,1⌉ = 32`. La planta en lazo abierto ya cumple `k_s = 32`: hay que **mantenerlo** al cerrar el lazo.
+
+**c) Ganancia K.**
+
+Módulo del polo deseado: `|p| = e^(−π/32) = 0,9065`.
+
+Ecuación característica: `1 + K·0,2856/(z − 0,9048) = 0` ⇒ `z = 0,9048 − 0,2856·K`.
+
+Oscilaciones ocultas = polo real **negativo** (`∠p = π`, periodo de 2 muestras). Se iguala a `−|p|`:
+
+<p class="eq">0,9048 − 0,2856·K = −0,9065   ⇒   K = 1,8113/0,2856 = <b>6,34</b></p>
+
+(La otra raíz, `+0,9065`, da `K ≈ 0`: es el lazo abierto, sin control.)
+
+**Dos comprobaciones que conviene hacer:**
+
+- **Estabilidad.** El polo cruza `z = −1` en `K = 1,9048/0,2856 = 6,67`. Con `K = 6,34` se está al 95 % del límite: es un diseño frágil.
+- **Error en régimen permanente.** `K_p = K·B₀G(1) = 3K ≈ 19`, así que el error al escalón es `1/(1 + 3K) ≈ 5 %`.
+
+**Nota sobre la convención.** Con `L(0,05) ≈ −3` en vez de `π` (como en el ejercicio 5): `t_s = 3τ = 1,5 s`, `k_s = 30`, `|p| = e^(−0,1) = 0,9048` y `K = 6,34`. El resultado práctico es el mismo; sigue la convención que pida el enunciado.
+
+| e (RP) | k_s (b) | \|p\| | K |
+|---|---|---|---|
+| 0,5 V | 32 | 0,9065 | 6,34 |
 
 </details>
 
 ## Herramienta
 
-Utiliza el deslizador interactivo para modificar la ganancia $K$. Observa en la gráfica cómo una ganancia alta reduce el impacto de la fuga (perturbación), pero a costa de introducir oscilaciones de alta frecuencia si el polo cruza al semiplano izquierdo del plano Z.
+Arriba, el apartado a): cambia `F` y mira cómo el error se reparte entre referencia y fuga (la fuga aparece a mitad del ensayo). Abajo, los apartados b) y c): mueve `K` y observa el polo, `k_s` y el límite de estabilidad.
 
 <div data-widget="ej6-tanque"></div>
 
 **Qué comprobar**
-- Con $K=2$, verifica el error estacionario de $\approx 0.357$ tras la entrada de la perturbación.
-- Aumenta $K$ a $6.34$. Verás un transitorio fuertemente oscilatorio (en "zig-zag") que se asienta exactamente a las 32 muestras, tal como predecía la teoría.
+- Con `F = 2`: antes de la fuga `e = 0,286 V`; después, **0,5 V**. Sube `F` y el error baja, pero nunca llega a 0 (tipo 0).
+- Con `K = 6,34`: respuesta en zig-zag (polo negativo), `k_s = 32` y error final ≈ 5 %.
+- Sube `K` hacia 6,67: el zig-zag deja de apagarse. Pasado ese valor es inestable.

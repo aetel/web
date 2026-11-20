@@ -486,3 +486,28 @@ nav.main-nav a:hover { color: var(--color-primary); }
   border: 1px solid var(--color-border);
   overflow-x: auto;
 }
+
+.wg-game .wg-tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .8rem; }
+.wg-tab { padding: .4rem .8rem; border: 1px solid var(--color-border, #e6e6e6); border-radius: 999px; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+.wg-tab.on { background: var(--color-primary-dark, #007d75); border-color: var(--color-primary-dark, #007d75); color: #fff; }
+.wg-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+.wg-rank { font-weight: 700; font-size: 1.05rem; margin-bottom: .3rem; }
+.wg-xp { height: .6rem; border-radius: 999px; background: var(--color-border, #e6e6e6); overflow: hidden; margin: .3rem 0; }
+.wg-xp-bar { height: 100%; width: 0; background: var(--color-primary-dark, #007d75); transition: width .2s linear; }
+.wg-toast { margin: .4rem 0; padding: .4rem .6rem; border-radius: .4rem; background: rgba(230, 126, 34, .15); }
+.wg-badges { display: flex; flex-wrap: wrap; gap: .3rem; margin: .5rem 0; }
+.wg-badge { font-size: 1.3rem; filter: grayscale(1); opacity: .3; cursor: help; }
+.wg-badge.on { filter: none; opacity: 1; }
+.wg-boss { font-weight: 700; color: var(--color-muted, #5a5a5a); }
+.wg-opt:disabled { cursor: default; }
+
+.wg-bd { margin-bottom: .8rem; }
+.wg-bd-row { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.wg-bd-fb { flex-direction: row-reverse; justify-content: center; margin-top: .6rem; }
+.wg-box { border: 2px solid var(--color-primary-dark, #007d75); border-radius: .5rem; padding: .4rem .5rem; min-width: 9rem; max-width: 12rem; font-size: .85rem; }
+.wg-box-t { font-weight: 700; margin-bottom: .2rem; }
+.wg-box select, .wg-box input { width: 100%; box-sizing: border-box; }
+.wg-par { margin-top: .2rem; }
+.wg-node { font-weight: 700; }
+.wg-arrow { color: var(--color-muted, #5a5a5a); font-size: 1.2rem; }
+.wg-sum { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: 2rem; height: 2rem; border: 2px solid var(--color-fg, currentColor); border-radius: 50%; font-size: .75rem; line-height: 1; }
