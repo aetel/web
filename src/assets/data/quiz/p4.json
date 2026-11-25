@@ -1,0 +1,431 @@
+[
+ {
+  "bloque": "1 · Vocabulario de la respuesta transitoria",
+  "pregunta": "Un sistema estable responde a un escalón unitario. ¿Qué es el tiempo de establecimiento tₛ?",
+  "opciones": [
+   "El instante del primer máximo",
+   "El instante a partir del cual la salida ya no sale de la banda del 5 % alrededor del valor final",
+   "El tiempo que tarda en llegar al 63 % del valor final",
+   "El tiempo que tarda en llegar por primera vez al valor 1"
+  ],
+  "correcta": 1,
+  "explicacion": "tₛ se mide hasta que la salida entra en la banda ±5 % del valor final y ya no vuelve a salir. El primer máximo es tₚ; el 63 % define la constante de tiempo de un primer orden."
+ },
+ {
+  "bloque": "1 · Vocabulario de la respuesta transitoria",
+  "pregunta": "En M₂(s) el valor final es 0,9615 y el valor máximo de la gráfica es 1,15. ¿Cuánto vale Mₚ?",
+  "opciones": [
+   "15 %",
+   "19,6 %",
+   "1,15 %",
+   "96 %"
+  ],
+  "correcta": 1,
+  "explicacion": "Mₚ es relativo al valor final, no a 1: (1,15 − 0,9615)/0,9615 = 0,196. Medirlo respecto a 1 es un error muy frecuente.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-m2s-max.svg",
+   "alt": "Respuesta de M₂(s) al escalón con el valor final 0,9615 y el máximo 1,15 marcados"
+  }
+ },
+ {
+  "bloque": "1 · Vocabulario de la respuesta transitoria",
+  "pregunta": "Los polos de M₁(s) son −2,12 y −18,88 (reales). ¿Qué es cierto?",
+  "opciones": [
+   "La respuesta no tiene sobreimpulso ni tiempo de pico",
+   "El tiempo de pico es π/18,88",
+   "El tiempo de establecimiento lo fija el polo rápido",
+   "Tiene sobreimpulso del 50 % porque su valor final es 0,5"
+  ],
+  "correcta": 0,
+  "explicacion": "Con polos reales la salida sube de forma monótona: no hay pico ni sobreimpulso. El tiempo de establecimiento lo fija el polo lento (dominante), tₛ ≈ π/2,12 = 1,48 s. El 0,5 es el valor final, no un sobreimpulso."
+ },
+ {
+  "bloque": "1 · Vocabulario de la respuesta transitoria",
+  "pregunta": "¿Qué polo es el dominante?",
+  "opciones": [
+   "El más rápido",
+   "El más lento: el más cercano al eje imaginario (en z, el de mayor módulo)",
+   "El de mayor parte imaginaria",
+   "El que está más a la izquierda en s"
+  ],
+  "correcta": 1,
+  "explicacion": "Los modos rápidos se extinguen enseguida y dejan solo al lento. En s es el de parte real más próxima a cero; en z, el de módulo más próximo a 1."
+ },
+ {
+  "bloque": "2 · De lazo abierto a lazo cerrado (apartados 1–4)",
+  "pregunta": "¿Por qué la planta de 3.1 se define como G(s) = 20/((s+1)(s+20)) y no como 1/((s+1)(s+20))?",
+  "opciones": [
+   "Para que G(0) = 1: ganancia significativa unitaria",
+   "Para que sea estable",
+   "Para que el polo rápido sea el dominante",
+   "Porque Matlab no admite numeradores iguales a 1"
+  ],
+  "correcta": 0,
+  "explicacion": "G(0) = 20/(1·20) = 1. Con 1/((s+1)(s+20)) la ganancia estática sería 0,05. La 'ganancia significativa unitaria' es el valor de G en continua."
+ },
+ {
+  "bloque": "2 · De lazo abierto a lazo cerrado (apartados 1–4)",
+  "pregunta": "Al cerrar el lazo con ganancia F, la ecuación característica es s² + 21s + 20 + 20F = 0. ¿Para qué F aparecen polos complejos?",
+  "opciones": [
+   "F > 1",
+   "F > 4,51",
+   "F > 20",
+   "Para cualquier F > 0"
+  ],
+  "correcta": 1,
+  "explicacion": "El discriminante es 21² − 4(20 + 20F) = 361 − 80F. Es negativo si F > 361/80 = 4,51. Con F = 1 hay polos reales y con F = 25 complejos."
+ },
+ {
+  "bloque": "2 · De lazo abierto a lazo cerrado (apartados 1–4)",
+  "pregunta": "Se pasa de F = 1 a F = 25 en el lazo de 3.1. ¿Qué efecto es correcto?",
+  "opciones": [
+   "Respuesta más rápida y menos error permanente, pero aparece sobreimpulso",
+   "Respuesta más lenta y menos error",
+   "Respuesta más rápida y sin sobreimpulso",
+   "Solo cambia el valor final; el transitorio es el mismo"
+  ],
+  "correcta": 0,
+  "explicacion": "El polo dominante pasa de −2,1 a −10,5 (tₛ baja de 1,48 a 0,3 s) y el valor final de 0,5 a 0,96. El coste es que los polos pasan a ser complejos y aparece un 19,6 % de sobreimpulso."
+ },
+ {
+  "bloque": "2 · De lazo abierto a lazo cerrado (apartados 1–4)",
+  "pregunta": "En M₂(s) el tₛ medido (0,23 s) es menor que π/|σ| = 0,30 s. ¿Por qué?",
+  "opciones": [
+   "π/|σ| es una cota de la envolvente; la respuesta real solo sale de la banda mientras un pico la supera, y aquí solo lo hace el primero",
+   "Matlab calcula mal el tiempo de establecimiento",
+   "Porque π es mayor que |ln 0,05|, el error es siempre del 0,23",
+   "Porque el polo rápido acelera la respuesta"
+  ],
+  "correcta": 0,
+  "explicacion": "La envolvente e^(σt) acota la oscilación, pero la respuesta real queda dentro de la banda en cuanto el primer pico (19,6 %) baja del 5 %. El siguiente valle es de unos 3,8 %, ya dentro de la banda."
+ },
+ {
+  "bloque": "3 · Sistema discreto (apartados 5–8)",
+  "pregunta": "G(z) tiene polos en z = 0,905 y z = 0,135 con T = 0,1 s. ¿A qué polos continuos corresponden (z = e^(sT))?",
+  "opciones": [
+   "s = −1 y s = −20",
+   "s = −0,905 y s = −0,135",
+   "s = −10 y s = −1,35",
+   "s = −0,1 y s = −2"
+  ],
+  "correcta": 0,
+  "explicacion": "s = ln(z)/T: ln(0,905)/0,1 = −1 y ln(0,135)/0,1 = −20. Son los polos de la planta de 3.1 muestreados."
+ },
+ {
+  "bloque": "3 · Sistema discreto (apartados 5–8)",
+  "pregunta": "Los polos de M₂(z) son 0,52 ± 0,6045j. ¿Cuánto valen |p|, φ y el tiempo de pico teórico?",
+  "opciones": [
+   "|p| = 0,797; φ = 0,860 rad; tₚ = 0,365 s",
+   "|p| = 0,52; φ = 0,6045 rad; tₚ = 0,52 s",
+   "|p| = 0,797; φ = 0,860 rad; tₚ = 3,65 s",
+   "|p| = 1,15; φ = 0,860 rad; tₚ = 0,365 s"
+  ],
+  "correcta": 0,
+  "explicacion": "|p| = √(0,52² + 0,6045²) = 0,797 y φ = arctan(0,6045/0,52) = 0,860. k_p = π/φ = 3,65 muestras ⇒ tₚ = 3,65·0,1 = 0,365 s (no 3,65 s: hay que multiplicar por T).",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-polos-m2z.svg",
+   "alt": "Polos de M₂(z) en el plano z junto al círculo unidad"
+  }
+ },
+ {
+  "bloque": "3 · Sistema discreto (apartados 5–8)",
+  "pregunta": "Con |p| = 0,797, ¿cuánto vale k_s = ⌈−π/ln|p|⌉ y qué tₛ resulta (T = 0,1 s)?",
+  "opciones": [
+   "k_s = 14 muestras, tₛ = 1,4 s",
+   "k_s = 4 muestras, tₛ = 0,4 s",
+   "k_s = 14 s",
+   "k_s = 1,4 muestras"
+  ],
+  "correcta": 0,
+  "explicacion": "−π/ln 0,797 = 13,87, que se redondea hacia arriba a 14 muestras. En segundos: 14·0,1 = 1,4 s."
+ },
+ {
+  "bloque": "3 · Sistema discreto (apartados 5–8)",
+  "pregunta": "En discreto el Mₚ medido (48 %) supera al teórico (43,7 %). ¿Por qué?",
+  "opciones": [
+   "Solo se ven muestras: el pico real de la secuencia cae en k = 4, mientras que la fórmula evalúa la envolvente continua en k_p = 3,65",
+   "Porque Matlab añade ruido",
+   "Porque F = 6,25 está mal calculado",
+   "Porque el sistema discreto es inestable"
+  ],
+  "correcta": 0,
+  "explicacion": "La fórmula Mₚ = |p|^(π/φ) usa el instante continuo π/φ. La secuencia solo existe en instantes enteros y su máximo cae en la muestra 4."
+ },
+ {
+  "bloque": "4 · Rango de ganancias (apartados 9–14)",
+  "pregunta": "G'(s) = 10/(s(s+1)(s+10)) en lazo cerrado con ganancia K. ¿Para qué K es estable?",
+  "opciones": [
+   "0 < K < 11",
+   "0 < K < 0,2377",
+   "K > 11",
+   "Para cualquier K > 0"
+  ],
+  "correcta": 0,
+  "explicacion": "s³ + 11s² + 10s + 10K: Routh exige 11·10 > 10K ⇒ K < 11. Con K = 11 los polos están en ± j√10."
+ },
+ {
+  "bloque": "4 · Rango de ganancias (apartados 9–14)",
+  "pregunta": "¿Qué ocurre exactamente con K = 0,2377?",
+  "opciones": [
+   "Los dos polos reales lentos se funden en uno doble en s = −0,487: amortiguamiento crítico",
+   "La respuesta se vuelve inestable",
+   "Los polos pasan al eje imaginario",
+   "El sistema deja de tener polo en el origen"
+  ],
+  "correcta": 0,
+  "explicacion": "El polo doble se da en el punto de ruptura del eje real: 3s² + 22s + 10 = 0 ⇒ s = −0,487, que corresponde a K = 0,2377."
+ },
+ {
+  "bloque": "4 · Rango de ganancias (apartados 9–14)",
+  "pregunta": "Con K = 11 la respuesta presenta una oscilación sostenida. ¿Cuál es su periodo?",
+  "opciones": [
+   "2π/√10 = 1,99 s",
+   "π/√10 = 0,99 s",
+   "2π/11 = 0,57 s",
+   "10/11 = 0,91 s"
+  ],
+  "correcta": 0,
+  "explicacion": "Los polos son s = ± j√10 = ± 3,162j, así que ω = 3,162 rad/s y T = 2π/ω = 1,987 s."
+ },
+ {
+  "bloque": "4 · Rango de ganancias (apartados 9–14)",
+  "pregunta": "El límite de estabilidad discreto (K ≈ 7,16) es menor que el continuo (K = 11). ¿Por qué?",
+  "opciones": [
+   "El muestreo con ZOH añade un retardo efectivo de T/2, que resta margen de fase",
+   "Matlab tiene un error numérico",
+   "Porque el periodo de muestreo es grande",
+   "Porque en discreto la planta tiene otro polo en el origen"
+  ],
+  "correcta": 0,
+  "explicacion": "El ZOH mantiene la señal durante T, lo que equivale a un retardo medio de T/2 = 50 ms. Más retardo ⇒ menos margen ⇒ se inestabiliza con menos ganancia."
+ },
+ {
+  "bloque": "4 · Rango de ganancias (apartados 9–14)",
+  "pregunta": "En discreto, ¿cuál es la condición límite de estabilidad en el plano z?",
+  "opciones": [
+   "Un polo sobre el círculo unidad |p| = 1",
+   "Un polo en z = 0",
+   "Un polo con parte real nula",
+   "Un polo con parte imaginaria nula"
+  ],
+  "correcta": 0,
+  "explicacion": "Estable ⇔ todos los polos en |p| < 1. El límite es el círculo unidad, el equivalente discreto del eje imaginario."
+ },
+ {
+  "bloque": "4 · Rango de ganancias (apartados 9–14)",
+  "pregunta": "Ordena de menor a mayor K los regímenes de G'(s) en lazo cerrado:",
+  "opciones": [
+   "Sobreamortiguado, crítico, subamortiguado, oscilación sostenida, inestable",
+   "Subamortiguado, sobreamortiguado, crítico, inestable, oscilación sostenida",
+   "Crítico, sobreamortiguado, oscilación sostenida, subamortiguado, inestable",
+   "Inestable, subamortiguado, crítico, sobreamortiguado, sostenida"
+  ],
+  "correcta": 0,
+  "explicacion": "A K pequeña los polos son reales. En K = 0,2377 se funden y, al crecer K, se hacen complejos. Se acercan al eje imaginario hasta cruzarlo en K = 11.",
+  "fijo": true,
+  "imagen": {
+   "src": "/assets/img/quiz/p4-lugar-s.svg",
+   "alt": "Trayectoria de los polos de lazo cerrado de G'(s) al subir K, con K = 0,2377 y K = 11 marcados"
+  }
+ },
+ {
+  "bloque": "5 · Error en régimen permanente (estilo P1–P3)",
+  "pregunta": "Error en régimen permanente ante rampa de pendiente 3, con constante de velocidad (ganancia de orden 1) K₁ = 2.",
+  "opciones": [
+   "1,5",
+   "3",
+   "0",
+   "Infinito"
+  ],
+  "correcta": 0,
+  "explicacion": "e = pendiente/K_v = 3/2 = 1,5."
+ },
+ {
+  "bloque": "5 · Error en régimen permanente (estilo P1–P3)",
+  "pregunta": "¿Cómo afecta al error permanente de velocidad pasar a Tipo 2 con un regulador integral?",
+  "opciones": [
+   "Lo anula: un Tipo 2 sigue una rampa con error nulo (si el sistema sigue siendo estable)",
+   "Lo duplica",
+   "Lo deja igual",
+   "Lo hace infinito"
+  ],
+  "correcta": 0,
+  "explicacion": "Cada integrador sube un tipo. Tipo 1 sigue escalón sin error y rampa con error finito. Tipo 2 sigue también la rampa con error nulo y tiene error finito ante parábola."
+ },
+ {
+  "bloque": "5 · Error en régimen permanente (estilo P1–P3)",
+  "pregunta": "Motor: G(s) = 4/(0,05s + 1) rpm/V, F = 1, H = 1, r(t) = 2000·u(t) rpm, sin perturbación. ¿Cuánto vale la salida en régimen permanente?",
+  "opciones": [
+   "1600 rpm",
+   "2000 rpm",
+   "800 rpm",
+   "8000 rpm"
+  ],
+  "correcta": 0,
+  "explicacion": "c(∞) = K/(1+K)·r = 4/5·2000 = 1600 rpm. El error es 400 rpm.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-diag-motor.svg",
+   "alt": "Diagrama de bloques del lazo del motor con KG = 4 rpm/V, KF = 1 y KH = 1"
+  }
+ },
+ {
+  "bloque": "5 · Error en régimen permanente (estilo P1–P3)",
+  "pregunta": "Lazo con planta 2/(s+1), regulador 1, sensor 1, r = 2·u(t) y perturbación p = 1·u(t) que resta a la salida de la planta. ¿Cuánto valen c(∞) y e(∞)?",
+  "opciones": [
+   "c = 1 y e = 1",
+   "c = 4/3 y e = 2/3",
+   "c = 2 y e = 0",
+   "c = 0 y e = 2"
+  ],
+  "correcta": 0,
+  "explicacion": "c = G·e − p con e = r − c: c = 2(2 − c) − 1 ⇒ 3c = 3 ⇒ c = 1, e = 1.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-diag-perturbacion.svg",
+   "alt": "Diagrama de bloques con planta 2/(s+1) y una perturbación que resta a la salida de la planta"
+  }
+ },
+ {
+  "bloque": "5 · Error en régimen permanente (estilo P1–P3)",
+  "pregunta": "Planta 2/(0,5s + 1) (Tipo 0) con regulador proporcional K = 2 y entrada rampa. ¿Qué vale e(∞)?",
+  "opciones": [
+   "Infinito",
+   "0",
+   "0,25",
+   "1"
+  ],
+  "correcta": 0,
+  "explicacion": "Un sistema de Tipo 0 no puede seguir una rampa: el error crece sin límite. La salida y la acción de control también crecen indefinidamente.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-diag-rampa.svg",
+   "alt": "Diagrama de bloques con entrada rampa, regulador K = 2, planta 2/(0,5s+1) y perturbación escalón"
+  }
+ },
+ {
+  "bloque": "5 · Error en régimen permanente (estilo P1–P3)",
+  "pregunta": "Controlador integral, realimentación unitaria, escalón sin perturbación. Si la realimentación se multiplicara por 2, ¿qué pasa con el error permanente?",
+  "opciones": [
+   "Se mantiene invariante (nulo): el integrador sigue anulándolo",
+   "Aumenta",
+   "Disminuye pero no se anula",
+   "Faltan datos"
+  ],
+  "correcta": 0,
+  "explicacion": "Con integrador en la cadena directa, el error permanente al escalón es 0 para cualquier ganancia de realimentación. Lo que cambia es el valor final, que pasa a ser r/H."
+ },
+ {
+  "bloque": "5 · Error en régimen permanente (estilo P1–P3)",
+  "pregunta": "Planta de posición 2/(s(0,05s+1)), KF = KH = 1, rampa r = t y perturbación escalón 0,75 que resta a la salida. ¿Cuánto vale el error permanente?",
+  "opciones": [
+   "0,5 rad",
+   "1,5 rad",
+   "0,75 rad",
+   "0 rad"
+  ],
+  "correcta": 0,
+  "explicacion": "El integrador de la planta absorbe la perturbación escalón (queda error 0 por ese motivo). Por la rampa, e = 1/K_v = 1/2 = 0,5 rad. Dónde entra la perturbación y cuántos integradores hay antes de ese punto cambia la respuesta.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-diag-posicion.svg",
+   "alt": "Diagrama de bloques de un sistema de posición con perturbación escalón a la salida"
+  }
+ },
+ {
+  "bloque": "6 · Modelado e identificación (estilo P1–P3)",
+  "pregunta": "Un motor excitado con 2 V da, en régimen permanente y con ruido, una salida que oscila alrededor de 1000 rpm (la última muestra vale 1048). ¿Qué ganancia usarías?",
+  "opciones": [
+   "500 rpm/V",
+   "524 rpm/V",
+   "1000 rpm/V",
+   "2000 rpm/V"
+  ],
+  "correcta": 0,
+  "explicacion": "Se usa el valor medio del régimen permanente (≈ 1000 rpm), no una muestra suelta ruidosa: K = 1000 rpm / 2 V = 500 rpm/V.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-captura-ruido.svg",
+   "alt": "Captura ruidosa del régimen permanente del motor ante un escalón de 2 V, con última muestra 1048 rpm"
+  }
+ },
+ {
+  "bloque": "6 · Modelado e identificación (estilo P1–P3)",
+  "pregunta": "Respuesta al escalón de 2 V: valor final 1443 rpm; la curva pasa por 912 rpm en t = 20 ms. Modelo K/(τs+1). ¿Cuánto vale τ?",
+  "opciones": [
+   "20 ms",
+   "12 ms",
+   "40 ms",
+   "63 ms"
+  ],
+  "correcta": 0,
+  "explicacion": "En t = τ la salida alcanza el 63,2 % del valor final: 0,632·1443 = 912 rpm. Eso ocurre a 20 ms.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-captura-tau.svg",
+   "alt": "Captura de la velocidad del motor con cuatro puntos marcados y valor final 1443,1 rpm"
+  }
+ },
+ {
+  "bloque": "6 · Modelado e identificación (estilo P1–P3)",
+  "pregunta": "G(s) = 2/(0,5s + 1) y a(t) = 0,5·u(t). Se escribe c(t) = (V + W·e^(Xt))·Y. ¿Qué valores corresponden?",
+  "opciones": [
+   "V = 2, W = −2, X = −2, Y = 0,5",
+   "V = 0, W = 2, X = 0,5, Y = a(t)",
+   "V = 1, W = 1, X = −0,5, Y = 2",
+   "V = 2, W = 2, X = 2, Y = 0,5"
+  ],
+  "correcta": 0,
+  "explicacion": "c(t) = K·A·(1 − e^(−t/τ)) = 0,5·(2 − 2·e^(−2t)). La exponencial debe decaer: X = −1/τ = −2, no positiva."
+ },
+ {
+  "bloque": "6 · Modelado e identificación (estilo P1–P3)",
+  "pregunta": "Motor M₁ (K = 1 rad/s/V, τ = 1 s) y motor M₂ (K = 2 rad/s/V, τ = 2 s), ambos con la misma tensión en escalón. ¿Qué frase es correcta?",
+  "opciones": [
+   "M₁ alcanza antes la velocidad final y su velocidad final es menor",
+   "M₁ alcanza más tarde la velocidad final y es menor",
+   "M₁ alcanza antes la velocidad final y es mayor",
+   "M₁ alcanza más tarde la velocidad final y es mayor"
+  ],
+  "correcta": 0,
+  "explicacion": "El tiempo de establecimiento crece con τ (menor en M₁) y la velocidad final es K·V (menor en M₁)."
+ },
+ {
+  "bloque": "6 · Modelado e identificación (estilo P1–P3)",
+  "pregunta": "Motor de cinta K = 2 rad/s/V, τ = 1 s, excitado con 0,5 V. En t = 5 s una carga reduce la velocidad un 40 %. ¿Qué velocidad tiene después?",
+  "opciones": [
+   "0,6 rad/s",
+   "0,4 rad/s",
+   "1 rad/s",
+   "0,5 rad/s"
+  ],
+  "correcta": 0,
+  "explicacion": "A t = 5 s (5τ) ya está en el valor final: 2·0,5 = 1 rad/s. Un descenso del 40 % deja 0,6 rad/s."
+ },
+ {
+  "bloque": "6 · Modelado e identificación (estilo P1–P3)",
+  "pregunta": "Sistema 2/(0,5s + 1) en lazo cerrado unitario (ganancia 2/3), r = 6·u(t), y una perturbación p = −u(t − 4) que resta a la salida. ¿Cuánto vale la salida en t = 8 s?",
+  "opciones": [
+   "≈ 4,33 rad (un 8,3 % más que sin perturbación)",
+   "4 rad (no cambia)",
+   "3,67 rad",
+   "6 rad"
+  ],
+  "correcta": 0,
+  "explicacion": "Sin perturbación c = 6·2/3 = 4. Con p = −1, la perturbación suma +1 a la salida de la planta: c = (2·6 + 1)/3 = 13/3 = 4,33 rad. Para t = 8 s ya está asentado (τ_lc = 0,17 s).",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-diag-lc.svg",
+   "alt": "Diagrama de bloques del lazo cerrado con r = 6u(t) y perturbación −u(t−4)"
+  }
+ },
+ {
+  "bloque": "6 · Modelado e identificación (estilo P1–P3)",
+  "pregunta": "Comparas la captura real del motor (curva ruidosa) con la simulación del modelo (curva limpia): coinciden en forma, valor final y constante de tiempo. ¿Qué concluyes?",
+  "opciones": [
+   "El modelo es válido: el ruido de medida es normal y no invalida la comparación",
+   "El modelo es incorrecto por el ruido",
+   "El modelo es incorrecto porque no empieza en k = 0",
+   "No se puede concluir nada"
+  ],
+  "correcta": 0,
+  "explicacion": "Lo que se compara es el comportamiento medio: ganancia y constante de tiempo. El ruido del sensor y un desplazamiento inicial del eje de tiempo no invalidan el modelo.",
+  "imagen": {
+   "src": "/assets/img/quiz/p4-validacion.svg",
+   "alt": "Curva roja ruidosa de la captura real frente a la curva azul del modelo simulado"
+  }
+ }
+]

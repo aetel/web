@@ -1,0 +1,520 @@
+{
+ "titulo": "Prueba de la práctica 4 · variantes de los tipos de pregunta",
+ "numero": 11,
+ "preguntas": [
+  {
+   "id": "t1-tp",
+   "bloque": "1 · Lazo cerrado con planta de dos polos reales",
+   "params": {
+    "p1": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "p2": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "F": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     8,
+     10,
+     25
+    ],
+    "S": "=p1+p2",
+    "P": "=p1*p2",
+    "Q": "=P*(1+F)",
+    "D": "=S*S-4*Q",
+    "w": "=sqrt(abs(D))/2"
+   },
+   "restricciones": [
+    "abs(D)>1"
+   ],
+   "pregunta": "Planta continua con dos polos reales en s = −{p1} y s = −{p2} y ganancia significativa unitaria, controlada en lazo cerrado con realimentación unitaria (H = 1) y regulador F = {F}. ¿Cuánto vale el tiempo de pico de la respuesta al escalón?",
+   "elegir": {
+    "mal": 3
+   },
+   "opciones": [
+    {
+     "t": "No existe tiempo de pico para este sistema",
+     "ok": "D>=0"
+    },
+    {
+     "t": "{f(pi/w,2)} s",
+     "ok": "D<0",
+     "mostrar": "D<0"
+    },
+    {
+     "t": "{f(pi/sqrt(Q),2)} s",
+     "ok": "0",
+     "mostrar": "D>=0 || abs(pi/sqrt(Q)-pi/w)>0.005"
+    },
+    {
+     "t": "{f(2*pi/sqrt(Q),2)} s",
+     "ok": "0"
+    },
+    {
+     "t": "{f(pi/(S/2),2)} s",
+     "ok": "0"
+    },
+    {
+     "t": "{f(pi/p1,2)} s",
+     "ok": "0"
+    }
+   ],
+   "explicacion": "G(s) = {P}/((s+{p1})(s+{p2})), así que M(s) = F·G/(1+F·G) tiene por ecuación característica s² + {S}s + {P}·(1+{F}) = s² + {S}s + {Q} = 0. Discriminante D = {S}² − 4·{Q} = {D}. {si(D>=0,'D ≥ 0: los polos son reales (−'+f((S-sqrt(D))/2,3)+' y −'+f((S+sqrt(D))/2,3)+'), la salida sube sin oscilar y no hay primer máximo: no existe tiempo de pico, aunque la fórmula π/ω tentaría a dar un número.','D < 0: polos complejos −'+f(S/2,3)+' ± j'+f(w,3)+'; el tiempo de pico es π/ω = π/'+f(w,3)+' = '+f(pi/w,3)+' s.')}"
+  },
+  {
+   "id": "t2-k",
+   "bloque": "2 · Rango de ganancias en discreto (código Matlab)",
+   "tipo": "completar",
+   "params": {
+    "a": [
+     0.8,
+     0.85,
+     0.9,
+     0.7
+    ],
+    "b": [
+     0.1,
+     0.2,
+     0.3,
+     0.135,
+     0.05
+    ],
+    "ord": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "mult": [
+     1.4,
+     2,
+     3
+    ],
+    "kg": "=(1-a)*(1-b)",
+    "Kc": "=(a-b)^2/(4*kg)",
+    "Kl": "=(1-a*b)/kg",
+    "re": "=(a+b)/2",
+    "KcR": "=round(Kc,3)",
+    "KsR": "=round(Kc+(Kl-Kc)*0.5,3)",
+    "KiR": "=round(Kl*mult,2)",
+    "imS": "=sqrt(4*(a*b+kg*KsR)-(a+b)^2)/2",
+    "imI": "=sqrt(4*(a*b+kg*KiR)-(a+b)^2)/2",
+    "rowc": "=pt(re,4)+'  '+pt(re,4)",
+    "rows_": "=pt(re,4)+' ± '+pt(imS,4)+'i'",
+    "rowi": "=pt(re,4)+' ± '+pt(imI,4)+'i'",
+    "k1": "=si(ord==0,KcR,si(ord==1,KcR,si(ord==2,KsR,si(ord==3,KsR,si(ord==4,KiR,KiR)))))",
+    "k2": "=si(ord==0,KsR,si(ord==1,KiR,si(ord==2,KcR,si(ord==3,KiR,si(ord==4,KcR,KsR)))))",
+    "k3": "=si(ord==0,KiR,si(ord==1,KsR,si(ord==2,KiR,si(ord==3,KcR,si(ord==4,KsR,KcR)))))",
+    "r1": "=si(ord==0,rowc,si(ord==1,rowc,si(ord==2,rows_,si(ord==3,rows_,si(ord==4,rowi,rowi)))))",
+    "r2": "=si(ord==0,rows_,si(ord==1,rowi,si(ord==2,rowc,si(ord==3,rowi,si(ord==4,rowc,rows_)))))",
+    "r3": "=si(ord==0,rowi,si(ord==1,rows_,si(ord==2,rowi,si(ord==3,rowc,si(ord==4,rows_,rowc)))))"
+   },
+   "restricciones": [
+    "a>b"
+   ],
+   "pregunta": "Dado el siguiente código de Matlab, que opera sobre un sistema discreto con planta bg de polos reales en z = {a} y z = {b} y ganancia significativa unitaria, y su correspondiente resultado, rellena la ganancia que corresponde a cada comportamiento.\n```matlab\nfor K=[{pt(k1)} {pt(k2)} {pt(k3)}]\n\tM=feedback(K*bg,1);\n\t[NumM,DenM]=tfdata(M, 'v');\n\traicesDenM=roots(DenM);\n\tx=x+1;\n\tpolos(x,1:2)=raicesDenM';\nend\npolos\n```\n```text\npolos =\n\n   {r1}\n\n   {r2}\n\n   {r3}\n```",
+   "valores": [
+    "{KcR}",
+    "{KsR}",
+    "{KiR}"
+   ],
+   "filas": [
+    {
+     "t": "El sistema es críticamente amortiguado para K =",
+     "ok": "{KcR}"
+    },
+    {
+     "t": "El sistema es inestable para K =",
+     "ok": "{KiR}"
+    },
+    {
+     "t": "El sistema es subamortiguado para K =",
+     "ok": "{KsR}"
+    }
+   ],
+   "filasDistintas": true,
+   "barajarFilas": true,
+   "barajarValores": true,
+   "explicacion": "En discreto se mira el módulo y la fase de los polos. Un polo doble real (dos raíces iguales, sin parte imaginaria) es amortiguamiento crítico: K = {KcR}. Un par complejo con |p| < 1 está dentro del círculo unidad: subamortiguado (K = {KsR}, |p| = {f(sqrt(a*b+kg*KsR),4)}). Un par con |p| > 1 está fuera: inestable (K = {KiR}, |p| = {f(sqrt(a*b+kg*KiR),4)}). Con la planta G(z)=kg/((z−a)(z−b)), kg = {f(kg,5)}: ecuación característica z² − {f(a+b,3)}z + {f(a*b+kg*KsR,4)} = 0 (para K = {KsR}); crítico en K = (a−b)²/(4kg) y límite de estabilidad en |p| = 1, es decir K = (1−ab)/kg = {f(Kl,3)}. El valor crítico se ha redondeado a tres decimales, de ahí que no salga exactamente doble."
+  },
+  {
+   "id": "t3-estable",
+   "bloque": "3 · Tabla de planta inestable G(s)=K_G/((s−p)(s+q))",
+   "params": {
+    "pr": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "p": "=si(pr==0,1,si(pr==1,2,si(pr==2,1,3)))",
+    "q": "=si(pr==0,9,si(pr==1,10,si(pr==2,7,11)))",
+    "PQ": "=p*q"
+   },
+   "pregunta": "Planta G(s) = {PQ}/((s−{p})(s+{q})) (un polo inestable en lazo abierto), con regulador proporcional K y realimentación unitaria. ¿Para qué valores de K es estable el lazo cerrado?",
+   "elegir": {
+    "mal": 3
+   },
+   "opciones": [
+    {
+     "t": "K > 1",
+     "ok": "1"
+    },
+    {
+     "t": "Para cualquier K > 0",
+     "ok": "0"
+    },
+    {
+     "t": "0 < K < 1",
+     "ok": "0"
+    },
+    {
+     "t": "K > {PQ}",
+     "ok": "0"
+    },
+    {
+     "t": "No existe ningún K que lo estabilice",
+     "ok": "0"
+    }
+   ],
+   "explicacion": "La ecuación característica es (s−{p})(s+{q}) + {PQ}·K = s² + {q-p}s + {PQ}(K−1) = 0. Con orden 2 basta que todos los coeficientes sean positivos: {q-p} > 0 se cumple siempre y {PQ}(K−1) > 0 exige K > 1. Con K = 1 el término independiente se anula y aparece un polo en el origen (no es estable); con K < 1 hay un polo real positivo. Con la planta de la prueba, 9/((s−1)(s+9)): K = 0,01 es inestable, K = 1 pone polos en −8 y 0, y K = 2,8 y 4,6 son estables."
+  },
+  {
+   "id": "t3-fila",
+   "bloque": "3 · Tabla de planta inestable G(s)=K_G/((s−p)(s+q))",
+   "tipo": "completar",
+   "params": {
+    "pr": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "p": "=si(pr==0,1,si(pr==1,2,si(pr==2,1,3)))",
+    "q": "=si(pr==0,9,si(pr==1,10,si(pr==2,7,11)))",
+    "PQ": "=p*q",
+    "sg": "=(q-p)/2",
+    "Kcr": "=1+sg^2/PQ",
+    "caso": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "k0": [
+     0.01,
+     0.1,
+     0.3,
+     0.5
+    ],
+    "K": "=si(caso==0,k0,si(caso==1,1,si(caso==2,round(1+0.5*(Kcr-1),2),si(caso==3,round(Kcr,2),round(Kcr*1.6,2)))))",
+    "D": "=sg^2-PQ*(K-1)",
+    "rr": "=sqrt(abs(D))",
+    "est": "=si(caso>=2,'Sí','No')",
+    "am": "=si(caso<=2,'Sobreamortiguado',si(caso==3,'Críticamente amortiguado','Subamortiguado'))",
+    "tpmp": "=si(caso==4,'Existen','No procede')"
+   },
+   "pregunta": "Planta G(s) = {PQ}/((s−{p})(s+{q})) con regulador proporcional K = {K} y realimentación unitaria. Rellena la fila de la tabla.",
+   "valores": [
+    "Sí",
+    "No",
+    "Sobreamortiguado",
+    "Críticamente amortiguado",
+    "Subamortiguado",
+    "Existen",
+    "No procede"
+   ],
+   "filas": [
+    {
+     "t": "¿Es estable?",
+     "ok": "{est}"
+    },
+    {
+     "t": "Amortiguamiento",
+     "ok": "{am}"
+    },
+    {
+     "t": "tₚ y Mₚ",
+     "ok": "{tpmp}"
+    }
+   ],
+   "barajarFilas": false,
+   "explicacion": "Ecuación característica: s² + {q-p}s + {f(PQ*(K-1),3)} = 0. Discriminante σ² − pq(K−1) = {f(D,3)} con σ = {sg}. {si(caso==0,'K < 1: polos reales, uno de ellos positivo ('+f(-sg+rr,3)+'): inestable y sin pico.',si(caso==1,'K = 1: polos en '+f(-2*sg,3)+' y 0. El polo en el origen no es estable; los polos son reales distintos y no hay pico.',si(caso==2,'1 < K < K crítica ('+f(Kcr,3)+'): dos polos reales negativos ('+f(-sg-rr,3)+' y '+f(-sg+rr,3)+'): estable, sobreamortiguado, sin pico.',si(caso==3,'K ≈ K crítica ('+f(Kcr,3)+'): polo doble en '+f(-sg,3)+'. Estable, críticamente amortiguado, sin pico (K se ha redondeado a dos decimales).','K > K crítica ('+f(Kcr,3)+'): polos complejos '+f(-sg,3)+' ± j'+f(rr,3)+'. Estable, subamortiguado y con pico.'))))} Ojo: el amortiguamiento solo mira si los polos son reales o complejos; la estabilidad es otra columna."
+  },
+  {
+   "id": "t3-ts",
+   "bloque": "3 · Tabla de planta inestable G(s)=K_G/((s−p)(s+q))",
+   "tipo": "numerica",
+   "params": {
+    "pr": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "p": "=si(pr==0,1,si(pr==1,2,si(pr==2,1,3)))",
+    "q": "=si(pr==0,9,si(pr==1,10,si(pr==2,7,11)))",
+    "PQ": "=p*q",
+    "sg": "=(q-p)/2",
+    "Kcr": "=1+sg^2/PQ",
+    "K": [
+     3,
+     3.5,
+     4,
+     4.6,
+     5,
+     6
+    ],
+    "wd": "=sqrt(PQ*(K-1)-sg^2)"
+   },
+   "restricciones": [
+    "K>Kcr+0.15"
+   ],
+   "pregunta": "Planta G(s) = {PQ}/((s−{p})(s+{q})) con regulador proporcional K = {K} y realimentación unitaria. Usa el criterio |ln 0,05| ≈ π. ¿Cuánto vale el tiempo de establecimiento tₛ (en s)?",
+   "respuesta": "pi/sg",
+   "tolerancia": 0.02,
+   "unidad": "s",
+   "explicacion": "Ecuación característica s² + {q-p}s + {f(PQ*(K-1),2)} = 0, con polos −{sg} ± j{f(wd,4)} (σ = (q−p)/2 = {sg}, ω = √({PQ}(K−1) − σ²) = {f(wd,4)}). tₛ = π/σ = π/{sg} = {f(pi/sg,4)} s. No depende de K: σ solo depende de la planta. Por eso en la tabla de la prueba salen 785 ms en filas distintas."
+  },
+  {
+   "id": "t3-tp",
+   "bloque": "3 · Tabla de planta inestable G(s)=K_G/((s−p)(s+q))",
+   "tipo": "numerica",
+   "params": {
+    "pr": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "p": "=si(pr==0,1,si(pr==1,2,si(pr==2,1,3)))",
+    "q": "=si(pr==0,9,si(pr==1,10,si(pr==2,7,11)))",
+    "PQ": "=p*q",
+    "sg": "=(q-p)/2",
+    "Kcr": "=1+sg^2/PQ",
+    "K": [
+     3,
+     3.5,
+     4,
+     4.6,
+     5,
+     6
+    ],
+    "wd": "=sqrt(PQ*(K-1)-sg^2)"
+   },
+   "restricciones": [
+    "K>Kcr+0.15"
+   ],
+   "pregunta": "Planta G(s) = {PQ}/((s−{p})(s+{q})) con regulador proporcional K = {K} y realimentación unitaria. Usa el criterio |ln 0,05| ≈ π. ¿Cuánto vale el tiempo de pico tₚ (en s)?",
+   "respuesta": "pi/wd",
+   "tolerancia": 0.02,
+   "unidad": "s",
+   "explicacion": "Ecuación característica s² + {q-p}s + {f(PQ*(K-1),2)} = 0, con polos −{sg} ± j{f(wd,4)} (σ = (q−p)/2 = {sg}, ω = √({PQ}(K−1) − σ²) = {f(wd,4)}). tₚ = π/ω = π/{f(wd,4)} = {f(pi/wd,4)} s."
+  },
+  {
+   "id": "t3-mp",
+   "bloque": "3 · Tabla de planta inestable G(s)=K_G/((s−p)(s+q))",
+   "tipo": "numerica",
+   "params": {
+    "pr": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "p": "=si(pr==0,1,si(pr==1,2,si(pr==2,1,3)))",
+    "q": "=si(pr==0,9,si(pr==1,10,si(pr==2,7,11)))",
+    "PQ": "=p*q",
+    "sg": "=(q-p)/2",
+    "Kcr": "=1+sg^2/PQ",
+    "K": [
+     3,
+     3.5,
+     4,
+     4.6,
+     5,
+     6
+    ],
+    "wd": "=sqrt(PQ*(K-1)-sg^2)"
+   },
+   "restricciones": [
+    "K>Kcr+0.15"
+   ],
+   "pregunta": "Planta G(s) = {PQ}/((s−{p})(s+{q})) con regulador proporcional K = {K} y realimentación unitaria. Usa el criterio |ln 0,05| ≈ π. ¿Cuánto vale el sobreimpulso Mₚ (en %)?",
+   "respuesta": "100*exp(-pi*sg/wd)",
+   "tolerancia": 0.03,
+   "unidad": "%",
+   "explicacion": "Ecuación característica s² + {q-p}s + {f(PQ*(K-1),2)} = 0, con polos −{sg} ± j{f(wd,4)} (σ = (q−p)/2 = {sg}, ω = √({PQ}(K−1) − σ²) = {f(wd,4)}). Mₚ = e^(−πσ/ω) = e^(−π·{sg}/{f(wd,4)}) = {f(100*exp(-pi*sg/wd),2)} %. Es relativo al valor final K/(K−1) = {f(K/(K-1),3)}, no a 1."
+  },
+  {
+   "id": "t4-feedback",
+   "bloque": "4 · Comandos de Matlab (Control System Toolbox)",
+   "params": {
+    "F": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "H": [
+     2,
+     3,
+     4,
+     5,
+     10
+    ]
+   },
+   "restricciones": [
+    "F!=H"
+   ],
+   "pregunta": "Se ha definido en Matlab (Control System Toolbox) la planta continua G(s) como la variable g. Se quiere controlar en lazo cerrado con realimentación H(s)={H} y regulador F(s)={F}. ¿Qué comando calcula la función de transferencia M(s) del sistema realimentado?",
+   "elegir": {
+    "mal": 3
+   },
+   "opciones": [
+    {
+     "t": "M=feedback({F}*g,{H})",
+     "ok": "1"
+    },
+    {
+     "t": "M=feedback({H}*g,{F})",
+     "ok": "0"
+    },
+    {
+     "t": "M=feedback({F}*g,{F*H})",
+     "ok": "0"
+    },
+    {
+     "t": "M=feedback({F*H}*g,1)",
+     "ok": "0"
+    },
+    {
+     "t": "M=feedback(series({F},g,{H}))",
+     "ok": "0"
+    },
+    {
+     "t": "M=feedback({F}*g,1)*{H}",
+     "ok": "0"
+    }
+   ],
+   "explicacion": "feedback(sys1,sys2) cierra el lazo con sys1 en la cadena directa y sys2 en la rama de realimentación (por defecto con realimentación negativa). El regulador F va en serie con la planta, dentro de la cadena directa: F·g. El sensor H va en la rama de retorno: segundo argumento. Así M = F·G/(1 + F·G·H). El resultado es la FdeT de lazo cerrado, no hay que multiplicarla por nada más."
+  },
+  {
+   "id": "t5-conjugados",
+   "bloque": "5 · Simplificar el orden de un sistema",
+   "pregunta": "Sea un sistema de control estable cuya FdeT, de orden 2, tiene un par de polos complejos conjugados. ¿Es razonable simplificarla a una de orden 1?",
+   "opciones": [
+    "No: los dos polos tienen la misma parte real, así que ninguno es dominante; quitar uno no deja un sistema real",
+    "Sí, quedándose con el polo de parte imaginaria positiva",
+    "Sí, siempre que la parte imaginaria sea menor que 1",
+    "Sí, porque en un sistema estable los polos complejos se pueden despreciar",
+    "Sí, si el sobreimpulso es menor del 5 %"
+   ],
+   "correcta": 0,
+   "explicacion": "Un polo se puede despreciar si es mucho más rápido (mucho más a la izquierda en s, o mucho más cerca del origen en z) que otro que domina. Un par conjugado σ ± jω tiene la misma parte real: se apagan con la misma envolvente e^(σt), no hay uno dominante. Además, al descartar uno solo, quedaría un polo complejo suelto: un sistema con coeficientes complejos, que no existe físicamente. Solo se aprovecha la dominancia entre polos de distinta parte real."
+  },
+  {
+   "id": "t5-reales",
+   "bloque": "5 · Simplificar el orden de un sistema",
+   "params": {
+    "a": [
+     1,
+     2,
+     3
+    ],
+    "b": [
+     2,
+     3,
+     4,
+     5,
+     10,
+     15,
+     20,
+     30
+    ]
+   },
+   "restricciones": [
+    "b>a",
+    "b/a<=3.5 || b/a>=6"
+   ],
+   "pregunta": "Sistema estable de orden 2 con dos polos reales en s = −{a} y s = −{b}. ¿Es razonable aproximarlo por un sistema de orden 1?",
+   "opciones": [
+    {
+     "t": "Sí: queda un polo en −{a}, conservando la ganancia estática",
+     "ok": "b/a>=6"
+    },
+    {
+     "t": "No: los dos polos son comparables y ambos influyen en la respuesta",
+     "ok": "b/a<=3.5"
+    },
+    {
+     "t": "Sí: queda un polo en −{b}, el más rápido",
+     "ok": "0"
+    },
+    {
+     "t": "No: un sistema de segundo orden no se puede simplificar nunca",
+     "ok": "0"
+    }
+   ],
+   "explicacion": "Hay un polo dominante cuando el otro es varias veces más rápido (regla práctica: relación de 5 a 10 veces o más). Aquí {b}/{a} = {f(b/a,2)}. {si(b/a>=6,'El polo en −'+b+' se extingue enseguida y el que manda es −'+a+'; se elimina el rápido, reajustando la ganancia para no cambiar el valor final.','Con esta relación los dos modos duran lo mismo y simplificar da un resultado muy distinto del real.')} Se conserva siempre el polo lento (el más cercano al eje imaginario)."
+  },
+  {
+   "id": "t6-emparejar",
+   "bloque": "4 · Comandos de Matlab (Control System Toolbox)",
+   "tipo": "completar",
+   "params": {
+    "par": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "sa": "=si(par==0,'0.2',si(par==1,'0.3',si(par==2,'0.1','0.2')))",
+    "sb": "=si(par==0,'0.6',si(par==1,'0.5',si(par==2,'0.4','0.5')))",
+    "ssum": "=si(par==0,'0.8',si(par==1,'0.8',si(par==2,'0.5','0.7')))",
+    "sprod": "=si(par==0,'0.12',si(par==1,'0.15',si(par==2,'0.04','0.1')))",
+    "Tms": [
+     10,
+     40,
+     100
+    ],
+    "Tt": "=si(Tms==10,'0.01',si(Tms==40,'0.04','0.1'))"
+   },
+   "pregunta": "Empareja cada función de transferencia con el comando de Matlab (Control System Toolbox) que la define, suponiendo un periodo de muestreo de {Tms} ms.",
+   "valores": [
+    "tf([3],[{sa} {sb}],{Tt})",
+    "zpk([{sa} {sb}],[],3,{Tt})",
+    "zpk([],[-{sa} {sb}],3,{Tt})"
+   ],
+   "filas": [
+    {
+     "t": "X₁(z) = 3 / ((z − {sa})(z − {sb}))",
+     "ok": "zpk([],[{sa} {sb}],3,{Tt})"
+    },
+    {
+     "t": "X₂(z) = 3 / ((z + {sa})(z + {sb}))",
+     "ok": "tf(3,[1 {ssum} {sprod}],{Tt})"
+    }
+   ],
+   "filasDistintas": true,
+   "barajarValores": true,
+   "explicacion": "zpk(ceros, polos, ganancia, T) recibe los polos tal cual: X₁ tiene polos en +{sa} y +{sb}. Para X₂ los polos están en −{sa} y −{sb}; con tf se escriben los coeficientes del denominador: (z+{sa})(z+{sb}) = z² + {ssum}z + {sprod}, por eso tf(3,[1 {ssum} {sprod}],{Tt}). OJO: tf([3],[{sa} {sb}],T) es 3/({sa}z + {sb}): un solo polo, no dos; y poner los polos dentro de tf es el error típico. El cuarto argumento es el periodo de muestreo en segundos ({Tt}); sin él, el sistema sería continuo."
+  }
+ ]
+}

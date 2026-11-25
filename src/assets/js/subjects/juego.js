@@ -2,43 +2,12 @@
 // El progreso se guarda en localStorage del navegador.
 import { C, el, canvas, layout, plot, drawPlane, simDisc, rows, slider, setup } from "./core.js";
 import { analiza } from "./lazo.js";
+import { RANGOS, LOGROS, rango, leer, guardar, reiniciar } from "./progreso.js";
 import { stepS } from "./sz.js";
 
-const KEY = "aetel-sc-t2-polos-quest";
 const TIEMPO = 15000;
 
-export const RANGOS = [
-	[0, "Becario del laboratorio"], [100, "Aprendiz de Laplace"], [250, "Domador de polos"],
-	[500, "Señor del círculo unidad"], [900, "Leyenda del Tema 2"]
-];
-
-export const LOGROS = {
-	primera: ["🎯", "Primera sangre", "Supera tu primera misión"],
-	s5: ["🧭", "Cartógrafo del plano s", "5 misiones superadas en el plano s"],
-	z5: ["⭕", "Cartógrafo del círculo", "5 misiones superadas en el plano z"],
-	racha5: ["🔥", "En racha", "5 aciertos seguidos en el duelo"],
-	racha10: ["⚡", "Imparable", "10 aciertos seguidos en el duelo"],
-	teorico: ["🎓", "Teórico de guardia", "Acierta 3 preguntas de concepto (jefes)"],
-	constante: ["📅", "Constancia", "Vuelve 3 días seguidos"],
-	leyenda: ["👑", "Leyenda", "Alcanza el rango máximo"],
-	vuelo1: ["🛫", "Despegue", "Supera tu primera misión de vuelo"],
-	vuelo6: ["🧑‍✈️", "Piloto de pruebas", "Supera las 6 misiones de vuelo"],
-	estrellas: ["🌟", "Matrícula de honor", "3 estrellas en las 6 misiones de vuelo"]
-};
-
-export function rango(xp) {
-	let i = 0;
-	RANGOS.forEach(([v], k) => {
-		if (xp >= v) {
-			i = k;
-		}
-	});
-	const sig = RANGOS[i + 1];
-	return {
-		i, nombre: RANGOS[i][1], next: sig ? sig[0] : 0, sig: sig ? sig[1] : "",
-		pct: sig ? (xp - RANGOS[i][0]) / (sig[0] - RANGOS[i][0]) * 100 : 100
-	};
-}
+export { RANGOS, LOGROS, rango };
 
 // ---------- metricas y misiones ----------
 export function metricsS(sg, w) {
@@ -420,24 +389,20 @@ function escena(cv, v, r, k, techo) {
 	return crash;
 }
 
-// ---------- persistencia ----------
-const base = () => ({ xp: 0, logros: [], mejor: 0, dias: 0, last: "", conc: 0, ms: 0, mz: 0, vuelo: {} });
-
-function load() {
-	try {
-		return Object.assign(base(), JSON.parse(localStorage.getItem(KEY)));
-	} catch (e) {
-		return base();
-	}
+// ---------- persistencia (memoria global en progreso.js) ----------
+// Vista del estado del juego sobre el almacen global: leer/escribir aqui modifica el estado compartido.
+function vistaJuego() {
+	const j = () => leer().juego;
+	const campo = (k) => ({ get: () => j()[k], set: (v) => { j()[k] = v; }, enumerable: true });
+	return Object.defineProperties({}, {
+		xp: { get: () => leer().xp, set: (v) => { leer().xp = v; }, enumerable: true },
+		logros: { get: () => leer().logros, enumerable: true },
+		vuelo: { get: () => j().vuelo, enumerable: true },
+		mejor: campo("mejor"), dias: campo("dias"), last: campo("last"), conc: campo("conc"), ms: campo("ms"), mz: campo("mz")
+	});
 }
 
-function save(s) {
-	try {
-		localStorage.setItem(KEY, JSON.stringify(s));
-	} catch (e) {
-		/* sin almacenamiento: el progreso dura lo que la pagina */
-	}
-}
+const save = () => guardar(() => {});
 
 // ---------- dibujo de zonas validas ----------
 function regionS(g, geo, m) {
@@ -524,7 +489,7 @@ function mount(root) {
 	const hud = el("div", "wg-hud", controls);
 	const tabs = el("div", "wg-tabs", view);
 	const body = el("div", "wg-body", view);
-	let s = load();
+	const s = vistaJuego();
 	let cur = 0;
 	let aviso = "";
 	let timer = null;
@@ -578,11 +543,10 @@ function mount(root) {
 		const rs = el("button", "wg-opt", hud);
 		rs.textContent = "Reiniciar progreso";
 		rs.addEventListener("click", () => {
-			if (confirm("¿Borrar XP y logros?")) {
-				s = base();
+			if (confirm("¿Borrar XP, logros y resultados de los tests de todo el sitio?")) {
+				reiniciar();
 				cur = 0;
 				aviso = "";
-				save(s);
 				renderHud();
 			}
 		});
@@ -979,6 +943,7 @@ function mount(root) {
 		}
 		save(s);
 	}
+	window.addEventListener("progreso", () => renderHud());
 	renderHud();
 	abrir("s");
 	return () => redraw();

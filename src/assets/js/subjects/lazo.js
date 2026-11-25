@@ -84,7 +84,7 @@ export function zoh(num, den, T) {
 		}
 		cpoly.push(-trace(mm(Phi, Mk)) / k);
 		const g = mm(Mk, Gam);
-		numz[n - k] = b.reduce((s, bj, j) => s + bj * g[j][0], 0);
+		numz[k - 1] = b.reduce((s, bj, j) => s + bj * g[j][0], 0);
 	}
 	return { num: trim(numz, 1e-13), den: cpoly };
 }
@@ -122,7 +122,7 @@ function plantaC(p) {
 const UNO = { num: [1], den: [1] };
 
 // ---------- analisis ----------
-function medir(t, y, yf) {
+export function medir(t, y, yf) {
 	const band = 0.05 * Math.max(Math.abs(yf), 1e-9);
 	let ts = 0;
 	for (let i = y.length - 1; i >= 0; i--) {

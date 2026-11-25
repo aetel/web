@@ -1,5 +1,6 @@
 // Monta todos los [data-widget] de la pagina y los redibuja al cambiar de ancho.
 import { REGISTRY } from "./widgets.js";
+import { typeset } from "./rich.js";
 
 document.querySelectorAll("[data-widget]").forEach((root) => {
 	const mount = REGISTRY[root.dataset.widget];
@@ -16,3 +17,6 @@ document.querySelectorAll("[data-widget]").forEach((root) => {
 		}
 	}).observe(root);
 });
+
+// Formulas ($...$ y .eq) y cajas de codigo de la propia pagina; los widgets lo hacen por su cuenta.
+typeset(document.querySelector(".asig-body") || document);
